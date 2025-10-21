@@ -63,6 +63,9 @@ COPY --from=builder --chown=nestjs:nodejs /app/dist ./dist
 # Copy package.json for metadata
 COPY --chown=nestjs:nodejs package.json ./
 
+# Copy tsconfig for seed script
+COPY --chown=nestjs:nodejs tsconfig.json ./
+
 # Create uploads directory with proper permissions
 RUN mkdir -p uploads && chown -R nestjs:nodejs uploads
 
@@ -75,6 +78,6 @@ EXPOSE 3001
 # Use dumb-init to handle signals and run the application
 ENTRYPOINT ["dumb-init", "--"]
 
-# Start the application in production mode
-CMD ["node", "dist/main.js"]
+# Start the application in production mode (run seeds first)
+CMD ["sh", "-c", "node dist/seed.js && node dist/main.js"]
 
