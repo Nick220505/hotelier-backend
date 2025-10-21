@@ -7,8 +7,31 @@ async function bootstrap() {
   app.setGlobalPrefix('api');
 
   // Configure CORS
+  const allowedOrigins = process.env.CORS_ORIGIN
+    ? process.env.CORS_ORIGIN.split(',').map((origin) => origin.trim())
+    : ['http://localhost:3000'];
+
   app.enableCors({
-    origin: true, // Allow all origins in development
+    origin: (origin, callback) => {
+      // Allow requests with no origin (like mobile apps, curl, Postman)
+      if (!origin) return callback(null, true);
+
+      if (
+        allowedOrigins.includes('*') ||
+        allowedOrigins.some((allowedOrigin) => {
+          // Support wildcard patterns like https://*.vercel.app
+          if (allowedOrigin.includes('*')) {
+            const pattern = allowedOrigin.replace(/\*/g, '.*');
+            return new RegExp(`^${pattern}$`).test(origin);
+          }
+          return allowedOrigin === origin;
+        })
+      ) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
     credentials: true,
     allowedHeaders: [
