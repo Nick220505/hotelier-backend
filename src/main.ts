@@ -21,8 +21,11 @@ async function bootstrap() {
         allowedOrigins.some((allowedOrigin) => {
           // Support wildcard patterns like https://*.vercel.app
           if (allowedOrigin.includes('*')) {
-            const pattern = allowedOrigin.replace(/\*/g, '.*');
-            return new RegExp(`^${pattern}$`).test(origin);
+            // Escape special regex characters before replacing *
+            const escapedOrigin = allowedOrigin
+              .replace(/[.+?^${}()|[\]\\]/g, '\\$&')
+              .replace(/\*/g, '.*');
+            return new RegExp(`^${escapedOrigin}$`).test(origin);
           }
           return allowedOrigin === origin;
         })
