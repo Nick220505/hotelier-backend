@@ -193,6 +193,11 @@ classDiagram
     BeverageInventory --> BeverageStatus : status
     
     UpdateRoomServiceOrderDto --> RoomServiceStatus : status
+    
+    %% Notas de Patrones GoF
+    note for RoomServiceOrder "Composite Pattern (GoF)<br/>Contiene items (productos)<br/>que se suman para total"
+    note for RoomServiceStatus "State Pattern (GoF)<br/>Ciclo de vida:<br/>PENDING→PREPARING→READY→DELIVERED"
+    note for BeverageStatus "State Pattern (GoF)<br/>Estados de stock:<br/>AVAILABLE→LOW_STOCK→OUT_OF_STOCK"
 ```
 
 ## Descripción
