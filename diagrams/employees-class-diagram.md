@@ -115,6 +115,10 @@ classDiagram
     UpdateEmployeeDto --> Department : department
     UpdateEmployeeDto --> StaffStatus : status
     DepartmentStatsDto --> Department : department
+    
+    %% Notas de Patrones GoF
+    note for StaffStatus "State Pattern (GoF)<br/>Estados de empleado:<br/>ACTIVE→ON_LEAVE→INACTIVE→TERMINATED"
+    note for Department "Strategy Pattern (GoF)<br/>Diferentes responsabilidades<br/>según departamento"
 ```
 
 ## Descripción
@@ -138,3 +142,17 @@ Este diagrama muestra la arquitectura completa del módulo de personal:
 ### Enumerations
 - **Department**: Departamentos del hotel (HOUSEKEEPING, FRONT_DESK, MAINTENANCE, RESTAURANT, KITCHEN, ADMINISTRATION, SECURITY, MANAGEMENT)
 - **StaffStatus**: Estados del personal (ACTIVE, INACTIVE, ON_LEAVE, TERMINATED)
+
+## Patrones de Diseño GoF Implementados
+
+### 1. State Pattern (Comportamiento)
+**Aplicación**: `StaffStatus` enum
+- **Beneficio**: Gestión clara del estado laboral del empleado
+- **Estados**: ACTIVE → ON_LEAVE → INACTIVE → TERMINATED
+- **Implementación**: Transiciones controladas según políticas de recursos humanos
+
+### 2. Strategy Pattern (Comportamiento)
+**Aplicación**: `Department` enum
+- **Beneficio**: Diferentes comportamientos y responsabilidades según departamento
+- **Estrategias**: HOUSEKEEPING, FRONT_DESK, MAINTENANCE, RESTAURANT, etc.
+- **Implementación**: Permite aplicar reglas específicas por departamento

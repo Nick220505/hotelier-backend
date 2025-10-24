@@ -70,5 +70,21 @@ classDiagram
     GuestsService --> Guest : manages
     GuestsService ..> CreateGuestDto : creates from
     GuestsService ..> UpdateGuestDto : updates from
-    GuestsService ..> Guest : returns
+        GuestsService ..> Guest : returns
+    
+    %% Notas de Patrones GoF
+    note for Guest "Decorator Pattern (GoF)<br/>isVip añade comportamiento<br/>especial a huéspedes"
+```
+
+## Patrones de Diseño GoF Implementados
+
+### 1. Decorator Pattern (Estructural)
+**Aplicación**: Campo `isVip` en `Guest`
+- **Beneficio**: Añade funcionalidad especial sin modificar la estructura base
+- **Decoración**: El flag VIP añade comportamiento especial (descuentos, prioridad, servicios premium)
+- **Implementación**: Permite tratar huéspedes VIP y normales con la misma interfaz
+
+    
+    %% Notas de Patrones GoF
+    note for Guest "Decorator Pattern (GoF)<br/>isVip añade comportamiento<br/>especial a huéspedes"
 ```

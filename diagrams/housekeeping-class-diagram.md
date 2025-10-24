@@ -326,4 +326,31 @@ classDiagram
     HousekeepingStatisticsDto *-- MaintenanceReport : contains
     HousekeepingStatisticsDto *-- CleaningAssignment : contains
     MaintenanceCostsSummaryDto *-- MaintenanceCostByTypeDto : contains
+    
+    %% Notas de Patrones GoF
+    note for CleaningStatus "State Pattern (GoF)<br/>Ciclo de vida de limpieza:<br/>PENDING→IN_PROGRESS→COMPLETED"
+    note for MaintenanceStatus "State Pattern (GoF)<br/>Ciclo de vida de mantenimiento:<br/>PENDING→IN_PROGRESS→COMPLETED"
+    note for MaintenanceType "Strategy Pattern (GoF)<br/>Diferentes estrategias según tipo:<br/>PLUMBING, ELECTRICAL, HVAC, etc."
+    note for HousekeepingService "Facade Pattern (GoF)<br/>Unifica gestión de limpieza<br/>y mantenimiento"
 ```
+
+## Patrones de Diseño GoF Implementados
+
+### 1. State Pattern (Comportamiento)
+**Aplicación**: `CleaningStatus` y `MaintenanceStatus` enums
+- **Beneficio**: Gestión clara del ciclo de vida de tareas
+- **Estados de Limpieza**: PENDING → IN_PROGRESS → COMPLETED (también CANCELLED)
+- **Estados de Mantenimiento**: PENDING → IN_PROGRESS → COMPLETED (también CANCELLED)
+- **Implementación**: Transiciones controladas por el servicio
+
+### 2. Strategy Pattern (Comportamiento)
+**Aplicación**: `MaintenanceType` enum
+- **Beneficio**: Diferentes estrategias según tipo de mantenimiento
+- **Estrategias**: PLUMBING, ELECTRICAL, HVAC, CARPENTRY, PAINTING, GENERAL, EMERGENCY
+- **Implementación**: Cada tipo puede tener procesos y costos específicos
+
+### 3. Facade Pattern (Estructural)
+**Aplicación**: `HousekeepingService`
+- **Beneficio**: Simplifica interfaz compleja de limpieza y mantenimiento
+- **Subsistemas**: CleaningAssignments, MaintenanceReports, CleaningTasks, MaintenanceRequests
+- **Implementación**: Unifica operaciones complejas en métodos simples

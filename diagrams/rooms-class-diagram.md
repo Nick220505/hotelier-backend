@@ -75,6 +75,9 @@ classDiagram
     Room --> RoomType : type
     CreateRoomDto --> RoomType : type
     UpdateRoomDto --> RoomType : type
+    
+    %% Notas de Patrones GoF
+    note for RoomType "Strategy Pattern (GoF)<br/>Diferentes estrategias de precio<br/>y capacidad según tipo"
 ```
 
 ## Descripción
@@ -90,3 +93,11 @@ Módulo para gestión de habitaciones del hotel.
 
 ### Enumerations
 - **RoomType**: Tipos de habitación (SIMPLE, DOBLE, SUITE, PRESIDENCIAL)
+
+## Patrones de Diseño GoF Implementados
+
+### 1. Strategy Pattern (Comportamiento)
+**Aplicación**: `RoomType` enum
+- **Beneficio**: Diferentes estrategias de precio y capacidad según tipo de habitación
+- **Estrategias**: SIMPLE, DOBLE, SUITE, PRESIDENCIAL
+- **Implementación**: Cada tipo define características y precios específicos

@@ -226,3 +226,18 @@ Este diagrama muestra la arquitectura completa del módulo de restaurante:
 ### Enumerations
 - **RoomServiceStatus**: Estados del pedido (PENDING, PREPARING, READY, DELIVERED, CANCELLED)
 - **BeverageStatus**: Estados del inventario (AVAILABLE, LOW_STOCK, OUT_OF_STOCK, DISCONTINUED)
+
+## Patrones de Diseño GoF Implementados
+
+### 1. Composite Pattern (Estructural)
+**Aplicación**: `RoomServiceOrder` con `items[]`
+- **Beneficio**: Trata la orden como un todo compuesto de items individuales
+- **Estructura**: RoomServiceOrder contiene múltiples items de menú
+- **Implementación**: El total se calcula sumando todos los items de la orden
+
+### 2. State Pattern (Comportamiento)
+**Aplicación**: `RoomServiceStatus` y `BeverageStatus` enums
+- **Beneficio**: Gestión clara del ciclo de vida de órdenes e inventario
+- **Estados de Orden**: PENDING → PREPARING → READY → DELIVERED (también CANCELLED)
+- **Estados de Inventario**: AVAILABLE → LOW_STOCK → OUT_OF_STOCK → DISCONTINUED
+- **Implementación**: Transiciones de estado controladas por el servicio
