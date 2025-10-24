@@ -1,9 +1,4 @@
-import {
-  Controller,
-  Get,
-  UseGuards,
-  UnauthorizedException,
-} from '@nestjs/common';
+import { Controller, Get, UnauthorizedException } from '@nestjs/common';
 import {
   ApiTags,
   ApiOperation,
@@ -14,9 +9,6 @@ import { DashboardService } from './dashboard.service';
 import { DashboardStatsDto } from './dto/dashboard-stats.dto';
 import { RecentActivityDto } from './dto/recent-activity.dto';
 import { RevenueDataDto } from './dto/revenue-data.dto';
-import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
-import { RolesGuard } from '../auth/guards/roles.guard';
-import { RequirePermissions } from '../auth/decorators/roles.decorator';
 import { CurrentUser } from '../auth/decorators/current-user.decorator';
 import type { JwtUser } from '../auth/types/jwt-user';
 import { AuditLog } from '../audit/decorators/audit-log.decorator';
@@ -25,13 +17,11 @@ import { AuditResource } from '../audit/enums/audit-resource.enum';
 @ApiTags('dashboard')
 @Controller('dashboard')
 @AuditLog({ resource: AuditResource.ANALYTICS })
-@UseGuards(JwtAuthGuard, RolesGuard)
 @ApiBearerAuth()
 export class DashboardController {
   constructor(private readonly dashboardService: DashboardService) {}
 
   @Get('stats')
-  @RequirePermissions('dashboard:read')
   @ApiOperation({
     summary: 'Get Dashboard Statistics',
     description:
@@ -52,7 +42,6 @@ export class DashboardController {
   }
 
   @Get('activity')
-  @RequirePermissions('dashboard:read')
   @ApiOperation({
     summary: 'Get Recent Activities',
     description:
@@ -73,7 +62,6 @@ export class DashboardController {
   }
 
   @Get('revenue')
-  @RequirePermissions('dashboard:read')
   @ApiOperation({
     summary: 'Get Revenue Data',
     description:

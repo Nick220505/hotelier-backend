@@ -7,7 +7,6 @@ import {
   Param,
   Delete,
   ParseIntPipe,
-  UseGuards,
 } from '@nestjs/common';
 import {
   ApiTags,
@@ -17,9 +16,6 @@ import {
   ApiBody,
   ApiBearerAuth,
 } from '@nestjs/swagger';
-import { RequirePermissions } from '../auth/decorators/roles.decorator';
-import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
-import { RolesGuard } from '../auth/guards/roles.guard';
 import { EventsService } from './events.service';
 import { CreateEventDto } from './dto/create-event.dto';
 import { UpdateEventDto } from './dto/update-event.dto';
@@ -34,12 +30,10 @@ import { AuditResource } from '../audit/enums/audit-resource.enum';
 @Controller('events')
 @AuditLog({ resource: AuditResource.EVENT })
 @ApiBearerAuth()
-@UseGuards(JwtAuthGuard, RolesGuard)
 export class EventsController {
   constructor(private readonly eventsService: EventsService) {}
 
   @Post()
-  @RequirePermissions('events:create')
   @ApiOperation({
     summary: 'Create Event',
     description: 'Create a new event record.',
@@ -62,7 +56,6 @@ export class EventsController {
   }
 
   @Get()
-  @RequirePermissions('events:read')
   @ApiOperation({
     summary: 'Get All Event Bookings',
     description: 'Retrieve all event bookings with venue details.',
@@ -77,7 +70,6 @@ export class EventsController {
   }
 
   @Get('upcoming')
-  @RequirePermissions('events:read')
   @ApiOperation({
     summary: 'Get Upcoming Events',
     description: 'Retrieve all upcoming event bookings.',
@@ -106,7 +98,6 @@ export class EventsController {
   }
 
   @Post('bookings')
-  @RequirePermissions('events:create')
   @ApiOperation({
     summary: 'Create Event Booking',
     description: 'Create a new event booking with venue.',
@@ -131,7 +122,6 @@ export class EventsController {
   }
 
   @Get(':id')
-  @RequirePermissions('events:read')
   @ApiOperation({
     summary: 'Get Event Booking by ID',
     description: 'Retrieve a specific event booking by ID with venue details.',

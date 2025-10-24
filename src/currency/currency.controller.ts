@@ -4,7 +4,6 @@ import {
   Post,
   Body,
   Query,
-  UseGuards,
   ParseFloatPipe,
 } from '@nestjs/common';
 import {
@@ -19,9 +18,6 @@ import {
   ConversionResult,
   CurrencyRate,
 } from './currency.service';
-import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
-import { RolesGuard } from '../auth/guards/roles.guard';
-import { Roles } from '../auth/decorators/roles.decorator';
 import { UpdateRateDto } from './dto/update-rate.dto';
 import { ConvertDto } from './dto/convert.dto';
 import { AuditLog } from '../audit/decorators/audit-log.decorator';
@@ -30,7 +26,6 @@ import { AuditResource } from '../audit/enums/audit-resource.enum';
 @ApiTags('Currency')
 @Controller('currency')
 @AuditLog({ resource: AuditResource.BILLING })
-@UseGuards(JwtAuthGuard)
 @ApiBearerAuth()
 export class CurrencyController {
   constructor(private readonly currencyService: CurrencyService) {}
@@ -144,8 +139,6 @@ export class CurrencyController {
   }
 
   @Post('rates')
-  @UseGuards(RolesGuard)
-  @Roles('admin')
   @ApiOperation({ summary: 'Update exchange rate (Admin only)' })
   @ApiResponse({
     status: 200,

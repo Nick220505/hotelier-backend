@@ -2,7 +2,6 @@ import {
   Controller,
   Post,
   Body,
-  UseGuards,
   Get,
   HttpCode,
   HttpStatus,
@@ -16,13 +15,10 @@ import {
 import { AuthService } from './auth.service';
 import { RegisterDto } from './dto/register.dto';
 import { LoginDto } from './dto/login.dto';
-import { JwtAuthGuard } from './guards/jwt-auth.guard';
-import { Public } from './decorators/public.decorator';
 import { AuthResponseDto } from './dto/auth-response.dto';
 import { TokenResponseDto } from './dto/token-response.dto';
 import { LogoutResponseDto } from './dto/logout-response.dto';
 import { ProfileResponseDto } from './dto/profile-response.dto';
-import { JwtRefreshGuard } from './guards/jwt-refresh.guard';
 import { CurrentUser } from './decorators/current-user.decorator';
 import type { JwtUser, JwtRefreshUser } from './types/jwt-user';
 import { AuditLog } from '../audit/decorators/audit-log.decorator';
@@ -34,7 +30,6 @@ import { AuditResource } from '../audit/enums/audit-resource.enum';
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
-  @Public()
   @Post('register')
   @AuditLog({
     action: AuditAction.CREATE,
@@ -60,7 +55,6 @@ export class AuthController {
     return this.authService.register(registerDto);
   }
 
-  @Public()
   @HttpCode(HttpStatus.OK)
   @Post('login')
   @AuditLog({
@@ -88,7 +82,6 @@ export class AuthController {
   }
 
   @Post('logout')
-  @UseGuards(JwtAuthGuard)
   @HttpCode(HttpStatus.OK)
   @AuditLog({
     action: AuditAction.LOGOUT,
@@ -113,7 +106,6 @@ export class AuthController {
   }
 
   @Post('refresh')
-  @UseGuards(JwtRefreshGuard)
   @HttpCode(HttpStatus.OK)
   @ApiOperation({
     summary: 'Refresh Access Token',
@@ -140,7 +132,6 @@ export class AuthController {
   }
 
   @Get('test')
-  @UseGuards(JwtAuthGuard)
   @ApiBearerAuth()
   @ApiOperation({
     summary: 'Test JWT Authentication',
@@ -151,7 +142,6 @@ export class AuthController {
   }
 
   @Post('me')
-  @UseGuards(JwtAuthGuard)
   @ApiOperation({
     summary: 'Get User Profile',
     description:

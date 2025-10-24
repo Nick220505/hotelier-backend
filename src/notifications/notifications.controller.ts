@@ -5,7 +5,6 @@ import {
   Param,
   ParseIntPipe,
   Query,
-  UseGuards,
   Sse,
 } from '@nestjs/common';
 import {
@@ -16,8 +15,6 @@ import {
 } from '@nestjs/swagger';
 import { NotificationsService } from './notifications.service';
 import { Notification } from './entities/notification.entity';
-import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
-import { RolesGuard } from '../auth/guards/roles.guard';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { AuditLog } from '../audit/decorators/audit-log.decorator';
@@ -25,7 +22,6 @@ import { AuditResource } from '../audit/enums/audit-resource.enum';
 
 @ApiTags('notifications')
 @ApiBearerAuth()
-@UseGuards(JwtAuthGuard, RolesGuard)
 @Controller('notifications')
 @AuditLog({ resource: AuditResource.NOTIFICATION })
 export class NotificationsController {

@@ -6,7 +6,6 @@ import {
   Query,
   Param,
   ParseIntPipe,
-  UseGuards,
 } from '@nestjs/common';
 import {
   ApiTags,
@@ -22,13 +21,9 @@ import { CreateAuditLogDto } from './dto/create-audit-log.dto';
 import { AuditLogQueryDto } from './dto/audit-log-query.dto';
 import { AuditLog } from './entities/audit-log.entity';
 import { AuditResource } from './enums/audit-resource.enum';
-import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
-import { RolesGuard } from '../auth/guards/roles.guard';
-import { Roles } from '../auth/decorators/roles.decorator';
 
 @ApiTags('audit')
 @Controller('audit')
-@UseGuards(JwtAuthGuard, RolesGuard)
 @ApiBearerAuth()
 export class AuditController {
   constructor(private readonly auditService: AuditService) {}
@@ -44,7 +39,6 @@ export class AuditController {
     description: 'Audit log created successfully',
     type: AuditLog,
   })
-  @Roles('administrador', 'gerente')
   async create(
     @Body() createAuditLogDto: CreateAuditLogDto,
   ): Promise<AuditLog> {
@@ -136,7 +130,6 @@ export class AuditController {
       },
     },
   })
-  @Roles('administrador', 'gerente')
   async findAll(
     @Query() query: AuditLogQueryDto,
   ): Promise<{ data: AuditLog[]; total: number }> {
@@ -207,7 +200,6 @@ export class AuditController {
       },
     },
   })
-  @Roles('administrador', 'gerente')
   async getStatistics(
     @Query('days', ParseIntPipe) days: number = 30,
   ): Promise<any> {
@@ -234,7 +226,6 @@ export class AuditController {
     description: 'Resource audit history retrieved successfully',
     type: [AuditLog],
   })
-  @Roles('administrador', 'gerente', 'recepcionista')
   async findByResource(
     @Param('resource') resource: string,
     @Param('resourceId') resourceId: string,
@@ -267,7 +258,6 @@ export class AuditController {
     description: 'User audit history retrieved successfully',
     type: [AuditLog],
   })
-  @Roles('administrador', 'gerente')
   async findByUser(
     @Param('userId', ParseIntPipe) userId: number,
     @Query('limit', ParseIntPipe) limit: number = 100,
@@ -290,7 +280,6 @@ export class AuditController {
     description: 'Audit log details retrieved successfully',
     type: AuditLog,
   })
-  @Roles('administrador', 'gerente')
   async findOne(
     @Param('id', ParseIntPipe) id: number,
   ): Promise<AuditLog | null> {

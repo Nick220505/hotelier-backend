@@ -7,7 +7,6 @@ import {
   Delete,
   ParseIntPipe,
   Put,
-  UseGuards,
   Query,
 } from '@nestjs/common';
 import {
@@ -38,7 +37,6 @@ import { MaintenanceStatus } from './enums/maintenance-status.enum';
 import { CleaningStatus } from './enums/cleaning-status.enum';
 import { TaskPriority } from './enums/task-priority.enum';
 import { Room } from '../rooms/entities/room.entity';
-import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { AuditLog } from '../audit/decorators/audit-log.decorator';
 import { AuditResource } from '../audit/enums/audit-resource.enum';
 
@@ -46,7 +44,6 @@ import { AuditResource } from '../audit/enums/audit-resource.enum';
 @Controller('housekeeping')
 @AuditLog({ resource: AuditResource.HOUSEKEEPING })
 @ApiBearerAuth()
-@UseGuards(JwtAuthGuard)
 export class HousekeepingController {
   constructor(private readonly housekeepingService: HousekeepingService) {}
 

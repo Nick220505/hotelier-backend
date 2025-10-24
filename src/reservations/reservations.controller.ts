@@ -7,7 +7,6 @@ import {
   Param,
   Delete,
   ParseIntPipe,
-  UseGuards,
   Req,
   Query,
 } from '@nestjs/common';
@@ -20,8 +19,6 @@ import {
   ApiBearerAuth,
   ApiQuery,
 } from '@nestjs/swagger';
-import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
-import { RolesGuard } from '../auth/guards/roles.guard';
 import { ReservationsService } from './reservations.service';
 import { CreateReservationDto } from './dto/create-reservation.dto';
 import { UpdateReservationDto } from './dto/update-reservation.dto';
@@ -29,7 +26,6 @@ import { AuditLog } from '../audit/decorators/audit-log.decorator';
 import { AuditAction } from '../audit/enums/audit-action.enum';
 import { AuditResource } from '../audit/enums/audit-resource.enum';
 import { Reservation } from './entities/reservation.entity';
-import { RequirePermissions } from '../auth/decorators/roles.decorator';
 import { CheckoutReservationResponseDto } from './dto/checkout-reservation-response.dto';
 import type { Request } from 'express';
 import { BookingChannel } from './enums/booking-channel.enum';
@@ -39,20 +35,17 @@ import { Room } from '../rooms/entities/room.entity';
 @ApiTags('reservations')
 @Controller('reservations')
 @ApiBearerAuth()
-@UseGuards(JwtAuthGuard, RolesGuard)
 export class ReservationsController {
   constructor(private readonly reservationsService: ReservationsService) {}
 
   @Get('current')
   @ApiOperation({ summary: 'Get current guests with active reservations' })
   @ApiResponse({ status: 200, type: [Reservation] })
-  @RequirePermissions('reservations:read')
   getCurrentGuests(): Promise<Reservation[]> {
     return this.reservationsService.getCurrentGuests();
   }
 
   @Post()
-  @RequirePermissions('reservations:create')
   @AuditLog({
     action: AuditAction.CREATE,
     resource: AuditResource.RESERVATION,
@@ -131,13 +124,11 @@ export class ReservationsController {
     status: 200,
     description: 'Reservations with billing details retrieved successfully',
   })
-  @RequirePermissions('reservations:read')
   getReservationsWithBillingDetails(): Promise<any[]> {
     return this.reservationsService.getReservationsWithBillingDetails();
   }
 
   @Get('availability')
-  @RequirePermissions('reservations:read')
   @ApiOperation({
     summary: 'Get Room Availability',
     description:
@@ -195,7 +186,6 @@ export class ReservationsController {
   }
 
   @Get(':id')
-  @RequirePermissions('reservations:read')
   @ApiOperation({
     summary: 'Get Reservation by ID',
     description: 'Retrieve a specific reservation by its ID.',
@@ -220,7 +210,6 @@ export class ReservationsController {
   }
 
   @Patch(':id')
-  @RequirePermissions('reservations:update')
   @AuditLog({
     action: AuditAction.UPDATE,
     resource: AuditResource.RESERVATION,
@@ -259,7 +248,6 @@ export class ReservationsController {
   }
 
   @Delete(':id')
-  @RequirePermissions('reservations:delete')
   @AuditLog({
     action: AuditAction.DELETE,
     resource: AuditResource.RESERVATION,
@@ -290,7 +278,6 @@ export class ReservationsController {
   }
 
   @Patch(':id/checkout')
-  @RequirePermissions('reservations:update')
   @AuditLog({
     action: AuditAction.CHECK_OUT,
     resource: AuditResource.RESERVATION,

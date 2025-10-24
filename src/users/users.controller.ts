@@ -6,7 +6,6 @@ import {
   Patch,
   Param,
   Delete,
-  UseGuards,
   ParseIntPipe,
   HttpCode,
   HttpStatus,
@@ -20,9 +19,6 @@ import {
   ApiBody,
   ApiBearerAuth,
 } from '@nestjs/swagger';
-import { RequirePermissions } from '../auth/decorators/roles.decorator';
-import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
-import { RolesGuard } from '../auth/guards/roles.guard';
 import { UsersService } from './users.service';
 import { User } from '../auth/entities/user.entity';
 import { CreateUserDto } from '../auth/dto/create-user.dto';
@@ -37,12 +33,10 @@ import { AuditResource } from '../audit/enums/audit-resource.enum';
 @ApiTags('users')
 @Controller('users')
 @ApiBearerAuth()
-@UseGuards(JwtAuthGuard, RolesGuard)
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
   @Get()
-  @RequirePermissions('users:read')
   @ApiOperation({
     summary: 'Get All Users',
     description:
@@ -62,7 +56,6 @@ export class UsersController {
   }
 
   @Get(':id')
-  @RequirePermissions('users:read')
   @ApiOperation({
     summary: 'Get User by ID',
     description:
@@ -124,7 +117,6 @@ export class UsersController {
   }
 
   @Patch(':id')
-  @RequirePermissions('users:update')
   @AuditLog({
     action: AuditAction.UPDATE,
     resource: AuditResource.USER,

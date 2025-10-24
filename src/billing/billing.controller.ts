@@ -6,7 +6,6 @@ import {
   Param,
   Delete,
   ParseIntPipe,
-  UseGuards,
   Query,
   Put,
   StreamableFile,
@@ -29,7 +28,6 @@ import { PaymentStatisticsResponseDto } from './dto/payment-statistics-response.
 import { Invoice } from './entities/invoice.entity';
 import { Payment } from './entities/payment.entity';
 import { InvoiceStatus } from './enums/invoice-status.enum';
-import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { AuditLog } from '../audit/decorators/audit-log.decorator';
 import { AuditAction } from '../audit/enums/audit-action.enum';
 import { AuditResource } from '../audit/enums/audit-resource.enum';
@@ -37,7 +35,6 @@ import { AuditResource } from '../audit/enums/audit-resource.enum';
 @ApiTags('billing')
 @Controller('billing')
 @ApiBearerAuth()
-@UseGuards(JwtAuthGuard)
 export class BillingController {
   constructor(private readonly billingService: BillingService) {}
 

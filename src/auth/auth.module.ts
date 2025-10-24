@@ -7,8 +7,6 @@ import { PassportModule } from '@nestjs/passport';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { JwtStrategy } from './strategies/jwt.strategy';
 import { JwtRefreshStrategy } from './strategies/jwt-refresh.strategy';
-import { JwtAuthGuard } from './guards/jwt-auth.guard';
-import { RolesGuard } from './guards/roles.guard';
 import { User } from './entities/user.entity';
 import { Role } from './entities/role.entity';
 import { SystemPermission } from './entities/system-permission.entity';
@@ -42,13 +40,7 @@ import { SeedersModule } from './seeders/seeders.module';
     }),
   ],
   controllers: [AuthController],
-  providers: [
-    AuthService,
-    JwtStrategy,
-    JwtRefreshStrategy,
-    JwtAuthGuard,
-    RolesGuard,
-  ],
-  exports: [AuthService, SeedersModule, JwtAuthGuard, RolesGuard],
+  providers: [AuthService, JwtStrategy, JwtRefreshStrategy],
+  exports: [AuthService, SeedersModule],
 })
 export class AuthModule {}

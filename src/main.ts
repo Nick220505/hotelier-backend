@@ -6,35 +6,9 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.setGlobalPrefix('api');
 
-  // Configure CORS
-  const allowedOrigins = process.env.CORS_ORIGIN
-    ? process.env.CORS_ORIGIN.split(',').map((origin) => origin.trim())
-    : ['http://localhost:3000'];
-
+  // Configure CORS - Allow all origins (DEVELOPMENT ONLY)
   app.enableCors({
-    origin: (origin, callback) => {
-      // Allow requests with no origin (like mobile apps, curl, Postman)
-      if (!origin) return callback(null, true);
-
-      if (
-        allowedOrigins.includes('*') ||
-        allowedOrigins.some((allowedOrigin) => {
-          // Support wildcard patterns like https://*.vercel.app
-          if (allowedOrigin.includes('*')) {
-            // Escape special regex characters before replacing *
-            const escapedOrigin = allowedOrigin
-              .replace(/[.+?^${}()|[\]\\]/g, '\\$&')
-              .replace(/\*/g, '.*');
-            return new RegExp(`^${escapedOrigin}$`).test(origin);
-          }
-          return allowedOrigin === origin;
-        })
-      ) {
-        callback(null, true);
-      } else {
-        callback(new Error('Not allowed by CORS'));
-      }
-    },
+    origin: true, // Allow all origins
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
     credentials: true,
     allowedHeaders: [

@@ -7,7 +7,6 @@ import {
   Body,
   Param,
   ParseIntPipe,
-  UseGuards,
 } from '@nestjs/common';
 import {
   ApiTags,
@@ -27,9 +26,6 @@ import { UpdateBeverageStockDto } from './dto/update-beverage-stock.dto';
 import { RoomServiceOrder } from './entities/room-service-order.entity';
 import { MenuItem } from './entities/menu-item.entity';
 import { BeverageInventory } from './entities/beverage-inventory.entity';
-import { RequirePermissions } from '../auth/decorators/roles.decorator';
-import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
-import { RolesGuard } from '../auth/guards/roles.guard';
 import { AuditLog } from '../audit/decorators/audit-log.decorator';
 import { AuditResource } from '../audit/enums/audit-resource.enum';
 
@@ -37,13 +33,11 @@ import { AuditResource } from '../audit/enums/audit-resource.enum';
 @Controller('restaurant')
 @AuditLog({ resource: AuditResource.RESTAURANT })
 @ApiBearerAuth()
-@UseGuards(JwtAuthGuard, RolesGuard)
 export class RestaurantController {
   constructor(private readonly restaurantService: RestaurantService) {}
 
   // Room Service Orders endpoints
   @Get('room-service-orders')
-  @RequirePermissions('restaurant:read')
   @ApiOperation({
     summary: 'Get All Room Service Orders',
     description:
@@ -59,7 +53,6 @@ export class RestaurantController {
   }
 
   @Get('room-service-orders/:id')
-  @RequirePermissions('restaurant:read')
   @ApiOperation({
     summary: 'Get Room Service Order by ID',
     description: 'Retrieve a specific room service order by its ID.',
@@ -86,7 +79,6 @@ export class RestaurantController {
   }
 
   @Post('room-service-orders')
-  @RequirePermissions('restaurant:create')
   @ApiOperation({
     summary: 'Create Room Service Order',
     description:
@@ -145,7 +137,6 @@ export class RestaurantController {
 
   // Menu Items endpoints
   @Get('menu-items')
-  @RequirePermissions('restaurant:read')
   @ApiOperation({
     summary: 'Get All Menu Items',
     description: 'Retrieve all menu items sorted by category and name.',
@@ -160,7 +151,6 @@ export class RestaurantController {
   }
 
   @Get('menu-items/:id')
-  @RequirePermissions('restaurant:read')
   @ApiOperation({
     summary: 'Get Menu Item by ID',
     description: 'Retrieve a specific menu item by its ID.',
@@ -187,7 +177,6 @@ export class RestaurantController {
   }
 
   @Post('menu-items')
-  @RequirePermissions('restaurant:create')
   @ApiOperation({
     summary: 'Create Menu Item',
     description: 'Create a new menu item with automatic item code generation.',
@@ -210,7 +199,6 @@ export class RestaurantController {
   }
 
   @Put('menu-items/:id')
-  @RequirePermissions('restaurant:update')
   @ApiOperation({
     summary: 'Update Menu Item',
     description: 'Update an existing menu item (price, availability, etc.).',
@@ -242,7 +230,6 @@ export class RestaurantController {
   }
 
   @Delete('menu-items/:id')
-  @RequirePermissions('restaurant:delete')
   @ApiOperation({
     summary: 'Delete Menu Item',
     description: 'Delete a menu item from the system.',

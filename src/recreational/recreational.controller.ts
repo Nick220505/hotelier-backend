@@ -8,7 +8,6 @@ import {
   Delete,
   Query,
   ParseIntPipe,
-  UseGuards,
 } from '@nestjs/common';
 import {
   ApiTags,
@@ -20,9 +19,6 @@ import {
   ApiBearerAuth,
 } from '@nestjs/swagger';
 import { RecreationalService } from './recreational.service';
-import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
-import { RolesGuard } from '../auth/guards/roles.guard';
-import { Roles } from '../auth/decorators/roles.decorator';
 
 import { CreateRecreationalFacilityDto } from './dto/create-recreational-facility.dto';
 import { UpdateRecreationalFacilityDto } from './dto/update-recreational-facility.dto';
@@ -40,14 +36,12 @@ import { FacilityType } from './enums/facility-type.enum';
 @ApiTags('recreational')
 @Controller('recreational')
 @AuditLog({ resource: AuditResource.RECREATIONAL })
-@UseGuards(JwtAuthGuard, RolesGuard)
 @ApiBearerAuth()
 export class RecreationalController {
   constructor(private readonly recreationalService: RecreationalService) {}
 
   // Facility Management Endpoints
   @Post('facilities')
-  @Roles('administrador', 'gerente')
   @ApiOperation({
     summary: 'Create Recreational Facility',
     description: 'Create a new recreational facility (gym, pool, spa, etc.)',
@@ -131,7 +125,6 @@ export class RecreationalController {
   }
 
   @Patch('facilities/:id')
-  @Roles('administrador', 'gerente')
   @ApiOperation({
     summary: 'Update Recreational Facility',
     description: 'Update facility information, status, or operating hours',
@@ -159,7 +152,6 @@ export class RecreationalController {
   }
 
   @Delete('facilities/:id')
-  @Roles('administrador')
   @ApiOperation({
     summary: 'Delete Recreational Facility',
     description: 'Remove a recreational facility from the system',
@@ -367,7 +359,6 @@ export class RecreationalController {
   }
 
   @Patch('bookings/:id/checkin')
-  @Roles('administrador', 'gerente', 'recepcionista')
   @ApiOperation({
     summary: 'Check In Recreational Booking',
     description: 'Check in a guest for their recreational facility booking',
@@ -397,7 +388,6 @@ export class RecreationalController {
   }
 
   @Patch('bookings/:id/checkout')
-  @Roles('administrador', 'gerente', 'recepcionista')
   @ApiOperation({
     summary: 'Check Out Recreational Booking',
     description: 'Check out a guest from their recreational facility booking',
@@ -494,7 +484,6 @@ export class RecreationalController {
 
   // Statistics and Reporting Endpoints
   @Get('statistics')
-  @Roles('administrador', 'gerente')
   @ApiOperation({
     summary: 'Get Booking Statistics',
     description:

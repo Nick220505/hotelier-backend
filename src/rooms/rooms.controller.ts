@@ -7,7 +7,6 @@ import {
   Param,
   Delete,
   ParseIntPipe,
-  UseGuards,
 } from '@nestjs/common';
 import {
   ApiTags,
@@ -21,7 +20,6 @@ import { RoomsService } from './rooms.service';
 import { CreateRoomDto } from './dto/create-room.dto';
 import { UpdateRoomDto } from './dto/update-room.dto';
 import { Room } from './entities/room.entity';
-import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { AuditLog } from '../audit/decorators/audit-log.decorator';
 import { AuditAction } from '../audit/enums/audit-action.enum';
 import { AuditResource } from '../audit/enums/audit-resource.enum';
@@ -29,7 +27,6 @@ import { AuditResource } from '../audit/enums/audit-resource.enum';
 @ApiTags('rooms')
 @Controller('rooms')
 @ApiBearerAuth()
-@UseGuards(JwtAuthGuard)
 export class RoomsController {
   constructor(private readonly roomsService: RoomsService) {}
 

@@ -8,7 +8,6 @@ import {
   Param,
   ParseIntPipe,
   Query,
-  UseGuards,
 } from '@nestjs/common';
 import {
   ApiTags,
@@ -30,9 +29,6 @@ import { Inventory } from './entities/inventory.entity';
 import { InventoryMovement } from './entities/inventory-movement.entity';
 import { InventoryCategory } from './enums/inventory-category.enum';
 import { InventoryStatus } from './enums/inventory-status.enum';
-import { RequirePermissions } from '../auth/decorators/roles.decorator';
-import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
-import { RolesGuard } from '../auth/guards/roles.guard';
 import { AuditLog } from '../audit/decorators/audit-log.decorator';
 import { AuditResource } from '../audit/enums/audit-resource.enum';
 
@@ -40,13 +36,11 @@ import { AuditResource } from '../audit/enums/audit-resource.enum';
 @Controller('inventory')
 @AuditLog({ resource: AuditResource.INVENTORY })
 @ApiBearerAuth()
-@UseGuards(JwtAuthGuard, RolesGuard)
 export class InventoryController {
   constructor(private readonly inventoryService: InventoryService) {}
 
   // Inventory Items endpoints
   @Get('items')
-  @RequirePermissions('inventory:read')
   @ApiOperation({
     summary: 'Get All Inventory Items',
     description:
@@ -83,7 +77,6 @@ export class InventoryController {
   }
 
   @Get('items/low-stock')
-  @RequirePermissions('inventory:read')
   @ApiOperation({
     summary: 'Get Low Stock Items',
     description: 'Retrieve all inventory items that are running low on stock.',
@@ -98,7 +91,6 @@ export class InventoryController {
   }
 
   @Post('items')
-  @RequirePermissions('inventory:create')
   @ApiOperation({
     summary: 'Create Inventory Item',
     description: 'Create a new inventory item.',
@@ -119,7 +111,6 @@ export class InventoryController {
   }
 
   @Put('items/:id')
-  @RequirePermissions('inventory:update')
   @ApiOperation({
     summary: 'Update Inventory Item',
     description: 'Update an existing inventory item.',
@@ -146,7 +137,6 @@ export class InventoryController {
   }
 
   @Delete('items/:id')
-  @RequirePermissions('inventory:delete')
   @ApiOperation({
     summary: 'Delete Inventory Item',
     description: 'Delete an inventory item.',
@@ -169,7 +159,6 @@ export class InventoryController {
 
   // Inventory Movements endpoints
   @Get('movements')
-  @RequirePermissions('inventory:read')
   @ApiOperation({
     summary: 'Get All Inventory Movements',
     description: 'Retrieve all inventory movements with inventory details.',
@@ -184,7 +173,6 @@ export class InventoryController {
   }
 
   @Post('movements')
-  @RequirePermissions('inventory:create')
   @ApiOperation({
     summary: 'Create Inventory Movement',
     description: 'Create a new inventory movement (in/out/adjustment).',
@@ -206,7 +194,6 @@ export class InventoryController {
 
   // Suppliers endpoints
   @Get('suppliers')
-  @RequirePermissions('inventory:read')
   @ApiOperation({
     summary: 'Get All Suppliers',
     description: 'Retrieve all suppliers derived from inventory items.',
@@ -221,7 +208,6 @@ export class InventoryController {
   }
 
   @Get('suppliers/:id')
-  @RequirePermissions('inventory:read')
   @ApiOperation({
     summary: 'Get Supplier by ID',
     description: 'Retrieve a specific supplier by their ID.',
@@ -245,7 +231,6 @@ export class InventoryController {
   }
 
   @Post('suppliers')
-  @RequirePermissions('inventory:create')
   @ApiOperation({
     summary: 'Create Supplier',
     description: 'Create a new supplier.',
@@ -266,7 +251,6 @@ export class InventoryController {
   }
 
   @Put('suppliers/:id')
-  @RequirePermissions('inventory:update')
   @ApiOperation({
     summary: 'Update Supplier',
     description: 'Update an existing supplier.',
@@ -293,7 +277,6 @@ export class InventoryController {
   }
 
   @Delete('suppliers/:id')
-  @RequirePermissions('inventory:delete')
   @ApiOperation({
     summary: 'Delete Supplier',
     description: 'Delete a supplier.',
