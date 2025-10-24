@@ -207,6 +207,13 @@ classDiagram
     UpdateInvoiceDto --> InvoiceStatus : status
     UpdateInvoiceDto --> PaymentMethod : paymentMethod
     MarkAsPaidRequestDto --> PaymentMethod : method
+    
+    %% Notas de Patrones de Diseño
+    note for BillingService "Aggregate Root Pattern\nInvoice maneja InvoiceItems\ny Payments como agregado"
+    note for Invoice "Composite Pattern\nContiene items que se suman\npara calcular total"
+    note for Payment "Money Pattern\nDecimal con precisión\npara cantidades financieras"
+    note for InvoiceStatus "State Pattern\nPENDING→PAID/OVERDUE/\nVOID/CANCELLED"
+    note for BillingController "Query Object Pattern\nInterfaces para resultados\nde consultas financieras"
 ```
 
 ## Descripción

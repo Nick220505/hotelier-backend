@@ -196,6 +196,11 @@ classDiagram
     
     AuthResponseDto --> User : contains
     ProfileResponseDto --> LoyaltyLevel : loyaltyLevel
+    
+    %% Notas de Patrones GoF
+    note for UserRole "Bridge Pattern (GoF)<br/>Desacopla Users y Roles<br/>con tabla intermedia"
+    note for SystemPermission "Composite Pattern (GoF)<br/>Jerarquía de permisos<br/>con padre-hijo"
+    note for LoyaltyLevel "State Pattern (GoF)<br/>Estados de lealtad:<br/>BRONZE→SILVER→GOLD→PLATINUM"
 ```
 
 ## Descripción

@@ -212,6 +212,11 @@ classDiagram
     ReservationBillingDetailsDto --> Reservation : contains
     ReservationBillingDetailsDto --> RoomServiceChargeDto : contains
     ReservationBillingDetailsDto --> EventChargeDto : contains
+    
+    %% Notas de Patrones GoF
+    note for ReservationStatus "State Pattern (GoF)<br/>Gestiona ciclo de vida:<br/>PENDING→CONFIRMED→<br/>CHECKED_IN→CHECKED_OUT"
+    note for BookingChannel "Strategy Pattern (GoF)<br/>Diferentes estrategias<br/>según canal de reservación"
+    note for ReservationsService "Facade Pattern (GoF)<br/>Unifica operaciones complejas<br/>de múltiples repositorios"
 ```
 
 ## Descripción
@@ -243,3 +248,34 @@ Este diagrama muestra la arquitectura completa del módulo de reservaciones:
 ### Interfaces
 - **OccupancyStatsInterface**: Estadísticas de ocupación
 - **UpcomingReservationInterface**: Reservaciones próximas
+
+### Funcionalidades Principales
+- Sistema completo de gestión de reservaciones
+- Validación de disponibilidad de habitaciones
+- Cálculo automático de costos y descuentos
+- Proceso de checkout con generación de factura
+- Integración con limpieza (housekeeping)
+- Notificaciones automáticas
+- Estadísticas de ocupación
+
+## Patrones de Diseño GoF Implementados
+
+### 1. State Pattern (Comportamiento)
+**Aplicación**: `ReservationStatus` enum
+- **Beneficio**: Gestión clara del ciclo de vida y transiciones de estado
+- **Estados**: PENDING → CONFIRMED → CHECKED_IN → CHECKED_OUT (también CANCELLED)
+- **Implementación**: Transiciones controladas a través de métodos del servicio
+
+### 2. Strategy Pattern (Comportamiento)
+**Aplicación**: `BookingChannel` enum
+- **Beneficio**: Diferentes estrategias de procesamiento según el canal
+- **Estrategias**: DIRECT, ONLINE, PHONE, EMAIL, THIRD_PARTY
+- **Implementación**: Permite variar el algoritmo de procesamiento según el origen
+
+### 3. Facade Pattern (Estructural)
+**Aplicación**: `ReservationsService`
+- **Beneficio**: Simplifica interfaz compleja de múltiples subsistemas
+- **Subsistemas**: Reservations, Rooms, Invoices, Housekeeping, Notifications
+- **Implementación**: Unifica operaciones complejas en métodos simples como `checkoutReservation()`
+
+````
