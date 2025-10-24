@@ -208,12 +208,10 @@ classDiagram
     UpdateInvoiceDto --> PaymentMethod : paymentMethod
     MarkAsPaidRequestDto --> PaymentMethod : method
     
-    %% Notas de Patrones de Diseño
-    note for BillingService "Aggregate Root Pattern\nInvoice maneja InvoiceItems\ny Payments como agregado"
-    note for Invoice "Composite Pattern\nContiene items que se suman\npara calcular total"
-    note for Payment "Money Pattern\nDecimal con precisión\npara cantidades financieras"
-    note for InvoiceStatus "State Pattern\nPENDING→PAID/OVERDUE/\nVOID/CANCELLED"
-    note for BillingController "Query Object Pattern\nInterfaces para resultados\nde consultas financieras"
+    %% Notas de Patrones GoF
+    note for Invoice "Composite Pattern (GoF)<br/>Contiene items que se suman<br/>para calcular total"
+    note for InvoiceStatus "State Pattern (GoF)<br/>Ciclo de vida:<br/>PENDING→PAID→OVERDUE"
+    note for PaymentMethod "Strategy Pattern (GoF)<br/>Diferentes estrategias<br/>según método de pago"
 ```
 
 ## Descripción
@@ -247,3 +245,23 @@ Este diagrama muestra la arquitectura completa del módulo de facturación:
 
 ### Interfaces
 - **InvoiceTotalResultInterface**: Interface para resultados de totales de facturas
+
+## Patrones de Diseño GoF Implementados
+
+### 1. Composite Pattern (Estructural)
+**Aplicación**: `Invoice` con `InvoiceItem[]`
+- **Beneficio**: Trata objetos individuales y composiciones de manera uniforme
+- **Estructura**: Invoice actúa como composite que contiene múltiples InvoiceItems
+- **Implementación**: El total de la factura se calcula sumando todos los items
+
+### 2. State Pattern (Comportamiento)
+**Aplicación**: `InvoiceStatus` enum
+- **Beneficio**: Gestión clara del ciclo de vida de la factura
+- **Estados**: PENDING → PAID, OVERDUE, CANCELLED, REFUNDED
+- **Implementación**: Transiciones controladas mediante métodos del servicio
+
+### 3. Strategy Pattern (Comportamiento)
+**Aplicación**: `PaymentMethod` enum
+- **Beneficio**: Diferentes algoritmos de procesamiento según método de pago
+- **Estrategias**: CASH, CREDIT_CARD, DEBIT_CARD, BANK_TRANSFER, ONLINE
+- **Implementación**: Permite variar el procesamiento de pagos dinámicamente
