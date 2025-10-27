@@ -84,6 +84,7 @@ export class AuthController {
   }
 
   @Post('logout')
+  @UseGuards(AuthGuard('jwt'))
   @HttpCode(HttpStatus.OK)
   @AuditLog({
     action: AuditAction.LOGOUT,
