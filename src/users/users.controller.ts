@@ -9,7 +9,7 @@ import {
   ParseIntPipe,
   HttpCode,
   HttpStatus,
-  Request,
+  UseGuards,
 } from '@nestjs/common';
 import {
   ApiTags,
@@ -19,6 +19,7 @@ import {
   ApiBody,
   ApiBearerAuth,
 } from '@nestjs/swagger';
+import { AuthGuard } from '@nestjs/passport';
 import { UsersService } from './users.service';
 import { User } from '../auth/entities/user.entity';
 import { CreateUserDto } from '../auth/dto/create-user.dto';
@@ -32,6 +33,7 @@ import { AuditResource } from '../audit/enums/audit-resource.enum';
 
 @ApiTags('users')
 @Controller('users')
+@UseGuards(AuthGuard('jwt'))
 @ApiBearerAuth()
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
