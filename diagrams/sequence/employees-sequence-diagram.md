@@ -3,6 +3,9 @@
 ## 1. Crear Empleado
 
 ```mermaid
+---
+title: Crear Empleado
+---
 sequenceDiagram
     autonumber
     actor RRHH
@@ -26,6 +29,9 @@ sequenceDiagram
 ## 2. Consultar Empleados por Departamento
 
 ```mermaid
+---
+title: Consultar Empleados por Departamento
+---
 sequenceDiagram
     autonumber
     actor Gerente
@@ -46,6 +52,9 @@ sequenceDiagram
 ## 3. Actualizar Estado de Empleado
 
 ```mermaid
+---
+title: Actualizar Estado de Empleado
+---
 sequenceDiagram
     autonumber
     actor RRHH
@@ -87,6 +96,9 @@ sequenceDiagram
 ## 4. Obtener Estadísticas por Departamento
 
 ```mermaid
+---
+title: Obtener Estadísticas por Departamento
+---
 sequenceDiagram
     autonumber
     actor Admin
@@ -114,6 +126,9 @@ sequenceDiagram
 ## 5. Consultar Empleados de Limpieza (Housekeeping)
 
 ```mermaid
+---
+title: Consultar Empleados de Limpieza
+---
 sequenceDiagram
     autonumber
     actor SupervisorLimpieza
@@ -135,6 +150,9 @@ sequenceDiagram
 ## 6. Actualizar Asignación de Habitaciones
 
 ```mermaid
+---
+title: Actualizar Asignación de Habitaciones
+---
 sequenceDiagram
     autonumber
     actor Supervisor
@@ -169,6 +187,9 @@ sequenceDiagram
 ## 7. Eliminar Empleado (Soft Delete)
 
 ```mermaid
+---
+title: Eliminar Empleado
+---
 sequenceDiagram
     autonumber
     actor RRHH

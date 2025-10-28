@@ -3,6 +3,9 @@
 ## 1. Crear Reserva
 
 ```mermaid
+---
+title: Crear Reserva
+---
 sequenceDiagram
     autonumber
     actor Cliente
@@ -39,6 +42,9 @@ sequenceDiagram
 ## 2. Consultar Disponibilidad
 
 ```mermaid
+---
+title: Consultar Disponibilidad de Habitaciones
+---
 sequenceDiagram
     autonumber
     actor Cliente
@@ -75,6 +81,9 @@ sequenceDiagram
 ## 3. Proceso de Check-out
 
 ```mermaid
+---
+title: Proceso de Check-out
+---
 sequenceDiagram
     autonumber
     actor Recepcionista
@@ -152,6 +161,9 @@ sequenceDiagram
 ## 4. Actualizar Estado de Reserva
 
 ```mermaid
+---
+title: Actualizar Estado de Reserva
+---
 sequenceDiagram
     autonumber
     actor Usuario
@@ -218,6 +230,9 @@ sequenceDiagram
 ## 5. Obtener Estadísticas de Ocupación
 
 ```mermaid
+---
+title: Obtener Estadísticas de Ocupación
+---
 sequenceDiagram
     autonumber
     actor Admin

@@ -3,6 +3,9 @@
 ## 1. Crear Orden de Servicio a Habitación
 
 ```mermaid
+---
+title: Crear Orden de Servicio a Habitación
+---
 sequenceDiagram
     autonumber
     actor Huésped
@@ -33,6 +36,9 @@ sequenceDiagram
 ## 2. Actualizar Estado de Orden
 
 ```mermaid
+---
+title: Actualizar Estado de Orden
+---
 sequenceDiagram
     autonumber
     actor Personal
@@ -74,6 +80,9 @@ sequenceDiagram
 ## 3. Gestión de Menú - Crear Item
 
 ```mermaid
+---
+title: Crear Item del Menú
+---
 sequenceDiagram
     autonumber
     actor Admin
@@ -100,6 +109,9 @@ sequenceDiagram
 ## 4. Actualizar Item del Menú
 
 ```mermaid
+---
+title: Actualizar Item del Menú
+---
 sequenceDiagram
     autonumber
     actor Admin
@@ -131,6 +143,9 @@ sequenceDiagram
 ## 5. Gestión de Inventario de Bebidas
 
 ```mermaid
+---
+title: Gestión de Inventario de Bebidas
+---
 sequenceDiagram
     autonumber
     actor Gerente
@@ -172,6 +187,9 @@ sequenceDiagram
 ## 6. Consultar Bebidas con Stock Bajo
 
 ```mermaid
+---
+title: Consultar Bebidas con Stock Bajo
+---
 sequenceDiagram
     autonumber
     actor Gerente
@@ -192,6 +210,9 @@ sequenceDiagram
 ## 7. Consultar Órdenes de Servicio a Habitación
 
 ```mermaid
+---
+title: Consultar Órdenes de Servicio a Habitación
+---
 sequenceDiagram
     autonumber
     actor Personal

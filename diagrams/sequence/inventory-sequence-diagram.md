@@ -3,6 +3,9 @@
 ## 1. Crear Item de Inventario
 
 ```mermaid
+---
+title: Crear Item de Inventario
+---
 sequenceDiagram
     autonumber
     actor Administrador
@@ -42,6 +45,9 @@ sequenceDiagram
 ## 2. Actualizar Stock de Item
 
 ```mermaid
+---
+title: Actualizar Stock de Item
+---
 sequenceDiagram
     autonumber
     actor Encargado
@@ -90,6 +96,9 @@ sequenceDiagram
 ## 3. Registrar Movimiento de Inventario
 
 ```mermaid
+---
+title: Registrar Movimiento de Inventario
+---
 sequenceDiagram
     autonumber
     actor Personal
@@ -136,6 +145,9 @@ sequenceDiagram
 ## 4. Consultar Items con Stock Bajo
 
 ```mermaid
+---
+title: Consultar Items con Stock Bajo
+---
 sequenceDiagram
     autonumber
     actor Gerente
@@ -160,6 +172,9 @@ sequenceDiagram
 ## 5. Filtrar Inventario por Categoría
 
 ```mermaid
+---
+title: Filtrar Inventario por Categoría
+---
 sequenceDiagram
     autonumber
     actor Usuario
@@ -180,6 +195,9 @@ sequenceDiagram
 ## 6. Gestión de Proveedores - Crear Proveedor
 
 ```mermaid
+---
+title: Crear Proveedor
+---
 sequenceDiagram
     autonumber
     actor Admin
@@ -212,6 +230,9 @@ sequenceDiagram
 ## 7. Actualizar Proveedor
 
 ```mermaid
+---
+title: Actualizar Proveedor
+---
 sequenceDiagram
     autonumber
     actor Admin
@@ -255,6 +276,9 @@ sequenceDiagram
 ## 8. Consultar Historial de Movimientos
 
 ```mermaid
+---
+title: Consultar Historial de Movimientos
+---
 sequenceDiagram
     autonumber
     actor Auditor

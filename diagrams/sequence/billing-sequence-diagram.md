@@ -3,6 +3,9 @@
 ## 1. Crear Factura
 
 ```mermaid
+---
+title: Crear Factura
+---
 sequenceDiagram
     autonumber
     actor Usuario
@@ -29,6 +32,9 @@ sequenceDiagram
 ## 2. Marcar Factura como Pagada
 
 ```mermaid
+---
+title: Marcar Factura como Pagada
+---
 sequenceDiagram
     autonumber
     actor Cajero
@@ -72,6 +78,9 @@ sequenceDiagram
 ## 3. Generar Reporte Financiero
 
 ```mermaid
+---
+title: Generar Reporte Financiero
+---
 sequenceDiagram
     autonumber
     actor Admin
@@ -108,6 +117,9 @@ sequenceDiagram
 ## 4. Consultar Facturas Vencidas
 
 ```mermaid
+---
+title: Consultar Facturas Vencidas
+---
 sequenceDiagram
     autonumber
     actor Admin
@@ -138,6 +150,9 @@ sequenceDiagram
 ## 5. Generar PDF de Factura
 
 ```mermaid
+---
+title: Generar PDF de Factura
+---
 sequenceDiagram
     autonumber
     actor Usuario
@@ -179,6 +194,9 @@ sequenceDiagram
 ## 6. Obtener Estadísticas de Pagos
 
 ```mermaid
+---
+title: Obtener Estadísticas de Pagos
+---
 sequenceDiagram
     autonumber
     actor Admin
@@ -210,6 +228,9 @@ sequenceDiagram
 ## 7. Consultar Facturas por Cliente
 
 ```mermaid
+---
+title: Consultar Facturas por Cliente
+---
 sequenceDiagram
     autonumber
     actor Cliente

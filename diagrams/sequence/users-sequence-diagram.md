@@ -3,6 +3,9 @@
 ## 1. Crear Usuario
 
 ```mermaid
+---
+title: Crear Usuario
+---
 sequenceDiagram
     autonumber
     actor Admin
@@ -46,6 +49,9 @@ sequenceDiagram
 ## 2. Autenticación y Login (Integración con Auth)
 
 ```mermaid
+---
+title: Autenticación y Login
+---
 sequenceDiagram
     autonumber
     actor Cliente
@@ -99,6 +105,9 @@ sequenceDiagram
 ## 3. Actualizar Perfil de Usuario
 
 ```mermaid
+---
+title: Actualizar Perfil de Usuario
+---
 sequenceDiagram
     autonumber
     actor Usuario
@@ -148,6 +157,9 @@ sequenceDiagram
 ## 4. Sistema de Lealtad - Actualizar Puntos
 
 ```mermaid
+---
+title: Sistema de Lealtad - Actualizar Puntos
+---
 sequenceDiagram
     autonumber
     actor Sistema
@@ -181,6 +193,9 @@ sequenceDiagram
 ## 5. Activar/Desactivar Usuario
 
 ```mermaid
+---
+title: Activar/Desactivar Usuario
+---
 sequenceDiagram
     autonumber
     actor Admin
@@ -224,6 +239,9 @@ sequenceDiagram
 ## 6. Consultar Perfil Propio
 
 ```mermaid
+---
+title: Consultar Perfil Propio
+---
 sequenceDiagram
     autonumber
     actor Usuario
@@ -248,6 +266,9 @@ sequenceDiagram
 ## 7. Listar Todos los Usuarios (Admin)
 
 ```mermaid
+---
+title: Listar Todos los Usuarios
+---
 sequenceDiagram
     autonumber
     actor Admin
