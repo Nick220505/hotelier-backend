@@ -1,98 +1,461 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# 🏨 Hotelier Backend - Enterprise Hotel Management System API
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+[![NestJS](https://img.shields.io/badge/NestJS-E0234E?style=for-the-badge&logo=nestjs&logoColor=white)](https://nestjs.com/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
+[![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+A production-ready, enterprise-grade **RESTful API** for comprehensive hotel management operations, built with **NestJS** and **TypeScript**. This backend powers a full-featured hotel management platform with **28 integrated modules** covering every aspect of hotel operations.
 
-## Description
+🌐 **Live Application:** [https://hotelier-suite.vercel.app](https://hotelier-suite.vercel.app)  
+🖥️ **Frontend Repository:** [https://github.com/Nick220505/hotelier-frontend](https://github.com/Nick220505/hotelier-frontend)  
+🚀 **Deployment:** Hosted on [Koyeb](https://www.koyeb.com) with [Neon PostgreSQL](https://neon.tech)
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+---
 
-## Project setup
+## 📋 Table of Contents
 
-```bash
-$ npm install
+- [Features](#-features)
+- [Architecture](#-architecture)
+- [Tech Stack](#-tech-stack)
+- [Modules](#-modules)
+- [Getting Started](#-getting-started)
+- [API Documentation](#-api-documentation)
+- [Database](#-database)
+- [Authentication & Security](#-authentication--security)
+- [Deployment](#-deployment)
+
+---
+
+## ✨ Features
+
+### Core Operations
+- **Reservations Management** - Real-time room inventory tracking, booking workflows, and availability management
+- **Guest Management** - Comprehensive guest profiles, service requests, and preferences tracking
+- **Employee Administration** - Staff management with shift scheduling, attendance tracking, and performance monitoring
+- **Housekeeping Automation** - Task assignment, room status tracking, and cleaning workflows
+- **Maintenance Management** - Work order system with priority levels and completion tracking
+- **Restaurant Services** - Menu management, orders, table reservations, and kitchen operations
+- **Event Management** - Venue bookings, event planning, catering coordination
+- **Recreational Facilities** - Spa, gym, pool, and activity bookings
+- **Parking Management** - Vehicle tracking, space allocation, and access control
+
+### Business Intelligence
+- **Dashboard Analytics** - Real-time KPIs (occupancy rates, revenue, reservations)
+- **Advanced Reporting** - Comprehensive reports with data visualization and export capabilities
+- **Financial Tracking** - Revenue analysis, billing, invoicing, and payment processing
+- **Audit Logging** - Complete system activity tracking for compliance and security
+- **Performance Metrics** - Monthly comparisons, profit tracking, and trend analysis
+
+### Enterprise Features
+- **Role-Based Access Control (RBAC)** - Granular permissions for different user roles
+- **Secure Authentication** - User authentication and authorization system
+- **Automated Database Seeding** - Development data generation for testing
+- **API Documentation** - Interactive Swagger/OpenAPI documentation
+- **Multi-Stage Docker Builds** - Optimized containerization for production deployment
+- **Type-Safe Architecture** - Full TypeScript implementation with strict typing
+- **Audit Logging** - Comprehensive activity tracking with interceptors
+
+---
+
+## 🏗️ Architecture
+
+This application follows **modular architecture** principles with clear separation of concerns:
+
+```
+src/
+├── auth/                # Authentication & authorization
+├── users/               # User management
+├── roles/               # Role-based access control
+├── reservations/        # Booking system
+├── rooms/               # Room inventory
+├── guests/              # Guest management
+├── employees/           # Staff administration
+├── shifts/              # Shift scheduling
+├── attendance/          # Attendance tracking
+├── housekeeping/        # Cleaning operations
+├── maintenance/         # Maintenance workflow
+├── restaurant/          # Restaurant services
+├── events/              # Event management
+├── recreational/        # Recreational facilities
+├── parking/             # Parking management
+├── billing/             # Financial operations
+├── reports/             # Analytics & reporting
+├── reports-analytics/   # Advanced analytics
+├── guest-requests/      # Guest service requests
+├── employee-requests/   # Employee requests
+├── inventory/           # Inventory management
+├── venues/              # Venue management
+├── notifications/       # Notification system
+├── currency/            # Currency management
+├── audit/               # Audit logging
+├── configuration/       # System configuration
+├── dashboard/           # Dashboard data
+└── database/            # Database configuration
 ```
 
-## Compile and run the project
+Each module is self-contained with:
+- **Controllers** - REST endpoint definitions
+- **Services** - Business logic implementation
+- **Entities** - TypeORM database models
+- **DTOs** - Data transfer objects with validation
+- **Guards** - Authorization and authentication
 
+---
+
+## 🛠️ Tech Stack
+
+### Core Framework
+- **NestJS 11** - Progressive Node.js framework with modular architecture
+- **TypeScript 5** - Type-safe development with latest ES features
+- **Node.js** - JavaScript runtime environment
+
+### Database & ORM
+- **PostgreSQL** - Robust relational database
+- **TypeORM 0.3** - Advanced ORM with migration support
+- **Database Migrations** - Version-controlled schema management
+
+### Authentication & Security
+- **Passport** - Authentication middleware
+- **Bcrypt** - Password hashing
+- **Class Validator** - Request validation
+- **Class Transformer** - Data transformation
+
+### Documentation & Testing
+- **Swagger/OpenAPI** - Interactive API documentation
+- **Jest** - Testing framework
+- **Supertest** - API endpoint testing
+
+### DevOps & Deployment
+- **Docker** - Containerization with multi-stage builds
+- **Koyeb** - Production deployment platform
+- **Neon PostgreSQL** - Serverless PostgreSQL database
+- **ESLint & Prettier** - Code quality and formatting
+
+---
+
+## 📦 Modules
+
+The application consists of **28 integrated modules**, each handling specific hotel operations:
+
+| Module | Description | Key Features |
+|--------|-------------|--------------|
+| **Authentication** | User authentication & authorization | Secure login, role guards, session management |
+| **Users** | User account management | Profile management, password reset, user roles |
+| **Roles** | Role-based access control | Dynamic permissions, role hierarchy, access management |
+| **Reservations** | Booking system | Real-time availability, booking workflow, cancellations |
+| **Rooms** | Room inventory management | Room types, status tracking, pricing, availability |
+| **Guests** | Guest management | Guest profiles, preferences, history, contact info |
+| **Employees** | Staff administration | Employee records, positions, departments, contacts |
+| **Shifts** | Shift scheduling | Shift patterns, assignments, coverage, schedules |
+| **Attendance** | Attendance tracking | Clock in/out, overtime, reports, time management |
+| **Housekeeping** | Cleaning operations | Task assignment, room status, inspection, schedules |
+| **Maintenance** | Maintenance workflow | Work orders, priority levels, completion, tracking |
+| **Restaurant** | Restaurant services | Menu, orders, tables, kitchen operations, reservations |
+| **Events** | Event management | Venue bookings, event planning, catering, coordination |
+| **Recreational** | Recreational facilities | Spa, gym, pool bookings, activities, schedules |
+| **Parking** | Parking management | Vehicle tracking, space allocation, entry/exit |
+| **Billing** | Financial operations | Invoicing, payments, pricing, charges |
+| **Reports** | Analytics & reporting | KPIs, data visualization, exports, summaries |
+| **Reports Analytics** | Advanced analytics | Detailed reports, trends, forecasting, insights |
+| **Guest Requests** | Guest service requests | Request tracking, status management, fulfillment |
+| **Employee Requests** | Employee requests | Leave requests, time off, approval workflows |
+| **Inventory** | Inventory management | Stock tracking, supplies, orders, restocking |
+| **Venues** | Venue management | Venue details, capacity, bookings, availability |
+| **Notifications** | Notification system | Alerts, reminders, system notifications, messages |
+| **Currency** | Currency management | Multi-currency support, exchange rates, conversions |
+| **Audit** | Audit logging | Activity tracking, audit trails, compliance, history |
+| **Configuration** | System configuration | Settings, preferences, customization, system options |
+| **Dashboard** | Dashboard data | KPIs, statistics, real-time data, overview |
+| **Database** | Database configuration | Connection management, migrations, database setup |
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+- **Node.js** (v18 or higher)
+- **PostgreSQL** (v14 or higher)
+- **npm** or **yarn**
+
+### Installation
+
+1. **Clone the repository**
 ```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+git clone https://github.com/Nick220505/hotelier-backend.git
+cd hotelier-backend
 ```
 
-## Run tests
-
+2. **Install dependencies**
 ```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+npm install
 ```
 
-## Deployment
+3. **Environment Configuration**
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
+Create a `.env` file in the root directory based on `.env.example`:
 
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+```env
+# Application Configuration
+NODE_ENV=development
+PORT=3001
 
-```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
+# PostgreSQL Database
+DATABASE_URL="postgresql://hotelier_user:hotelier_password@localhost:5432/hotelier_db?schema=public"
+
+# JWT Secret (change in production)
+JWT_SECRET="hotelier_jwt_secret_key_2024_change_this_in_production"
+
+# Authentication Settings
+JWT_EXPIRES_IN="15m"
+REFRESH_TOKEN_EXPIRES_IN="7d"
+
+# Frontend URLs
+FRONTEND_URL="http://localhost:3000"
+
+# Email Configuration (optional)
+EMAIL_HOST=""
+EMAIL_PORT=587
+EMAIL_USER=""
+EMAIL_PASSWORD=""
+EMAIL_FROM=""
+
+# Upload Settings
+UPLOAD_MAX_SIZE=10485760
+UPLOAD_PATH="./uploads"
+
+# Redis (optional)
+REDIS_URL="redis://localhost:6379"
+REDIS_PASSWORD=""
+
+# Logging Settings
+LOG_LEVEL="debug"
+LOG_FILE="logs/app.log"
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+4. **Seed Database (Optional)**
 
-## Resources
+Populate the database with sample data for development:
+```bash
+npm run seed
+```
 
-Check out a few resources that may come in handy when working with NestJS:
+### Running the Application
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+```bash
+# Development mode with hot-reload
+npm run start:dev
 
-## Support
+# Production mode
+npm run build
+npm run start:prod
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+# Debug mode
+npm run start:debug
+```
 
-## Stay in touch
+The API will be available at `http://localhost:3000`
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+### Using Docker
 
-## License
+```bash
+# Build the image
+docker build -t hotelier-backend .
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+# Run the container
+docker run -p 3000:3000 --env-file .env hotelier-backend
+```
+
+### Using Docker Compose
+
+```bash
+# Start all services (backend + database)
+docker-compose up -d
+
+# View logs
+docker-compose logs -f
+
+# Stop services
+docker-compose down
+```
+
+---
+
+## 📚 API Documentation
+
+Interactive API documentation is available via **Swagger/OpenAPI** when the application is running.
+
+**Access the documentation at:** `http://localhost:3000/api/docs`
+
+### Key Features:
+- ✅ Interactive API explorer
+- ✅ Request/response schemas
+- ✅ Authentication testing
+- ✅ Example requests and responses
+- ✅ Comprehensive endpoint descriptions
+
+### Authentication
+
+Most endpoints require authentication. To authenticate:
+1. **Register** a new user: `POST /api/auth/register`
+2. **Login**: `POST /api/auth/login`
+3. Use the authentication session in subsequent requests
+
+---
+
+## 🗄️ Database
+
+### Schema Design
+
+The database follows a **normalized relational design** with:
+- Clear entity relationships
+- Foreign key constraints
+- Indexing for performance
+- Audit fields (createdAt, updatedAt)
+
+### Key Entities
+
+- **Users** - System users with authentication
+- **Roles** - User roles and permissions
+- **Reservations** - Booking records
+- **Rooms** - Hotel room inventory
+- **Guests** - Guest profiles
+- **Employees** - Staff records
+- **Shifts** - Work schedules
+- **Attendance** - Time tracking
+- **Reports** - Analytics data
+- **Venues** - Event venues
+- **Notifications** - System notifications
+- **Currency** - Currency configurations
+- **Audit Logs** - System activity logs
+
+---
+
+## 🔐 Authentication & Security
+
+### Security Features
+
+- ✅ **Secure Authentication** - Passport-based authentication
+- ✅ **Password Hashing** - Bcrypt with salt rounds for password security
+- ✅ **Role-Based Access Control (RBAC)** - Granular permissions
+- ✅ **Request Validation** - Input validation with class-validator
+- ✅ **SQL Injection Prevention** - Parameterized queries via TypeORM
+- ✅ **CORS Configuration** - Cross-origin resource sharing controls
+- ✅ **Audit Logging** - Comprehensive activity tracking with interceptors
+
+### Roles & Permissions
+
+The system supports multiple roles with different access levels:
+- **Super Admin** - Full system access
+- **Manager** - Operations management
+- **Receptionist** - Front desk operations
+- **Housekeeper** - Housekeeping tasks
+- **Maintenance** - Maintenance operations
+- **Employee** - Basic employee access
+
+---
+
+## 🚀 Deployment
+
+### Production Deployment (Koyeb)
+
+This application is deployed on **Koyeb** with **Neon PostgreSQL**.
+
+#### Deployment Steps:
+
+1. **Build the Docker image**
+```bash
+docker build -f Dockerfile.prod -t hotelier-backend:prod .
+```
+
+2. **Push to container registry** (Docker Hub, GitHub Container Registry, etc.)
+
+3. **Deploy to Koyeb**
+   - Connect your Git repository
+   - Set environment variables
+   - Configure build settings
+   - Deploy!
+
+#### Environment Variables (Production)
+
+Required environment variables for production:
+- `NODE_ENV` - Environment (production)
+- `PORT` - API port (default: 3001)
+- `DATABASE_URL` - PostgreSQL connection string (Neon)
+- `JWT_SECRET` - JWT signing secret (strong secret key)
+- `JWT_EXPIRES_IN` - JWT expiration time
+- `REFRESH_TOKEN_EXPIRES_IN` - Refresh token expiration time
+- `FRONTEND_URL` - Frontend application URL
+
+Optional environment variables:
+- `REDIS_URL` - Redis connection string
+- `REDIS_PASSWORD` - Redis password
+- `EMAIL_HOST` - SMTP server host
+- `EMAIL_PORT` - SMTP server port
+- `EMAIL_USER` - SMTP username
+- `EMAIL_PASSWORD` - SMTP password
+- `EMAIL_FROM` - Default sender email
+- `UPLOAD_MAX_SIZE` - Maximum upload size in bytes
+- `UPLOAD_PATH` - Path for uploaded files
+- `LOG_LEVEL` - Logging level (info, debug, error)
+- `LOG_FILE` - Log file path
+
+### Docker Production Build
+
+The `Dockerfile.prod` includes:
+- Multi-stage build for optimization
+- Non-root user for security
+- Health checks
+- Automated database seeding on first run
+- Production-optimized Node.js configuration
+
+---
+
+## 📊 Testing
+
+```bash
+# Run unit tests
+npm run test
+
+# Run e2e tests
+npm run test:e2e
+
+# Generate coverage report
+npm run test:cov
+
+# Watch mode
+npm run test:watch
+```
+
+---
+
+## 🤝 Contributing
+
+This is a portfolio project showcasing full-stack development skills with enterprise-level architecture and best practices.
+
+---
+
+## 📄 License
+
+This project is private and for portfolio demonstration purposes.
+
+---
+
+## 👨‍💻 Developer
+
+**Juan Nicolas Pardo Torres**
+
+- LinkedIn: [nicolas-pardo-6156a1222](https://linkedin.com/in/nicolas-pardo-6156a1222)
+- GitHub: [@Nick220505](https://github.com/Nick220505)
+- Email: juannicolaspardo@gmail.com
+
+---
+
+## 🔗 Related Repositories
+
+- **Frontend Application:** [hotelier-frontend](https://github.com/Nick220505/hotelier-frontend)
+- **Live Demo:** [https://hotelier-suite.vercel.app](https://hotelier-suite.vercel.app)
+
+---
+
+**Built with ❤️ using NestJS, TypeScript, and PostgreSQL**
