@@ -7,19 +7,19 @@ export class SeedersService {
   constructor(
     private recreationalFacilitiesSeeder: RecreationalFacilitiesSeeder,
     private recreationalBookingsSeeder: RecreationalBookingsSeeder,
-  ) {}
+  ) { }
 
   async seed() {
-    console.log('🌱 Iniciando seeding del módulo Recreational...');
+    console.log('🌱 Starting seeding of Recreational module...');
 
     // Seed facilities first
     await this.recreationalFacilitiesSeeder.seed();
-    console.log('✅ Instalaciones recreativas sembradas');
+    console.log('✅ Recreational facilities seeded');
 
     // Then seed bookings
     await this.recreationalBookingsSeeder.seed();
-    console.log('✅ Reservas recreativas sembradas');
+    console.log('✅ Recreational bookings seeded');
 
-    console.log('🎉 Seeding del módulo Recreational completado!');
+    console.log('🎉 Recreational module seeding completed!');
   }
 }

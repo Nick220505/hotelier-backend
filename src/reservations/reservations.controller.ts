@@ -36,7 +36,7 @@ import { Room } from '../rooms/entities/room.entity';
 @Controller('reservations')
 @ApiBearerAuth()
 export class ReservationsController {
-  constructor(private readonly reservationsService: ReservationsService) {}
+  constructor(private readonly reservationsService: ReservationsService) { }
 
   @Get('current')
   @ApiOperation({ summary: 'Get current guests with active reservations' })
@@ -49,7 +49,7 @@ export class ReservationsController {
   @AuditLog({
     action: AuditAction.CREATE,
     resource: AuditResource.RESERVATION,
-    description: 'Reserva creada',
+    description: 'Reservation created',
     includeBody: true,
     includeResult: true,
   })
@@ -213,7 +213,7 @@ export class ReservationsController {
   @AuditLog({
     action: AuditAction.UPDATE,
     resource: AuditResource.RESERVATION,
-    description: 'Reserva actualizada',
+    description: 'Reservation updated',
     resourceIdParam: 'id',
     includeBody: true,
   })
@@ -251,7 +251,7 @@ export class ReservationsController {
   @AuditLog({
     action: AuditAction.DELETE,
     resource: AuditResource.RESERVATION,
-    description: 'Reserva eliminada',
+    description: 'Reservation deleted',
     resourceIdParam: 'id',
   })
   @ApiOperation({
@@ -281,7 +281,7 @@ export class ReservationsController {
   @AuditLog({
     action: AuditAction.CHECK_OUT,
     resource: AuditResource.RESERVATION,
-    description: 'Check-out de la reserva',
+    description: 'Reservation checked out',
     resourceIdParam: 'id',
     includeResult: true,
   })

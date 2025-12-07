@@ -29,7 +29,7 @@ export class CreateEmployeeRequestDto {
 
   @ApiProperty({
     description: 'Reason for the request',
-    example: 'Vacaciones familiares',
+    example: 'Family vacation',
   })
   @IsString()
   @Length(1, 500)

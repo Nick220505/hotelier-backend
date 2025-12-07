@@ -6,7 +6,7 @@ export class EventChargeDto {
 
   @ApiProperty({
     description: 'Event title',
-    example: 'Martinez Family Reunion',
+    example: 'Smith Family Reunion',
   })
   title: string;
 

@@ -34,7 +34,7 @@ export class HousekeepingService {
     @InjectRepository(Room)
     private readonly roomRepository: Repository<Room>,
     private readonly notificationsService: NotificationsService,
-  ) {}
+  ) { }
 
   // Maintenance Reports
   async getAllMaintenanceReports(): Promise<MaintenanceReport[]> {
@@ -280,8 +280,8 @@ export class HousekeepingService {
       });
       const roomLabel = room?.number ?? String(updated.roomId);
       await this.notificationsService.createSystemAlert(
-        'Limpieza completada',
-        `Habitación ${roomLabel} lista y disponible`,
+        'Cleaning completed',
+        `Room ${roomLabel} ready and available`,
         updated.roomId,
         'ROOM',
       );
@@ -536,8 +536,8 @@ export class HousekeepingService {
 
     // Create notification
     await this.notificationsService.createSystemAlert(
-      'Nueva incidencia reportada',
-      `${data.type} reportado en habitación ${room.number}: ${data.description}`,
+      'New incident reported',
+      `${data.type} reported in room ${room.number}: ${data.description}`,
       room.id,
       'MAINTENANCE',
     );

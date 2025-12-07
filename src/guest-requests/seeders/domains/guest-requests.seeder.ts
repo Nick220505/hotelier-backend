@@ -11,7 +11,7 @@ export class GuestRequestsSeeder {
   constructor(
     @InjectRepository(GuestRequest)
     private guestRequestRepository: Repository<GuestRequest>,
-  ) {}
+  ) { }
 
   async seed() {
     const requests = [
@@ -20,131 +20,131 @@ export class GuestRequestsSeeder {
         guestName: 'Sarah Johnson',
         type: RequestType.TOWELS,
         description:
-          'Por favor proporcionar toallas de baño adicionales y toallas de piscina para familia de 4',
+          'Please provide extra bath towels and pool towels for family of 4',
         status: RequestStatus.COMPLETED,
         priority: RequestPriority.LOW,
         time: new Date('2024-12-08 14:30:00'),
         completedAt: new Date('2024-12-08 15:15:00'),
-        assignedTo: 'María García',
+        assignedTo: 'Mary Williams',
         notes:
-          'Entregadas 6 toallas de baño y 4 toallas de piscina según solicitado',
+          'Delivered 6 bath towels and 4 pool towels as requested',
       },
       {
         room: '507',
         guestName: 'Michael Chen',
         type: RequestType.ROOM_SERVICE,
         description:
-          'Ordenar cena para 2: Salmón a la parrilla, ensalada César y una botella de Chardonnay',
+          'Order dinner for 2: Grilled salmon, Caesar salad and a bottle of Chardonnay',
         status: RequestStatus.IN_PROGRESS,
         priority: RequestPriority.MEDIUM,
         time: new Date('2024-12-08 18:45:00'),
-        assignedTo: 'Personal del Restaurante',
-        notes: 'Orden confirmada, tiempo estimado de entrega 19:30',
+        assignedTo: 'Restaurant Staff',
+        notes: 'Order confirmed, estimated delivery time 7:30 PM',
       },
       {
         room: '203',
-        guestName: 'Emily Rodríguez',
+        guestName: 'Emily Johnson',
         type: RequestType.MAINTENANCE,
         description:
-          'Aire acondicionado no funciona correctamente, temperatura de la habitación muy caliente',
+          'Air conditioning not working properly, room temperature too hot',
         status: RequestStatus.PENDING,
         priority: RequestPriority.HIGH,
         time: new Date('2024-12-08 19:20:00'),
-        assignedTo: 'Equipo de Mantenimiento',
-        notes: 'Técnico enviado, debe llegar en 30 minutos',
+        assignedTo: 'Maintenance Team',
+        notes: 'Technician dispatched, should arrive in 30 minutes',
       },
       {
         room: '1205',
         guestName: 'Robert Wilson',
         type: RequestType.HOUSEKEEPING,
         description:
-          'Solicitar servicio de limpieza temprano a las 8 AM para preparación de reunión de negocios',
+          'Request early housekeeping service at 8 AM for business meeting preparation',
         status: RequestStatus.PENDING,
         priority: RequestPriority.MEDIUM,
         time: new Date('2024-12-08 20:15:00'),
-        assignedTo: 'Supervisor de Limpieza',
-        notes: 'Programado para mañana 8:00 AM, servicio nivel VIP',
+        assignedTo: 'Housekeeping Supervisor',
+        notes: 'Scheduled for tomorrow 8:00 AM, VIP level service',
       },
       {
         room: '802',
         guestName: 'Lisa Thompson',
         type: RequestType.CONCIERGE,
         description:
-          'Necesito asistencia reservando entradas para obra de teatro local y recomendaciones de restaurantes',
+          'Need assistance booking tickets for local theater show and restaurant recommendations',
         status: RequestStatus.COMPLETED,
         priority: RequestPriority.MEDIUM,
         time: new Date('2024-12-08 16:00:00'),
         completedAt: new Date('2024-12-08 17:30:00'),
-        assignedTo: 'James Miller - Conserjería',
+        assignedTo: 'James Miller - Concierge',
         notes:
-          'Entradas reservadas para "Romeo y Julieta" y reservación hecha en Le Bernardin',
+          'Tickets booked for "Romeo and Juliet" and reservation made at Le Bernardin',
       },
       {
         room: '404',
         guestName: 'David Kim',
         type: RequestType.TECHNICAL_SUPPORT,
         description:
-          'Problemas de conexión Wi-Fi, no puedo conectar laptop para videoconferencia',
+          'Wi-Fi connection issues, cannot connect laptop for video conference',
         status: RequestStatus.COMPLETED,
         priority: RequestPriority.URGENT,
         time: new Date('2024-12-08 10:30:00'),
         completedAt: new Date('2024-12-08 11:00:00'),
-        assignedTo: 'Soporte IT',
+        assignedTo: 'IT Support',
         notes:
-          'Router reiniciado y proporcionado código de acceso Wi-Fi premium al huésped',
+          'Router reset and provided premium Wi-Fi access code to guest',
       },
       {
         room: '609',
         guestName: 'Amanda Davis',
         type: RequestType.OTHER,
         description:
-          'Solicitud de cuna y artículos para bebé para niño de 18 meses',
+          'Request for crib and baby items for 18-month-old child',
         status: RequestStatus.COMPLETED,
         priority: RequestPriority.MEDIUM,
         time: new Date('2024-12-08 13:45:00'),
         completedAt: new Date('2024-12-08 14:30:00'),
-        assignedTo: 'Personal de Conserjería',
+        assignedTo: 'Concierge Staff',
         notes:
-          'Cuna entregada, mantas para bebé, calentador de biberones y canasta de bienvenida para bebé',
+          'Crib delivered, baby blankets, bottle warmer and baby welcome basket',
       },
       {
         room: '1101',
         guestName: 'Thomas Anderson',
         type: RequestType.CONCIERGE,
         description:
-          'Servicio de transporte al aeropuerto necesario para vuelo temprano a las 6 AM',
+          'Airport transportation service needed for early flight at 6 AM',
         status: RequestStatus.PENDING,
         priority: RequestPriority.HIGH,
         time: new Date('2024-12-08 21:00:00'),
-        assignedTo: 'Coordinador de Transporte',
+        assignedTo: 'Transportation Coordinator',
         notes:
-          'Sedán de lujo reservado para recogida a las 4:30 AM, conductor confirmado',
+          'Luxury sedan booked for 4:30 AM pickup, driver confirmed',
       },
       {
         room: '715',
-        guestName: 'Jennifer Martínez',
+        guestName: 'Jennifer Smith',
         type: RequestType.HOUSEKEEPING,
         description:
-          'Alérgico a almohadas de pluma, necesito alternativas de ropa de cama hipoalergénica',
+          'Allergic to feather pillows, need hypoallergenic bedding alternatives',
         status: RequestStatus.COMPLETED,
         priority: RequestPriority.MEDIUM,
         time: new Date('2024-12-08 12:15:00'),
         completedAt: new Date('2024-12-08 13:00:00'),
-        assignedTo: 'Supervisor de Limpieza',
+        assignedTo: 'Housekeeping Supervisor',
         notes:
-          'Reemplazada toda la ropa de cama con alternativas hipoalergénicas, satisfacción del huésped confirmada',
+          'Replaced all bedding with hypoallergenic alternatives, guest satisfaction confirmed',
       },
       {
         room: '318',
         guestName: 'Christopher Lee',
         type: RequestType.MAINTENANCE,
-        description: 'Ducha del baño tiene baja presión de agua',
+        description: 'Bathroom shower has low water pressure',
         status: RequestStatus.IN_PROGRESS,
         priority: RequestPriority.MEDIUM,
         time: new Date('2024-12-08 17:45:00'),
-        assignedTo: 'Especialista en Plomería',
+        assignedTo: 'Plumbing Specialist',
         notes:
-          'Investigando el problema, puede necesitar acceso a habitaciones adyacentes para diagnóstico completo',
+          'Investigating issue, may need access to adjacent rooms for full diagnosis',
       },
     ];
 
@@ -162,6 +162,6 @@ export class GuestRequestsSeeder {
       }
     }
 
-    console.log('✅ Solicitudes de huéspedes pobladas');
+    console.log('✅ Guest requests populated');
   }
 }

@@ -18,7 +18,7 @@ export class ShiftsService {
     @InjectRepository(Shift)
     private readonly shiftRepository: Repository<Shift>,
     private readonly notificationsService: NotificationsService,
-  ) {}
+  ) { }
 
   async findAll(): Promise<Shift[]> {
     return this.shiftRepository.find({
@@ -89,8 +89,8 @@ export class ShiftsService {
     // Send notification for new shift assignment
     try {
       await this.notificationsService.create({
-        title: 'Nuevo Turno Asignado',
-        message: `Se ha asignado un turno para el ${shift.date.toLocaleDateString()} de ${shift.startTime} a ${shift.endTime}`,
+        title: 'New Shift Assigned',
+        message: `A shift has been assigned for ${shift.date.toLocaleDateString()} from ${shift.startTime} to ${shift.endTime}`,
         type: NotificationType.INFO,
         refId: shift.employeeId,
         refType: 'employee',

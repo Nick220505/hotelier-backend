@@ -102,7 +102,7 @@ export class MaintenanceReport {
 
   @ApiProperty({
     description: 'Name of the person who reported the issue',
-    example: 'Maria Rodriguez',
+    example: 'Mary Johnson',
   })
   @IsString()
   @Length(1, 100)

@@ -10,120 +10,120 @@ export class ParkingSpacesSeeder {
   constructor(
     @InjectRepository(ParkingSpace)
     private parkingSpaceRepository: Repository<ParkingSpace>,
-  ) {}
+  ) { }
 
   async seed() {
     const parkingSpaces = [
-      // Parqueadero de Huéspedes - Planta Baja
+      // Guest Parking - Ground Floor
       {
         code: 'G-001',
-        zone: 'Planta Baja',
+        zone: 'Ground Floor',
         type: SpaceType.GUEST,
         status: SpaceStatus.AVAILABLE,
         hourlyRate: 5.0,
-        location: 'Planta Baja - Fila A',
+        location: 'Ground Floor - Row A',
       },
       {
         code: 'G-002',
-        zone: 'Planta Baja',
+        zone: 'Ground Floor',
         type: SpaceType.GUEST,
         status: SpaceStatus.OCCUPIED,
         currentVehicle: 'ABC-123',
         hourlyRate: 5.0,
-        location: 'Planta Baja - Fila A',
+        location: 'Ground Floor - Row A',
       },
       {
         code: 'G-003',
-        zone: 'Planta Baja',
+        zone: 'Ground Floor',
         type: SpaceType.GUEST,
         status: SpaceStatus.AVAILABLE,
         hourlyRate: 5.0,
-        location: 'Planta Baja - Fila A',
+        location: 'Ground Floor - Row A',
       },
 
-      // Parqueadero VIP
+      // VIP Parking
       {
         code: 'VIP-001',
-        zone: 'Sección VIP',
+        zone: 'VIP Section',
         type: SpaceType.VIP,
         status: SpaceStatus.AVAILABLE,
         hourlyRate: 15.0,
-        location: 'Planta Baja - Área VIP',
+        location: 'Ground Floor - VIP Area',
       },
       {
         code: 'VIP-002',
-        zone: 'Sección VIP',
+        zone: 'VIP Section',
         type: SpaceType.VIP,
         status: SpaceStatus.RESERVED,
         hourlyRate: 15.0,
-        location: 'Planta Baja - Área VIP',
+        location: 'Ground Floor - VIP Area',
       },
 
-      // Parqueadero para Personas con Discapacidad
+      // Accessible Parking
       {
         code: 'DIS-001',
-        zone: 'Accesibilidad',
+        zone: 'Accessibility',
         type: SpaceType.DISABLED,
         status: SpaceStatus.AVAILABLE,
         hourlyRate: 0.0,
-        location: 'Planta Baja - Cerca de la Entrada',
+        location: 'Ground Floor - Near Entrance',
       },
       {
         code: 'DIS-002',
-        zone: 'Accesibilidad',
+        zone: 'Accessibility',
         type: SpaceType.DISABLED,
         status: SpaceStatus.AVAILABLE,
         hourlyRate: 0.0,
-        location: 'Planta Baja - Cerca de la Entrada',
+        location: 'Ground Floor - Near Entrance',
       },
 
-      // Parqueadero de Empleados
+      // Employee Parking
       {
         code: 'EMP-001',
-        zone: 'Área de Empleados',
+        zone: 'Employee Area',
         type: SpaceType.EMPLOYEE,
         status: SpaceStatus.OCCUPIED,
         currentVehicle: 'EMP-456',
         hourlyRate: 0.0,
-        location: 'Subterráneo - Nivel B1',
+        location: 'Basement - Level B1',
       },
       {
         code: 'EMP-002',
-        zone: 'Área de Empleados',
+        zone: 'Employee Area',
         type: SpaceType.EMPLOYEE,
         status: SpaceStatus.AVAILABLE,
         hourlyRate: 0.0,
-        location: 'Subterráneo - Nivel B1',
+        location: 'Basement - Level B1',
       },
 
-      // Parqueadero de Visitantes
+      // Visitor Parking
       {
         code: 'VIS-001',
-        zone: 'Área de Visitantes',
+        zone: 'Visitor Area',
         type: SpaceType.VISITOR,
         status: SpaceStatus.AVAILABLE,
         hourlyRate: 3.0,
-        location: 'Planta Baja - Fila C',
+        location: 'Ground Floor - Row C',
       },
 
-      // Zona de Carga
+      // Loading Zone
       {
         code: 'LOAD-001',
-        zone: 'Área de Servicios',
+        zone: 'Service Area',
         type: SpaceType.LOADING,
         status: SpaceStatus.AVAILABLE,
         hourlyRate: 0.0,
-        location: 'Planta Baja - Muelle de Carga',
+        location: 'Ground Floor - Loading Dock',
       },
 
-      // Mantenimiento
+      // Maintenance
       {
         code: 'G-004',
-        zone: 'Planta Baja',
+        zone: 'Ground Floor',
         type: SpaceType.GUEST,
         status: SpaceStatus.MAINTENANCE,
         hourlyRate: 5.0,
-        location: 'Planta Baja - Fila B',
+        location: 'Ground Floor - Row B',
       },
     ];
 

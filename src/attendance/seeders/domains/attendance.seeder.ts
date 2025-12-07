@@ -12,7 +12,7 @@ export class AttendanceSeeder {
     private readonly attendanceRepository: Repository<Attendance>,
     @InjectRepository(Employee)
     private readonly employeeRepository: Repository<Employee>,
-  ) {}
+  ) { }
 
   async seed() {
     // Get existing employees to create attendance records for
@@ -35,37 +35,37 @@ export class AttendanceSeeder {
         checkIn: '08:00',
         checkOut: undefined, // Still working
         status: AttendanceStatus.PRESENT,
-        notes: 'Entrada puntual - turno en curso',
+        notes: 'On-time arrival - shift in progress',
         hoursWorked: 0,
         overtimeHours: 0,
-        employeeId: employees[0].id, // Maria Rodriguez
+        employeeId: employees[0].id, // Mary Johnson
       },
       {
         date: today,
         checkIn: '09:10',
         checkOut: undefined, // Still working
         status: AttendanceStatus.LATE,
-        notes: 'Llegada tarde por tráfico',
+        notes: 'Late arrival due to traffic',
         hoursWorked: 0,
         overtimeHours: 0,
-        employeeId: employees[1].id, // Carlos Martinez
+        employeeId: employees[1].id, // James Smith
       },
       {
         date: today,
         checkIn: '08:30',
         checkOut: undefined, // Still working
         status: AttendanceStatus.PRESENT,
-        notes: 'Turno matutino normal',
+        notes: 'Normal morning shift',
         hoursWorked: 0,
         overtimeHours: 0,
-        employeeId: employees[2]?.id || employees[0].id, // Ana Garcia
+        employeeId: employees[2]?.id || employees[0].id, // Emily Brown
       },
       {
         date: today,
         checkIn: undefined,
         checkOut: undefined,
         status: AttendanceStatus.SICK_LEAVE,
-        notes: 'Incapacidad médica - gripe',
+        notes: 'Medical leave - flu',
         hoursWorked: 0,
         overtimeHours: 0,
         employeeId: employees[3]?.id || employees[0].id, // Luis Fernandez
@@ -77,37 +77,37 @@ export class AttendanceSeeder {
         checkIn: '08:00',
         checkOut: '16:30',
         status: AttendanceStatus.PRESENT,
-        notes: 'Jornada completa',
+        notes: 'Full workday',
         hoursWorked: 8.5,
         overtimeHours: 0.5,
-        employeeId: employees[0].id, // Maria Rodriguez
+        employeeId: employees[0].id, // Mary Johnson
       },
       {
         date: yesterday,
         checkIn: '09:00',
         checkOut: '17:00',
         status: AttendanceStatus.PRESENT,
-        notes: 'Turno regular',
+        notes: 'Regular shift',
         hoursWorked: 8.0,
         overtimeHours: 0,
-        employeeId: employees[1].id, // Carlos Martinez
+        employeeId: employees[1].id, // James Smith
       },
       {
         date: yesterday,
         checkIn: '08:30',
         checkOut: '16:30',
         status: AttendanceStatus.PRESENT,
-        notes: 'Limpieza de habitaciones completada',
+        notes: 'Room cleaning completed',
         hoursWorked: 8.0,
         overtimeHours: 0,
-        employeeId: employees[2]?.id || employees[0].id, // Ana Garcia
+        employeeId: employees[2]?.id || employees[0].id, // Emily Brown
       },
       {
         date: yesterday,
         checkIn: '14:00',
         checkOut: '22:30',
         status: AttendanceStatus.PRESENT,
-        notes: 'Turno vespertino - mantenimiento',
+        notes: 'Evening shift - maintenance',
         hoursWorked: 8.5,
         overtimeHours: 0.5,
         employeeId: employees[3]?.id || employees[0].id, // Luis Fernandez
@@ -117,17 +117,17 @@ export class AttendanceSeeder {
         checkIn: '18:00',
         checkOut: '02:00',
         status: AttendanceStatus.PRESENT,
-        notes: 'Turno nocturno - servicio de cena',
+        notes: 'Night shift - dinner service',
         hoursWorked: 8.0,
         overtimeHours: 0,
-        employeeId: employees[4]?.id || employees[0].id, // Sofia Herrera
+        employeeId: employees[4]?.id || employees[0].id, // Sarah Davis
       },
       {
         date: yesterday,
         checkIn: '22:00',
         checkOut: '06:00',
         status: AttendanceStatus.PRESENT,
-        notes: 'Vigilancia nocturna',
+        notes: 'Night surveillance',
         hoursWorked: 8.0,
         overtimeHours: 0,
         employeeId: employees[5]?.id || employees[0].id, // Roberto Silva
@@ -139,37 +139,37 @@ export class AttendanceSeeder {
         checkIn: '08:15',
         checkOut: '16:00',
         status: AttendanceStatus.EARLY_LEAVE,
-        notes: 'Salida temprana por cita médica',
+        notes: 'Early leave for medical appointment',
         hoursWorked: 7.75,
         overtimeHours: 0,
-        employeeId: employees[0].id, // Maria Rodriguez
+        employeeId: employees[0].id, // Mary Johnson
       },
       {
         date: dayBeforeYesterday,
         checkIn: undefined,
         checkOut: undefined,
         status: AttendanceStatus.VACATION,
-        notes: 'Día de vacaciones programado',
+        notes: 'Scheduled vacation day',
         hoursWorked: 0,
         overtimeHours: 0,
-        employeeId: employees[1].id, // Carlos Martinez
+        employeeId: employees[1].id, // James Smith
       },
       {
         date: dayBeforeYesterday,
         checkIn: '08:30',
         checkOut: '17:30',
         status: AttendanceStatus.PRESENT,
-        notes: 'Jornada extendida - evento especial',
+        notes: 'Extended shift - special event',
         hoursWorked: 9.0,
         overtimeHours: 1.0,
-        employeeId: employees[2]?.id || employees[0].id, // Ana Garcia
+        employeeId: employees[2]?.id || employees[0].id, // Emily Brown
       },
       {
         date: dayBeforeYesterday,
         checkIn: undefined,
         checkOut: undefined,
         status: AttendanceStatus.ABSENT,
-        notes: 'Ausencia no justificada',
+        notes: 'Unexcused absence',
         hoursWorked: 0,
         overtimeHours: 0,
         employeeId: employees[3]?.id || employees[0].id, // Luis Fernandez

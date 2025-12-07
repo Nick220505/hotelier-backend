@@ -154,7 +154,7 @@ export class SeedersService {
     await this.setIfMissing(
       ConfigCategory.INTEGRATION,
       'STRIPE.SETTINGS',
-      JSON.stringify({ currency: 'COP', environment: 'test' }),
+      JSON.stringify({ currency: 'USD', environment: 'test' }),
       'Stripe settings (JSON)',
     );
 

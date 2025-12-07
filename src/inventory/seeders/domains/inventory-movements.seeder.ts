@@ -12,7 +12,7 @@ export class InventoryMovementsSeeder {
     private movementRepository: Repository<InventoryMovement>,
     @InjectRepository(Inventory)
     private inventoryRepository: Repository<Inventory>,
-  ) {}
+  ) { }
 
   async seed() {
     const inventoryItems = await this.inventoryRepository.find({ take: 5 });
@@ -31,11 +31,11 @@ export class InventoryMovementsSeeder {
         quantity: 50,
         previousStock: 50,
         newStock: 100,
-        reason: 'Compra de stock inicial',
+        reason: 'Initial stock purchase',
         cost: 1275.0, // 50 * 25.50
         user: 'system',
-        responsible: 'Gerente de Inventario',
-        notes: 'Configuración inicial del inventario',
+        responsible: 'Inventory Manager',
+        notes: 'Initial inventory setup',
       },
       {
         type: MovementType.OUT,
@@ -43,10 +43,10 @@ export class InventoryMovementsSeeder {
         quantity: 10,
         previousStock: 100,
         newStock: 90,
-        reason: 'Uso para limpieza de habitaciones',
+        reason: 'Use for room cleaning',
         user: 'housekeeping_staff',
-        responsible: 'Maria Rodriguez',
-        notes: 'Utilizado para habitaciones 201-210',
+        responsible: 'Mary Johnson',
+        notes: 'Used for rooms 201-210',
       },
       {
         type: MovementType.IN,
@@ -54,11 +54,11 @@ export class InventoryMovementsSeeder {
         quantity: 25,
         previousStock: 50,
         newStock: 75,
-        reason: 'Reabastecimiento semanal',
+        reason: 'Weekly restocking',
         cost: 468.75, // 25 * 18.75
         user: 'inventory_manager',
         responsible: 'John Smith',
-        notes: 'Pedido semanal #WK2024-01',
+        notes: 'Weekly order #WK2024-01',
       },
       {
         type: MovementType.ADJUSTMENT,
@@ -66,11 +66,11 @@ export class InventoryMovementsSeeder {
         quantity: -5,
         previousStock: 505,
         newStock: 500,
-        reason: 'Ajuste de inventario',
+        reason: 'Inventory adjustment',
         user: 'inventory_manager',
         responsible: 'John Smith',
         notes:
-          'Ajuste por conteo físico - botellas dañadas durante el transporte',
+          'Adjustment for physical count - bottles damaged during transport',
       },
     ];
 

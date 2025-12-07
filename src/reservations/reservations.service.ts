@@ -48,7 +48,7 @@ export class ReservationsService {
     private readonly housekeepingService: HousekeepingService,
     private readonly notificationsService: NotificationsService,
     private readonly dataSource: DataSource,
-  ) {}
+  ) { }
 
   async getCurrentGuests(): Promise<Reservation[]> {
     const today = new Date();
@@ -195,8 +195,8 @@ export class ReservationsService {
     // Notify system of new reservation
     try {
       await this.notificationsService.createSystemAlert(
-        'Nueva reserva',
-        `Reserva #${created.id} creada para habitación ${room.number} (${nights} noche${nights !== 1 ? 's' : ''})`,
+        'New reservation',
+        `Reservation #${created.id} created for room ${room.number} (${nights} night${nights !== 1 ? 's' : ''})`,
         created.id,
         'RESERVATION',
       );
@@ -227,7 +227,7 @@ export class ReservationsService {
       const checkOutDate = updatedData.checkOutDate as Date;
       updatedData.nights = Math.ceil(
         (checkOutDate.getTime() - checkInDate.getTime()) /
-          (1000 * 60 * 60 * 24),
+        (1000 * 60 * 60 * 24),
       );
     }
 
@@ -358,7 +358,7 @@ export class ReservationsService {
 
       const cleaningDto: Partial<CreateCleaningAssignmentDto> = {
         roomId: reservation.roomId,
-        notes: `Limpieza tras checkout de reserva ${reservation.id}`,
+        notes: `Cleaning after checkout of reservation ${reservation.id}`,
         employeeId: defaultEmp,
       };
       const created = await this.housekeepingService.createCleaningAssignment(
@@ -369,8 +369,8 @@ export class ReservationsService {
 
     // Notify system about checkout and cleaning queued
     await this.notificationsService.createSystemAlert(
-      'Checkout realizado',
-      `Reserva #${reservation.id} - Habitación ${reservation.room?.number ?? reservation.roomId} enviada a limpieza`,
+      'Checkout completed',
+      `Reservation #${reservation.id} - Room ${reservation.room?.number ?? reservation.roomId} sent to cleaning`,
       reservation.id,
       'RESERVATION',
     );
@@ -423,7 +423,7 @@ export class ReservationsService {
 
       // Items: one for stay, one aggregated for restaurant (if any)
       await this.invoiceItemRepository.save({
-        description: `Alojamiento (${nights} noche${nights !== 1 ? 's' : ''}) - Habitación ${roomNumber}`,
+        description: `Accommodation (${nights} night${nights !== 1 ? 's' : ''}) - Room ${roomNumber}`,
         quantity: nights,
         price: Number(roomEntity.price),
         total: roomSubtotal,
@@ -431,7 +431,7 @@ export class ReservationsService {
       });
       if (restaurantTotal > 0) {
         await this.invoiceItemRepository.save({
-          description: 'Consumos de restaurante (servicio a la habitación)',
+          description: 'Restaurant charges (room service)',
           quantity: 1,
           price: restaurantTotal,
           total: restaurantTotal,
@@ -557,8 +557,8 @@ export class ReservationsService {
         // Get event bookings for this guest
         const eventBookings: EventBooking[] = reservation.guestId
           ? await this.dataSource.getRepository(EventBooking).find({
-              where: { guestId: reservation.guestId },
-            })
+            where: { guestId: reservation.guestId },
+          })
           : [];
 
         const eventCharges = eventBookings.map((event) => ({

@@ -17,7 +17,7 @@ export class RoomsSeeder {
       ...Array.from({ length: 10 }, (_, i) => ({
         number: `10${i + 1}`,
         type: RoomType.INDIVIDUAL,
-        price: 210000.0,
+        price: 50.00,
         capacity: 1,
         isAvailable: true,
         description: 'Comfortable single room with basic amenities',
@@ -27,7 +27,7 @@ export class RoomsSeeder {
       ...Array.from({ length: 20 }, (_, i) => ({
         number: `2${String(i + 1).padStart(2, '0')}`,
         type: RoomType.DOBLE,
-        price: 315000.0,
+        price: 75.00,
         capacity: 2,
         isAvailable: true,
         description: 'Spacious double room with modern amenities',
@@ -37,7 +37,7 @@ export class RoomsSeeder {
       ...Array.from({ length: 5 }, (_, i) => ({
         number: `30${i + 1}`,
         type: RoomType.SUITE,
-        price: 630000.0,
+        price: 150.00,
         capacity: 2,
         isAvailable: true,
         description: 'Luxury suite with premium amenities and city view',
@@ -47,7 +47,7 @@ export class RoomsSeeder {
       ...Array.from({ length: 10 }, (_, i) => ({
         number: `40${i + 1}`,
         type: RoomType.FAMILIAR,
-        price: 504000.0,
+        price: 120.00,
         capacity: 4,
         isAvailable: true,
         description: 'Family-friendly room with extra space and amenities',

@@ -10,14 +10,14 @@ export class StaffSeeder {
   constructor(
     @InjectRepository(Staff)
     private staffRepository: Repository<Staff>,
-  ) {}
+  ) { }
 
   async seed() {
     const staffMembers = [
       {
         employeeId: 'STF001',
-        name: 'Elena Morales',
-        email: 'elena.morales@hotelier.com',
+        name: 'Emily Morrison',
+        email: 'emily.morrison@hotelier.com',
         phone: '+1234567800',
         department: Department.HOUSEKEEPING,
         position: 'Head of Housekeeping',
@@ -28,8 +28,8 @@ export class StaffSeeder {
       },
       {
         employeeId: 'STF002',
-        name: 'Manuel Torres',
-        email: 'manuel.torres@hotelier.com',
+        name: 'Michael Turner',
+        email: 'michael.turner@hotelier.com',
         phone: '+1234567801',
         department: Department.FRONT_DESK,
         position: 'Front Desk Manager',
@@ -40,8 +40,8 @@ export class StaffSeeder {
       },
       {
         employeeId: 'STF003',
-        name: 'Carmen Jiménez',
-        email: 'carmen.jimenez@hotelier.com',
+        name: 'Catherine Johnson',
+        email: 'catherine.johnson@hotelier.com',
         phone: '+1234567802',
         department: Department.RESTAURANT,
         position: 'Restaurant Manager',
@@ -52,8 +52,8 @@ export class StaffSeeder {
       },
       {
         employeeId: 'STF004',
-        name: 'Diego Ramírez',
-        email: 'diego.ramirez@hotelier.com',
+        name: 'Daniel Roberts',
+        email: 'daniel.roberts@hotelier.com',
         phone: '+1234567803',
         department: Department.MAINTENANCE,
         position: 'Maintenance Manager',
@@ -64,8 +64,8 @@ export class StaffSeeder {
       },
       {
         employeeId: 'STF005',
-        name: 'Isabel Vargas',
-        email: 'isabel.vargas@hotelier.com',
+        name: 'Isabella Williams',
+        email: 'isabella.williams@hotelier.com',
         phone: '+1234567804',
         department: Department.MANAGEMENT,
         position: 'Administrator',

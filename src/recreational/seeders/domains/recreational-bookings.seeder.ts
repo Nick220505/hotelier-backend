@@ -13,19 +13,19 @@ export class RecreationalBookingsSeeder {
     private readonly bookingRepository: Repository<RecreationalBooking>,
     @InjectRepository(RecreationalFacility)
     private readonly facilityRepository: Repository<RecreationalFacility>,
-  ) {}
+  ) { }
 
   async seed() {
     const existingCount = await this.bookingRepository.count();
     if (existingCount > 0) {
-      console.log('⏭️ Las reservas recreativas ya existen, saltando seeding');
+      console.log('⏭️ Recreational bookings already exist, skipping seeding');
       return;
     }
 
     const facilities = await this.facilityRepository.find();
     if (facilities.length === 0) {
       console.log(
-        '⚠️ No se encontraron instalaciones, saltando seeding de reservas',
+        '⚠️ No facilities found, skipping booking seeding',
       );
       return;
     }
@@ -34,96 +34,96 @@ export class RecreationalBookingsSeeder {
     const today = new Date();
     const bookings: any[] = [];
 
-    // Sample guest data - Colombian context
+    // Sample guest data - American context
     const guests = [
       {
-        name: 'María Alejandra Rodríguez',
-        email: 'maria.rodriguez@gmail.com',
-        phone: '+573125678901',
+        name: 'Sarah Johnson',
+        email: 'sarah.johnson@gmail.com',
+        phone: '+1-555-234-5678',
         room: '301',
       },
       {
-        name: 'Carlos Andrés Martínez',
-        email: 'carlos.martinez@hotmail.com',
-        phone: '+573145678902',
+        name: 'Michael Williams',
+        email: 'michael.williams@hotmail.com',
+        phone: '+1-555-345-6789',
         room: '205',
       },
       {
-        name: 'Ana Sofía López',
-        email: 'ana.lopez@yahoo.es',
-        phone: '+573165678903',
+        name: 'Emily Davis',
+        email: 'emily.davis@yahoo.com',
+        phone: '+1-555-456-7890',
         room: '412',
       },
       {
-        name: 'Juan Pablo García',
-        email: 'juan.garcia@outlook.com',
-        phone: '+573185678904',
+        name: 'James Miller',
+        email: 'james.miller@outlook.com',
+        phone: '+1-555-567-8901',
         room: '308',
       },
       {
-        name: 'Valentina Moreno',
-        email: 'valentina.moreno@gmail.com',
-        phone: '+573205678905',
+        name: 'Jessica Brown',
+        email: 'jessica.brown@gmail.com',
+        phone: '+1-555-678-9012',
         room: '506',
       },
       {
-        name: 'Santiago Hernández',
-        email: 'santiago.hernandez@une.net.co',
-        phone: '+573225678906',
+        name: 'David Wilson',
+        email: 'david.wilson@aol.com',
+        phone: '+1-555-789-0123',
         room: '203',
       },
       {
-        name: 'Isabella Jiménez',
-        email: 'isabella.jimenez@gmail.com',
-        phone: '+573245678907',
+        name: 'Ashley Taylor',
+        email: 'ashley.taylor@gmail.com',
+        phone: '+1-555-890-1234',
         room: '711',
       },
       {
-        name: 'Sebastián Vargas',
-        email: 'sebastian.vargas@outlook.es',
-        phone: '+573265678908',
+        name: 'Christopher Anderson',
+        email: 'chris.anderson@outlook.com',
+        phone: '+1-555-901-2345',
         room: '115',
       },
       {
-        name: 'Camila Torres',
-        email: 'camila.torres@hotmail.com',
-        phone: '+573285678909',
+        name: 'Amanda Thomas',
+        email: 'amanda.thomas@hotmail.com',
+        phone: '+1-555-012-3456',
         room: '609',
       },
       {
-        name: 'Diego Fernando Castro',
-        email: 'diego.castro@gmail.com',
-        phone: '+573305678910',
+        name: 'Matthew Jackson',
+        email: 'matt.jackson@gmail.com',
+        phone: '+1-555-123-4567',
         room: '404',
       },
       {
-        name: 'Sofía Alejandra Díaz',
-        email: 'sofia.diaz@yahoo.com',
-        phone: '+573325678911',
+        name: 'Jennifer White',
+        email: 'jennifer.white@yahoo.com',
+        phone: '+1-555-234-5679',
         room: '512',
       },
       {
-        name: 'Alejandro Mejía',
-        email: 'alejandro.mejia@gmail.com',
-        phone: '+573345678912',
+        name: 'Daniel Harris',
+        email: 'daniel.harris@gmail.com',
+        phone: '+1-555-345-6780',
         room: '208',
       },
       {
-        name: 'Natalia Restrepo',
-        email: 'natalia.restrepo@outlook.com',
-        phone: '+573365678913',
+        name: 'Stephanie Martin',
+        email: 'stephanie.martin@outlook.com',
+        phone: '+1-555-456-7891',
         room: '315',
       },
       {
-        name: 'Andrés Felipe Gómez',
-        email: 'andres.gomez@hotmail.com',
-        phone: '+573385678914',
+        name: 'Andrew Thompson',
+        email: 'andrew.thompson@hotmail.com',
+        phone: '+1-555-567-8902',
         room: '420',
       },
       {
-        name: 'Paula Andrea Ruiz',
-        email: 'paula.ruiz@gmail.com',
-        phone: '+573405678915',
+        name: 'Lauren Williams',
+        email: 'lauren.garcia@gmail.com',
+        phone: '+1-555-678-9013',
         room: '607',
       },
     ];
@@ -153,20 +153,20 @@ export class RecreationalBookingsSeeder {
     ];
 
     const specialRequests = [
-      'Por favor proporcionar toallas para 3 huéspedes',
-      'Primera vez usando la instalación - necesita orientación',
-      'Huésped VIP - brindar servicio premium',
-      'Celebrando aniversario - configuración especial solicitada',
-      'Condición médica - necesita asistencia',
-      'Reserva grupal - evento corporativo',
-      'Familia con niños pequeños - supervisión especial',
-      'Solicita música relajante durante la sesión',
-      'Prefiere agua fría adicional',
-      'Necesita equipo de ejercicio adaptado',
-      'Huésped extranjero - atención en inglés',
-      'Celebración de cumpleaños - decoración solicitada',
+      'Please provide towels for 3 guests',
+      'First time using the facility - needs orientation',
+      'VIP guest - provide premium service',
+      'Celebrating anniversary - special setup requested',
+      'Medical condition - needs assistance',
+      'Group booking - corporate event',
+      'Family with small children - special supervision',
+      'Requests relaxing music during session',
+      'Prefers extra cold water',
+      'Needs adapted exercise equipment',
+      'Foreign guest - English attention required',
+      'Birthday celebration - decoration requested',
       null,
-      null, // La mayoría de reservas no tendrán solicitudes especiales
+      null, // Most bookings won't have special requests
       null,
     ];
 
@@ -261,11 +261,11 @@ export class RecreationalBookingsSeeder {
           priority: priorities[Math.floor(Math.random() * priorities.length)],
           specialRequests:
             specialRequests[
-              Math.floor(Math.random() * specialRequests.length)
+            Math.floor(Math.random() * specialRequests.length)
             ] || undefined,
           staffNotes:
             status === RecreationalBookingStatus.CANCELLED
-              ? 'Huésped solicitó cancelación'
+              ? 'Guest requested cancellation'
               : undefined,
           actualCheckIn: actualCheckIn || undefined,
           actualCheckOut: actualCheckOut || undefined,
@@ -290,7 +290,7 @@ export class RecreationalBookingsSeeder {
     }
 
     console.log(
-      `✨ Creadas ${bookings.length} reservas recreativas en múltiples instalaciones y fechas`,
+      `✨ Created ${bookings.length} recreational bookings across multiple facilities and dates`,
     );
   }
 }

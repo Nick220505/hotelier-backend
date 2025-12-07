@@ -17,7 +17,7 @@ export class ParkingIncidentsSeeder {
     private vehicleRepository: Repository<Vehicle>,
     @InjectRepository(ParkingSpace)
     private parkingSpaceRepository: Repository<ParkingSpace>,
-  ) {}
+  ) { }
 
   async seed() {
     const vehicles = await this.vehicleRepository.find({ take: 3 });
@@ -27,24 +27,24 @@ export class ParkingIncidentsSeeder {
       {
         type: IncidentType.VEHICLE_DAMAGE,
         description:
-          'Rayón menor en el parachoques trasero, posiblemente causado por otro vehículo',
-        reportDate: new Date(Date.now() - 12 * 60 * 60 * 1000), // 12 horas atrás
+          'Minor scratch on rear bumper, possibly caused by another vehicle',
+        reportDate: new Date(Date.now() - 12 * 60 * 60 * 1000), // 12 hours ago
         status: IncidentStatus.RESOLVED,
-        responsible: 'Equipo de Seguridad',
+        responsible: 'Security Team',
         priority: TaskPriority.NORMAL,
         resolution:
-          'Incidente documentado, propietario del vehículo notificado, seguro contactado',
-        resolvedAt: new Date(Date.now() - 8 * 60 * 60 * 1000), // 8 horas atrás
+          'Incident documented, vehicle owner notified, insurance contacted',
+        resolvedAt: new Date(Date.now() - 8 * 60 * 60 * 1000), // 8 hours ago
         vehicleId: vehicles[0]?.id,
         spaceId: parkingSpaces[0]?.id,
       },
       {
         type: IncidentType.SECURITY,
         description:
-          'Vehículo no autorizado estacionado en espacio VIP sin permiso',
-        reportDate: new Date(Date.now() - 4 * 60 * 60 * 1000), // 4 horas atrás
+          'Unauthorized vehicle parked in VIP space without permit',
+        reportDate: new Date(Date.now() - 4 * 60 * 60 * 1000), // 4 hours ago
         status: IncidentStatus.IN_PROGRESS,
-        responsible: 'Guardia de Seguridad',
+        responsible: 'Security Guard',
         priority: TaskPriority.HIGH,
         vehicleId: vehicles[1]?.id,
         spaceId: parkingSpaces[1]?.id,
@@ -52,35 +52,35 @@ export class ParkingIncidentsSeeder {
       {
         type: IncidentType.INFRASTRUCTURE,
         description:
-          'Falla en la barrera del parqueadero - no abre automáticamente',
-        reportDate: new Date(Date.now() - 2 * 60 * 60 * 1000), // 2 horas atrás
+          'Parking barrier failure - not opening automatically',
+        reportDate: new Date(Date.now() - 2 * 60 * 60 * 1000), // 2 hours ago
         status: IncidentStatus.PENDING,
-        responsible: 'Equipo de Mantenimiento',
+        responsible: 'Maintenance Team',
         priority: TaskPriority.HIGH,
         spaceId: parkingSpaces[2]?.id,
       },
       {
         type: IncidentType.ACCIDENT,
         description:
-          'Colisión menor entre dos vehículos durante el estacionamiento',
-        reportDate: new Date(Date.now() - 48 * 60 * 60 * 1000), // 2 días atrás
+          'Minor collision between two vehicles during parking',
+        reportDate: new Date(Date.now() - 48 * 60 * 60 * 1000), // 2 days ago
         status: IncidentStatus.RESOLVED,
-        responsible: 'Gerente de Seguridad',
+        responsible: 'Security Manager',
         priority: TaskPriority.URGENT,
         resolution:
-          'Seguro de ambas partes contactado, espacio de parqueadero cerrado temporalmente para investigación',
-        resolvedAt: new Date(Date.now() - 36 * 60 * 60 * 1000), // 36 horas atrás
+          'Both parties insurance contacted, parking space temporarily closed for investigation',
+        resolvedAt: new Date(Date.now() - 36 * 60 * 60 * 1000), // 36 hours ago
       },
       {
         type: IncidentType.OTHER,
         description:
-          'Huésped dejó las llaves dentro del vehículo, solicitó asistencia',
-        reportDate: new Date(Date.now() - 6 * 60 * 60 * 1000), // 6 horas atrás
+          'Guest locked keys inside vehicle, requested assistance',
+        reportDate: new Date(Date.now() - 6 * 60 * 60 * 1000), // 6 hours ago
         status: IncidentStatus.RESOLVED,
-        responsible: 'Recepción',
+        responsible: 'Front Desk',
         priority: TaskPriority.NORMAL,
-        resolution: 'Cerrajero contactado, vehículo abierto, huésped asistido',
-        resolvedAt: new Date(Date.now() - 5 * 60 * 60 * 1000), // 5 horas atrás
+        resolution: 'Locksmith contacted, vehicle opened, guest assisted',
+        resolvedAt: new Date(Date.now() - 5 * 60 * 60 * 1000), // 5 hours ago
         vehicleId: vehicles[0]?.id,
       },
     ];

@@ -20,7 +20,7 @@ export class BillingService {
     private readonly invoiceRepository: Repository<Invoice>,
     @InjectRepository(Payment)
     private readonly paymentRepository: Repository<Payment>,
-  ) {}
+  ) { }
 
   async findAll(): Promise<Invoice[]> {
     return this.invoiceRepository.find({
@@ -318,7 +318,7 @@ export class BillingService {
         const result = Buffer.concat(chunks);
         const file = new StreamableFile(result, {
           type: 'application/pdf',
-          disposition: `attachment; filename="factura-${invoice.number}.pdf"`,
+          disposition: `attachment; filename="invoice-${invoice.number}.pdf"`,
         });
         resolve(file);
       });
@@ -329,7 +329,7 @@ export class BillingService {
 
       doc.fontSize(20).text('HOTELIER', { align: 'center' });
 
-      doc.fontSize(16).text('FACTURA', { align: 'center' });
+      doc.fontSize(16).text('INVOICE', { align: 'center' });
 
       doc.moveDown();
 
@@ -337,23 +337,23 @@ export class BillingService {
 
       doc.fontSize(12);
 
-      doc.text(`Número de Factura: ${invoice.number}`);
+      doc.text(`Invoice Number: ${invoice.number}`);
 
-      doc.text(`Fecha: ${invoice.createdAt.toLocaleDateString()}`);
+      doc.text(`Date: ${invoice.createdAt.toLocaleDateString()}`);
 
-      doc.text(`Estado: ${invoice.status}`);
+      doc.text(`Status: ${invoice.status}`);
 
       doc.moveDown();
 
       // Guest details
 
-      doc.text(`Cliente: ${invoice.guestName}`);
+      doc.text(`Customer: ${invoice.guestName}`);
 
       doc.moveDown();
 
       // Items
 
-      doc.text('DETALLES', { align: 'left' });
+      doc.text('DETAILS', { align: 'left' });
 
       doc.moveDown(0.5);
       invoice.invoiceItems?.forEach((item) => {
@@ -372,7 +372,7 @@ export class BillingService {
 
       doc.text(`Subtotal: $${Number(invoice.subtotal).toFixed(2)}`);
 
-      doc.text(`IVA: $${Number(invoice.taxes).toFixed(2)}`);
+      doc.text(`Tax: $${Number(invoice.taxes).toFixed(2)}`);
 
       doc.text(`Total: $${Number(invoice.total).toFixed(2)}`);
 
@@ -382,7 +382,7 @@ export class BillingService {
 
       doc.fontSize(10);
 
-      doc.text('Gracias por su preferencia', { align: 'center' });
+      doc.text('Thank you for your preference', { align: 'center' });
 
       // Finish
 

@@ -32,7 +32,7 @@ export class RecreationalService {
     @InjectRepository(RecreationalBooking)
     private readonly bookingRepository: Repository<RecreationalBooking>,
     private readonly notificationsService: NotificationsService,
-  ) {}
+  ) { }
 
   // Facility Management
   async createFacility(
@@ -135,7 +135,7 @@ export class RecreationalService {
     // Parse bookingDate as Date object
     const bookingDate = new Date(data.bookingDate);
 
-    // Validate facility availability - sin validación de anticipación
+    // Validate facility availability - without anticipation validation
     const bookingDateTime = new Date(bookingDate);
     bookingDateTime.setHours(
       parseInt(data.startTime.split(':')[0]),
@@ -165,7 +165,7 @@ export class RecreationalService {
       );
     }
 
-    // Las instalaciones recreativas son gratuitas para los huéspedes
+    // Recreational facilities are free for guests
     const booking = this.bookingRepository.create({
       ...data,
       bookingDate,
@@ -272,7 +272,7 @@ export class RecreationalService {
       );
     }
 
-    // Las instalaciones recreativas son gratuitas para los huéspedes
+    // Recreational facilities are free for guests
     booking.totalCost = 0;
 
     Object.assign(booking, data);
@@ -537,21 +537,21 @@ export class RecreationalService {
       .getMany();
 
     if (conflictingBookings.length > 0) {
-      // Obtener el siguiente horario disponible
+      // Get the next available time slot
       const availableSlots = await this.generateAvailableTimeSlots(
         await this.getFacilityById(facilityId),
         date,
       );
 
-      // Encontrar el siguiente slot disponible después de la hora solicitada
+      // Find the next available slot after the requested time
       const nextAvailable = availableSlots.find(
         (slot) => slot.isAvailable && slot.startTime > startTime,
       );
 
       throw new ConflictException(
         nextAvailable
-          ? `El horario de ${startTime} no está disponible porque ya existe una reserva.\n\nPuedes reservar a las ${nextAvailable.startTime}, que es el siguiente horario disponible.`
-          : 'Lo sentimos, no hay horarios disponibles para este día. Por favor, intenta reservar en otra fecha.',
+          ? `The ${startTime} time slot is not available because a booking already exists.\n\nYou can book at ${nextAvailable.startTime}, which is the next available time slot.`
+          : 'Sorry, there are no available time slots for this day. Please try booking on another date.',
       );
     }
   }
@@ -625,9 +625,9 @@ export class RecreationalService {
       const averageDuration =
         totalBookings > 0
           ? bookings.reduce(
-              (sum, booking) => sum + Number(booking.duration),
-              0,
-            ) / totalBookings
+            (sum, booking) => sum + Number(booking.duration),
+            0,
+          ) / totalBookings
           : 0;
 
       // Calculate utilization rate (simplified - based on total possible hours vs booked hours)

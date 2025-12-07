@@ -33,7 +33,7 @@ export class AuditLogInterceptor implements NestInterceptor {
   constructor(
     private readonly auditService: AuditService,
     private readonly reflector: Reflector,
-  ) {}
+  ) { }
 
   intercept(context: ExecutionContext, next: CallHandler): Observable<any> {
     // Allow method-level or class-level options
@@ -188,7 +188,7 @@ export class AuditLogInterceptor implements NestInterceptor {
     resource: string,
     success: boolean,
   ): string {
-    const status = success ? 'Acción exitosa:' : 'Acción fallida:';
+    const status = success ? 'Successful action:' : 'Failed action:';
     const verb = this.getActionVerb(action);
     const resourceName = resource.toLowerCase().replace('_', ' ');
 
@@ -198,17 +198,17 @@ export class AuditLogInterceptor implements NestInterceptor {
   private getActionVerb(action: AuditAction): string {
     switch (action) {
       case AuditAction.CREATE:
-        return 'creó';
+        return 'created';
       case AuditAction.READ:
-        return 'consultó';
+        return 'viewed';
       case AuditAction.UPDATE:
-        return 'actualizó';
+        return 'updated';
       case AuditAction.DELETE:
-        return 'eliminó';
+        return 'deleted';
       case AuditAction.LOGIN:
-        return 'inició sesión';
+        return 'logged in';
       case AuditAction.LOGOUT:
-        return 'cerró sesión';
+        return 'logged out';
       default:
         return action.toLowerCase();
     }

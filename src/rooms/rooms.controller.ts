@@ -28,13 +28,13 @@ import { AuditResource } from '../audit/enums/audit-resource.enum';
 @Controller('rooms')
 @ApiBearerAuth()
 export class RoomsController {
-  constructor(private readonly roomsService: RoomsService) {}
+  constructor(private readonly roomsService: RoomsService) { }
 
   @Post()
   @AuditLog({
     action: AuditAction.CREATE,
     resource: AuditResource.ROOM,
-    description: 'Habitación creada',
+    description: 'Room created',
     includeBody: true,
   })
   @ApiOperation({
@@ -100,7 +100,7 @@ export class RoomsController {
   @AuditLog({
     action: AuditAction.UPDATE,
     resource: AuditResource.ROOM,
-    description: 'Habitación actualizada',
+    description: 'Room updated',
     resourceIdParam: 'id',
     includeBody: true,
   })
@@ -138,7 +138,7 @@ export class RoomsController {
   @AuditLog({
     action: AuditAction.DELETE,
     resource: AuditResource.ROOM,
-    description: 'Habitación eliminada',
+    description: 'Room deleted',
     resourceIdParam: 'id',
   })
   @ApiOperation({

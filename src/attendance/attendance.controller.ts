@@ -21,7 +21,7 @@ import { AuditResource } from '../audit/enums/audit-resource.enum';
 @ApiTags('attendance')
 @Controller('attendance')
 export class AttendanceController {
-  constructor(private readonly attendanceService: AttendanceService) {}
+  constructor(private readonly attendanceService: AttendanceService) { }
 
   @Get()
   @ApiOperation({
@@ -169,7 +169,7 @@ export class AttendanceController {
   @AuditLog({
     action: AuditAction.CREATE,
     resource: AuditResource.ATTENDANCE,
-    description: 'Registro de asistencia creado',
+    description: 'Attendance record created',
     includeBody: true,
   })
   @ApiOperation({
@@ -193,7 +193,7 @@ export class AttendanceController {
   @AuditLog({
     action: AuditAction.UPDATE,
     resource: AuditResource.ATTENDANCE,
-    description: 'Registro de asistencia actualizado',
+    description: 'Attendance record updated',
     resourceIdParam: 'id',
     includeBody: true,
   })
@@ -230,7 +230,7 @@ export class AttendanceController {
   @AuditLog({
     action: AuditAction.DELETE,
     resource: AuditResource.ATTENDANCE,
-    description: 'Registro de asistencia eliminado',
+    description: 'Attendance record deleted',
     resourceIdParam: 'id',
   })
   @ApiOperation({
@@ -259,7 +259,7 @@ export class AttendanceController {
   @AuditLog({
     action: AuditAction.CHECK_IN,
     resource: AuditResource.ATTENDANCE,
-    description: 'Empleado registró entrada',
+    description: 'Employee checked in',
     resourceIdParam: 'employeeId',
   })
   @ApiOperation({
@@ -291,7 +291,7 @@ export class AttendanceController {
   @AuditLog({
     action: AuditAction.CHECK_OUT,
     resource: AuditResource.ATTENDANCE,
-    description: 'Empleado registró salida',
+    description: 'Employee checked out',
     resourceIdParam: 'employeeId',
   })
   @ApiOperation({

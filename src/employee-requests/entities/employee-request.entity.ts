@@ -47,7 +47,7 @@ export class EmployeeRequest {
 
   @ApiProperty({
     description: 'Reason for the request',
-    example: 'Vacaciones familiares',
+    example: 'Family vacation',
   })
   @IsString()
   @Length(1, 500)
@@ -95,7 +95,7 @@ export class EmployeeRequest {
 
   @ApiProperty({
     description: 'Name of person who approved/rejected the request',
-    example: 'Manager García',
+    example: 'Manager Smith',
     required: false,
   })
   @IsOptional()

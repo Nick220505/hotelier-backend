@@ -12,7 +12,7 @@ export class EventBookingsSeeder {
     private eventBookingRepository: Repository<EventBooking>,
     @InjectRepository(Venue)
     private venueRepository: Repository<Venue>,
-  ) {}
+  ) { }
 
   async seed() {
     const venues = await this.venueRepository.find();
@@ -24,77 +24,77 @@ export class EventBookingsSeeder {
 
     const eventBookings = [
       {
-        title: 'Reunión Familiar Martínez',
+        title: 'Smith Family Reunion',
         description:
-          'Encuentro familiar anual con almuerzo, actividades y celebración para toda la familia extendida.',
+          'Annual family gathering with lunch, activities and celebration for the extended family.',
         eventDate: new Date('2024-12-14'),
         startTime: '11:00',
         endTime: '16:00',
         attendees: 80,
-        totalCost: 10080000.0,
+        totalCost: 2400.00,
         status: EventStatus.CONFIRMED,
-        clientName: 'Carlos Martínez',
-        clientEmail: 'carlos.martinez@gmail.com',
+        clientName: 'James Smith',
+        clientEmail: 'james.smith@gmail.com',
         clientPhone: '+57 310 123 4567',
         notes:
-          'La familia tiene restricciones alimenticias - requieren opciones vegetarianas',
+          'Family has dietary restrictions - require vegetarian options',
         venueId:
-          venues.find((v) => v.name === 'Pabellón del Jardín')?.id ||
+          venues.find((v) => v.name === 'Garden Pavilion')?.id ||
           venues[0].id,
       },
       {
-        title: 'Presentación para Inversionistas TechCol',
+        title: 'TechCol Investor Presentation',
         description:
-          'Presentación de propuesta de negocio a inversionistas potenciales con sesión de preguntas y networking.',
+          'Business proposal presentation to potential investors with Q&A session and networking.',
         eventDate: new Date('2024-12-20'),
         startTime: '13:00',
         endTime: '17:00',
         attendees: 35,
-        totalCost: 4410000.0,
+        totalCost: 1050.00,
         status: EventStatus.PLANNED,
-        clientName: 'Sandra Jiménez',
-        clientEmail: 'sandra.jimenez@techcol.com.co',
+        clientName: 'Sarah Thompson',
+        clientEmail: 'sarah.thompson@techcorp.com',
         clientPhone: '+57 320 456 7890',
         notes:
-          'Necesitan configuración de transmisión en vivo y equipo de grabación',
+          'Need live streaming setup and recording equipment',
         venueId:
-          venues.find((v) => v.name === 'Sala de Conferencias Alpha')?.id ||
+          venues.find((v) => v.name === 'Conference Room Alpha')?.id ||
           venues[0].id,
       },
       {
-        title: 'Celebración de Bodas de Oro',
+        title: 'Golden Wedding Anniversary Celebration',
         description:
-          'Celebración del 50° aniversario de bodas con cena y baile para familiares y amigos.',
+          '50th wedding anniversary celebration with dinner and dancing for family and friends.',
         eventDate: new Date('2024-12-25'),
         startTime: '17:00',
         endTime: '22:00',
         attendees: 120,
-        totalCost: 25200000.0,
+        totalCost: 6000.00,
         status: EventStatus.CONFIRMED,
-        clientName: 'Roberto y Linda Vargas',
-        clientEmail: 'rvargas@hotmail.com',
+        clientName: 'Robert and Linda Taylor',
+        clientEmail: 'rtaylor@hotmail.com',
         clientPhone: '+57 315 789 0123',
-        notes: 'Torta de aniversario y decoración especial requerida',
+        notes: 'Anniversary cake and special decoration required',
         venueId:
-          venues.find((v) => v.name === 'Salón Principal')?.id || venues[0].id,
+          venues.find((v) => v.name === 'Main Ballroom')?.id || venues[0].id,
       },
       {
-        title: 'Reunión Trimestral de Ventas',
+        title: 'Quarterly Sales Meeting',
         description:
-          'Reunión del equipo regional de ventas con revisión de desempeño y sesión de planificación.',
+          'Regional sales team meeting with performance review and planning session.',
         eventDate: new Date('2024-12-18'),
         startTime: '09:00',
         endTime: '15:00',
         attendees: 15,
-        totalCost: 5040000.0,
+        totalCost: 1200.00,
         status: EventStatus.IN_PROGRESS,
-        clientName: 'Miguel Ángel Castro',
+        clientName: 'Michael Carter',
         clientEmail: 'mcastro@ventascolombia.com',
         clientPhone: '+57 301 234 5678',
         notes:
-          'Almuerzo incluido en catering, necesitan rotafolios y marcadores',
+          'Lunch included in catering, need flipcharts and markers',
         venueId:
-          venues.find((v) => v.name === 'Sala Ejecutiva')?.id || venues[0].id,
+          venues.find((v) => v.name === 'Executive Room')?.id || venues[0].id,
       },
     ];
 

@@ -31,7 +31,7 @@ export class MaintenanceReportsSeeder {
         description: 'Monthly HVAC system inspection and filter replacement',
         priority: TaskPriority.NORMAL,
         status: MaintenanceStatus.COMPLETED,
-        assignedTechnician: 'Diego Ramirez',
+        assignedTechnician: 'David Reynolds',
         reportedBy: 'Maintenance Department',
         estimatedTime: '2 hours',
         startedAt: new Date(Date.now() - 25 * 60 * 60 * 1000), // 25 hours ago
@@ -61,7 +61,7 @@ export class MaintenanceReportsSeeder {
         description: 'Installation of new LED lighting system',
         priority: TaskPriority.LOW,
         status: MaintenanceStatus.IN_PROGRESS,
-        assignedTechnician: 'Diego Ramirez',
+        assignedTechnician: 'David Reynolds',
         reportedBy: 'Management',
         estimatedTime: '6 hours',
         startedAt: new Date(Date.now() - 2 * 60 * 60 * 1000), // 2 hours ago

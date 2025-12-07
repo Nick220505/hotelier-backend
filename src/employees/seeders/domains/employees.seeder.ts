@@ -10,14 +10,14 @@ export class EmployeesSeeder {
   constructor(
     @InjectRepository(Employee)
     private employeeRepository: Repository<Employee>,
-  ) {}
+  ) { }
 
   async seed() {
     const employees = [
       // Housekeeping - High performers
       {
         employeeId: 'EMP001',
-        name: 'Maria Rodriguez',
+        name: 'Mary Johnson',
         department: Department.HOUSEKEEPING,
         position: 'Housekeeping Supervisor',
         shift: 'Morning',
@@ -28,7 +28,7 @@ export class EmployeesSeeder {
       },
       {
         employeeId: 'EMP003',
-        name: 'Ana Garcia',
+        name: 'Emily Brown',
         department: Department.HOUSEKEEPING,
         position: 'Room Attendant',
         shift: 'Morning',
@@ -39,7 +39,7 @@ export class EmployeesSeeder {
       },
       {
         employeeId: 'EMP007',
-        name: 'Carmen Lopez',
+        name: 'Sarah Wilson',
         department: Department.HOUSEKEEPING,
         position: 'Room Attendant',
         shift: 'Morning',
@@ -50,7 +50,7 @@ export class EmployeesSeeder {
       },
       {
         employeeId: 'EMP008',
-        name: 'Patricia Sanchez',
+        name: 'Patricia Sanders',
         department: Department.HOUSEKEEPING,
         position: 'Room Attendant',
         shift: 'Afternoon',
@@ -61,7 +61,7 @@ export class EmployeesSeeder {
       },
       {
         employeeId: 'EMP009',
-        name: 'Elena Ramirez',
+        name: 'Ellen Reynolds',
         department: Department.HOUSEKEEPING,
         position: 'Room Attendant',
         shift: 'Morning',
@@ -73,7 +73,7 @@ export class EmployeesSeeder {
       // Housekeeping - Medium/Low performers
       {
         employeeId: 'EMP010',
-        name: 'Rosa Diaz',
+        name: 'Rachel Dixon',
         department: Department.HOUSEKEEPING,
         position: 'Room Attendant',
         shift: 'Afternoon',
@@ -84,7 +84,7 @@ export class EmployeesSeeder {
       },
       {
         employeeId: 'EMP011',
-        name: 'Isabel Torres',
+        name: 'Isabella Turner',
         department: Department.HOUSEKEEPING,
         position: 'Laundry Attendant',
         shift: 'Morning',
@@ -96,7 +96,7 @@ export class EmployeesSeeder {
       // Front Desk
       {
         employeeId: 'EMP002',
-        name: 'Carlos Martinez',
+        name: 'James Smith',
         department: Department.FRONT_DESK,
         position: 'Front Desk Agent',
         shift: 'Day',
@@ -107,7 +107,7 @@ export class EmployeesSeeder {
       },
       {
         employeeId: 'EMP012',
-        name: 'Andrea Fernandez',
+        name: 'Andrea Foster',
         department: Department.FRONT_DESK,
         position: 'Front Desk Manager',
         shift: 'Morning',
@@ -119,7 +119,7 @@ export class EmployeesSeeder {
       // Maintenance - with tasks
       {
         employeeId: 'EMP004',
-        name: 'Luis Fernandez',
+        name: 'Louis Foster',
         department: Department.MAINTENANCE,
         position: 'Maintenance Technician',
         shift: 'Full Time',
@@ -130,7 +130,7 @@ export class EmployeesSeeder {
       },
       {
         employeeId: 'EMP013',
-        name: 'Miguel Santos',
+        name: 'Michael Santos',
         department: Department.MAINTENANCE,
         position: 'Electrician',
         shift: 'Day',
@@ -141,7 +141,7 @@ export class EmployeesSeeder {
       },
       {
         employeeId: 'EMP014',
-        name: 'Jorge Morales',
+        name: 'George Miller',
         department: Department.MAINTENANCE,
         position: 'Plumber',
         shift: 'Day',
@@ -153,7 +153,7 @@ export class EmployeesSeeder {
       // Restaurant
       {
         employeeId: 'EMP005',
-        name: 'Sofia Herrera',
+        name: 'Amanda Davis',
         department: Department.RESTAURANT,
         position: 'Waitress',
         shift: 'Evening',
@@ -164,7 +164,7 @@ export class EmployeesSeeder {
       },
       {
         employeeId: 'EMP015',
-        name: 'Daniela Castro',
+        name: 'Diana Carter',
         department: Department.RESTAURANT,
         position: 'Head Waitress',
         shift: 'Lunch',
@@ -175,7 +175,7 @@ export class EmployeesSeeder {
       },
       {
         employeeId: 'EMP016',
-        name: 'Fernando Ruiz',
+        name: 'Frank Rice',
         department: Department.RESTAURANT,
         position: 'Chef',
         shift: 'Full Time',
@@ -187,7 +187,7 @@ export class EmployeesSeeder {
       // Security
       {
         employeeId: 'EMP006',
-        name: 'Roberto Silva',
+        name: 'Robert Silver',
         department: Department.SECURITY,
         position: 'Security Guard',
         shift: 'Night',
@@ -198,7 +198,7 @@ export class EmployeesSeeder {
       },
       {
         employeeId: 'EMP017',
-        name: 'Diego Vargas',
+        name: 'Michael Taylor',
         department: Department.SECURITY,
         position: 'Security Guard',
         shift: 'Day',
@@ -210,7 +210,7 @@ export class EmployeesSeeder {
       // Valet
       {
         employeeId: 'EMP018',
-        name: 'Pedro Gomez',
+        name: 'Peter Graham',
         department: Department.VALET,
         position: 'Valet Attendant',
         shift: 'Day',
@@ -221,7 +221,7 @@ export class EmployeesSeeder {
       },
       {
         employeeId: 'EMP019',
-        name: 'Javier Mendez',
+        name: 'Jason Miller',
         department: Department.VALET,
         position: 'Valet Attendant',
         shift: 'Evening',
@@ -233,7 +233,7 @@ export class EmployeesSeeder {
       // Management
       {
         employeeId: 'EMP020',
-        name: 'Gabriela Ortiz',
+        name: 'Gabrielle Oliver',
         department: Department.MANAGEMENT,
         position: 'Hotel Manager',
         shift: 'Full Time',
@@ -245,7 +245,7 @@ export class EmployeesSeeder {
       // Inactive employees
       {
         employeeId: 'EMP021',
-        name: 'Ricardo Nunez',
+        name: 'Richard Nelson',
         department: Department.HOUSEKEEPING,
         position: 'Room Attendant',
         shift: 'Morning',

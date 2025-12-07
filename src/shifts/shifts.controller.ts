@@ -27,7 +27,7 @@ import { AuditResource } from '../audit/enums/audit-resource.enum';
 @ApiTags('shifts')
 @Controller('shifts')
 export class ShiftsController {
-  constructor(private readonly shiftsService: ShiftsService) {}
+  constructor(private readonly shiftsService: ShiftsService) { }
 
   @Get()
   @ApiOperation({
@@ -167,7 +167,7 @@ export class ShiftsController {
   @AuditLog({
     action: AuditAction.CREATE,
     resource: AuditResource.SHIFT,
-    description: 'Turno creado',
+    description: 'Shift created',
     includeBody: true,
   })
   @ApiOperation({
@@ -195,7 +195,7 @@ export class ShiftsController {
   @AuditLog({
     action: AuditAction.UPDATE,
     resource: AuditResource.SHIFT,
-    description: 'Turno actualizado',
+    description: 'Shift updated',
     resourceIdParam: 'id',
     includeBody: true,
   })
@@ -233,7 +233,7 @@ export class ShiftsController {
   @AuditLog({
     action: AuditAction.DELETE,
     resource: AuditResource.SHIFT,
-    description: 'Turno eliminado',
+    description: 'Shift deleted',
     resourceIdParam: 'id',
   })
   @ApiOperation({

@@ -8,59 +8,59 @@ export class VenuesSeeder {
   constructor(
     @InjectRepository(Venue)
     private venueRepository: Repository<Venue>,
-  ) {}
+  ) { }
 
   async seed() {
     const venues = [
       {
-        name: 'Salón Principal',
+        name: 'Grand Ballroom',
         capacity: 200,
         area: 400.0,
         hourlyRate: 500.0,
         available: true,
-        location: 'Edificio Principal - Planta Baja',
+        location: 'Main Building - Ground Floor',
         description:
-          'Elegante salón perfecto para bodas, eventos corporativos y grandes celebraciones. Cuenta con lámparas de cristal y vistas panorámicas de la ciudad.',
+          'Elegant ballroom perfect for weddings, corporate events and large celebrations. Features crystal chandeliers and panoramic city views.',
       },
       {
-        name: 'Sala de Conferencias Alpha',
+        name: 'Alpha Conference Room',
         capacity: 50,
         area: 80.0,
         hourlyRate: 150.0,
         available: true,
-        location: 'Centro de Negocios - 2do Piso',
+        location: 'Business Center - 2nd Floor',
         description:
-          'Moderna sala de conferencias equipada con la última tecnología para reuniones de negocios y presentaciones.',
+          'Modern conference room equipped with the latest technology for business meetings and presentations.',
       },
       {
-        name: 'Pabellón del Jardín',
+        name: 'Garden Pavilion',
         capacity: 120,
         area: 200.0,
         hourlyRate: 300.0,
         available: true,
-        location: 'Jardines del Hotel - Exterior',
+        location: 'Hotel Gardens - Outdoor',
         description:
-          'Hermoso pabellón al aire libre rodeado de jardines paisajísticos, ideal para recepciones de cóctel y ceremonias al aire libre.',
+          'Beautiful outdoor pavilion surrounded by landscaped gardens, ideal for cocktail receptions and outdoor ceremonies.',
       },
       {
-        name: 'Sala Ejecutiva',
+        name: 'Executive Suite',
         capacity: 20,
         area: 40.0,
         hourlyRate: 200.0,
         available: true,
-        location: 'Piso Ejecutivo - 15to Piso',
+        location: 'Executive Floor - 15th Floor',
         description:
-          'Sala ejecutiva exclusiva para reuniones de alto nivel con amenidades premium y vistas al skyline de la ciudad.',
+          'Exclusive executive suite for high-level meetings with premium amenities and city skyline views.',
       },
       {
-        name: 'Terraza en Azotea',
+        name: 'Rooftop Terrace',
         capacity: 80,
         area: 150.0,
         hourlyRate: 400.0,
         available: false, // Currently under maintenance
-        location: 'Azotea - 20vo Piso',
+        location: 'Rooftop - 20th Floor',
         description:
-          'Impresionante venue en azotea con vistas de 360 grados de la ciudad, perfecto para fiestas de cóctel y eventos exclusivos.',
+          'Stunning rooftop venue with 360-degree city views, perfect for cocktail parties and exclusive events.',
       },
     ];
 

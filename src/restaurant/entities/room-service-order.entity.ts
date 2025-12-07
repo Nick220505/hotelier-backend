@@ -116,7 +116,7 @@ export class RoomServiceOrder {
 
   @ApiProperty({
     description: 'Assigned waiter',
-    example: 'Sofia Herrera',
+    example: 'Sarah Davis',
     required: false,
   })
   @IsOptional()

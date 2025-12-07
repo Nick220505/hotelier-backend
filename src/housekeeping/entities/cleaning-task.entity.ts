@@ -55,7 +55,7 @@ export class CleaningTask {
 
   @ApiProperty({
     description: 'Name of the employee assigned to this task',
-    example: 'Maria Rodriguez',
+    example: 'Mary Johnson',
     required: false,
   })
   @IsOptional()

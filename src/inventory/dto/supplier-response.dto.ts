@@ -66,7 +66,7 @@ export class SupplierResponseDto {
 
   @ApiProperty({
     description: 'Delivery time',
-    example: '3-5 días',
+    example: '3-5 days',
     required: false,
   })
   @IsOptional()
@@ -75,7 +75,7 @@ export class SupplierResponseDto {
 
   @ApiProperty({
     description: 'Payment terms',
-    example: '30 días',
+    example: '30 days',
     required: false,
   })
   @IsOptional()

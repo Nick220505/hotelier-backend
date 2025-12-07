@@ -125,7 +125,7 @@ export class GuestRequest {
 
   @ApiProperty({
     description: 'Staff member assigned to request',
-    example: 'Maria Garcia',
+    example: 'Mary Williams',
     required: false,
   })
   @IsOptional()

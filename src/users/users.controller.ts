@@ -36,7 +36,7 @@ import { AuditResource } from '../audit/enums/audit-resource.enum';
 @UseGuards(AuthGuard('jwt'))
 @ApiBearerAuth()
 export class UsersController {
-  constructor(private readonly usersService: UsersService) {}
+  constructor(private readonly usersService: UsersService) { }
 
   @Get()
   @ApiOperation({
@@ -90,7 +90,7 @@ export class UsersController {
   @AuditLog({
     action: AuditAction.CREATE,
     resource: AuditResource.USER,
-    description: 'Usuario creado',
+    description: 'User created',
     includeBody: false, // Don't include password
   })
   @ApiOperation({
@@ -122,7 +122,7 @@ export class UsersController {
   @AuditLog({
     action: AuditAction.UPDATE,
     resource: AuditResource.USER,
-    description: 'Usuario actualizado',
+    description: 'User updated',
     resourceIdParam: 'id',
     includeBody: false,
   })
@@ -164,7 +164,7 @@ export class UsersController {
   @AuditLog({
     action: AuditAction.DELETE,
     resource: AuditResource.USER,
-    description: 'Usuario eliminado',
+    description: 'User deleted',
     resourceIdParam: 'id',
   })
   @ApiOperation({
@@ -199,7 +199,7 @@ export class UsersController {
   @AuditLog({
     action: AuditAction.UPDATE,
     resource: AuditResource.USER,
-    description: 'Usuario activado',
+    description: 'User activated',
     resourceIdParam: 'id',
   })
   @ApiOperation({
@@ -233,7 +233,7 @@ export class UsersController {
   @AuditLog({
     action: AuditAction.UPDATE,
     resource: AuditResource.USER,
-    description: 'Usuario desactivado',
+    description: 'User deactivated',
     resourceIdParam: 'id',
   })
   @ApiOperation({

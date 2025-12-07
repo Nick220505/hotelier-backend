@@ -29,7 +29,7 @@ export class Supplier {
 
   @ApiProperty({
     description: 'Supplier name',
-    example: 'Proveedores de Lencería',
+    example: 'Linen Suppliers Inc',
   })
   @IsString()
   @Length(1, 100)
@@ -38,7 +38,7 @@ export class Supplier {
 
   @ApiProperty({
     description: 'Contact person name',
-    example: 'María González',
+    example: 'Maria Gonzalez',
   })
   @IsString()
   @Length(1, 100)
@@ -47,7 +47,7 @@ export class Supplier {
 
   @ApiProperty({
     description: 'Email address',
-    example: 'contacto@proveedoreslenceria.com',
+    example: 'contact@linensuppliers.com',
   })
   @IsEmail()
   @Column()
@@ -64,7 +64,7 @@ export class Supplier {
 
   @ApiProperty({
     description: 'Business address',
-    example: 'Calle Principal 123, Madrid, España',
+    example: '123 Main Street, City, Country',
   })
   @IsString()
   @Length(1, 200)
@@ -98,7 +98,7 @@ export class Supplier {
 
   @ApiProperty({
     description: 'Delivery time',
-    example: '3-5 días',
+    example: '3-5 days',
     required: false,
   })
   @IsOptional()
@@ -109,7 +109,7 @@ export class Supplier {
 
   @ApiProperty({
     description: 'Payment terms',
-    example: '30 días',
+    example: '30 days',
     required: false,
   })
   @IsOptional()

@@ -30,7 +30,7 @@ export class AuthService {
     private readonly userRoleRepository: Repository<UserRole>,
     private readonly jwtService: JwtService,
     private readonly configService: ConfigService,
-  ) {}
+  ) { }
 
   async register(data: RegisterDto): Promise<AuthResponseDto> {
     const { email, password, name, phone, roleId } = data;
@@ -229,12 +229,12 @@ export class AuthService {
     }
 
     const defaultRole = await this.roleRepository.findOne({
-      where: { name: 'cliente' },
+      where: { name: 'client' },
     });
 
     if (!defaultRole) {
       throw new InternalServerErrorException(
-        'Default cliente role not found. Please run database seeds.',
+        'Default client role not found. Please run database seeds.',
       );
     }
 

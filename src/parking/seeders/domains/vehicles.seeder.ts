@@ -40,7 +40,7 @@ export class VehiclesSeeder {
         model: 'Civic',
         color: 'White',
         type: VehicleType.CAR,
-        owner: 'Maria Rodriguez',
+        owner: 'Mary Johnson',
         guestType: GuestType.EMPLOYEE,
         assignedSpace: 'EMP-001',
         entryTime: new Date(Date.now() - 8 * 60 * 60 * 1000), // 8 hours ago
@@ -67,7 +67,7 @@ export class VehiclesSeeder {
         model: 'MT-07',
         color: 'Red',
         type: VehicleType.MOTORCYCLE,
-        owner: 'Carlos Martinez',
+        owner: 'James Smith',
         guestType: GuestType.VISITOR,
         entryTime: new Date(Date.now() - 1 * 60 * 60 * 1000), // 1 hour ago
         status: VehicleStatus.PARKED,

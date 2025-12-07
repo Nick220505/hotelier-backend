@@ -14,13 +14,13 @@ export class RolesSeeder {
     private permissionRepository: Repository<SystemPermission>,
     @InjectRepository(RolePermission)
     private rolePermissionRepository: Repository<RolePermission>,
-  ) {}
+  ) { }
 
   async seed() {
     const roles = [
       {
-        name: 'administrador',
-        description: 'Administrador del Sistema - Acceso completo',
+        name: 'administrator',
+        description: 'System Administrator - Full access',
         isSystem: true,
         permissions: [
           'users:create',
@@ -88,8 +88,8 @@ export class RolesSeeder {
         ],
       },
       {
-        name: 'gerente',
-        description: 'Gerente del Hotel - Acceso operacional',
+        name: 'manager',
+        description: 'Hotel Manager - Operational access',
         isSystem: true,
         permissions: [
           'users:read',
@@ -130,8 +130,8 @@ export class RolesSeeder {
         ],
       },
       {
-        name: 'recepcionista',
-        description: 'Recepcionista - Personal de recepción',
+        name: 'receptionist',
+        description: 'Receptionist - Front desk staff',
         isSystem: true,
         permissions: [
           'reservations:create',
@@ -155,8 +155,8 @@ export class RolesSeeder {
         ],
       },
       {
-        name: 'cliente',
-        description: 'Cliente del Hotel - Acceso para crear reservas y pedidos',
+        name: 'client',
+        description: 'Hotel Client - Access to create reservations and orders',
         isSystem: true,
         permissions: [
           'reservations:create',
@@ -177,8 +177,8 @@ export class RolesSeeder {
         ],
       },
       {
-        name: 'personal_limpieza',
-        description: 'Personal de Limpieza - Gestión de housekeeping',
+        name: 'housekeeping_staff',
+        description: 'Housekeeping Staff - Housekeeping management',
         isSystem: true,
         permissions: [
           'housekeeping:create',
@@ -192,8 +192,8 @@ export class RolesSeeder {
         ],
       },
       {
-        name: 'mantenimiento',
-        description: 'Personal de Mantenimiento - Gestión de mantenimiento',
+        name: 'maintenance',
+        description: 'Maintenance Staff - Maintenance management',
         isSystem: true,
         permissions: [
           'maintenance:create',
@@ -207,8 +207,8 @@ export class RolesSeeder {
         ],
       },
       {
-        name: 'personal_restaurante',
-        description: 'Personal de Restaurante - Gestión de restaurante',
+        name: 'restaurant_staff',
+        description: 'Restaurant Staff - Restaurant management',
         isSystem: true,
         permissions: [
           'restaurant:create',

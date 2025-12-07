@@ -8,7 +8,7 @@ export class SuppliersSeeder {
   constructor(
     @InjectRepository(Supplier)
     private supplierRepository: Repository<Supplier>,
-  ) {}
+  ) { }
 
   async seed(): Promise<void> {
     const existingSuppliers = await this.supplierRepository.count();
@@ -19,48 +19,48 @@ export class SuppliersSeeder {
 
     const suppliers = [
       {
-        name: 'Proveedores de Lencería',
-        contact: 'María González',
-        email: 'contacto@proveedoreslenceria.com',
-        phone: '+34 912 345 678',
-        address: 'Calle Textil 123, Madrid, España',
+        name: 'Premium Linen Suppliers',
+        contact: 'Mary Graham',
+        email: 'contact@premiumlinen.com',
+        phone: '+1 555 345 6789',
+        address: '123 Textile Street, Miami, FL',
         category: 'General',
         rating: 4.0,
-        deliveryTime: '3-5 días',
-        paymentTerms: '30 días',
+        deliveryTime: '3-5 days',
+        paymentTerms: '30 days',
       },
       {
-        name: 'Amenidades Hoteleras SA',
-        contact: 'Carlos Rodríguez',
-        email: 'ventas@amenidadeshoteleras.com',
-        phone: '+34 913 456 789',
-        address: 'Avenida Hotelera 456, Barcelona, España',
+        name: 'Hotel Amenities Inc.',
+        contact: 'James Johnson',
+        email: 'sales@hotelamenities.com',
+        phone: '+1 555 456 7890',
+        address: '456 Hospitality Avenue, Orlando, FL',
         category: 'General',
         rating: 4.0,
-        deliveryTime: '3-5 días',
-        paymentTerms: '30 días',
+        deliveryTime: '3-5 days',
+        paymentTerms: '30 days',
       },
       {
-        name: 'Suministros LimpiezaPro',
-        contact: 'Ana Martínez',
-        email: 'pedidos@limpiezapro.com',
-        phone: '+34 914 567 890',
-        address: 'Polígono Industrial Sur 789, Valencia, España',
+        name: 'CleanPro Supplies',
+        contact: 'Emily Smith',
+        email: 'orders@cleanprosupplies.com',
+        phone: '+1 555 567 8901',
+        address: '789 Industrial Park South, Tampa, FL',
         category: 'General',
         rating: 4.0,
-        deliveryTime: '3-5 días',
-        paymentTerms: '30 días',
+        deliveryTime: '3-5 days',
+        paymentTerms: '30 days',
       },
       {
-        name: 'Electrónicos Directos',
-        contact: 'José García',
-        email: 'info@electronicosdirectos.com',
-        phone: '+34 915 678 901',
-        address: 'Centro Comercial Tech 321, Sevilla, España',
+        name: 'Direct Electronics',
+        contact: 'David Brown',
+        email: 'info@directelectronics.com',
+        phone: '+1 555 678 9012',
+        address: '321 Tech Mall Center, Jacksonville, FL',
         category: 'General',
         rating: 4.0,
-        deliveryTime: '3-5 días',
-        paymentTerms: '30 días',
+        deliveryTime: '3-5 days',
+        paymentTerms: '30 days',
       },
     ];
 

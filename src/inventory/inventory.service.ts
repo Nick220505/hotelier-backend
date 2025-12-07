@@ -27,7 +27,7 @@ export class InventoryService {
     @InjectRepository(Supplier)
     private readonly supplierRepository: Repository<Supplier>,
     private readonly notificationsService: NotificationsService,
-  ) {}
+  ) { }
 
   // Inventory Items
   async getInventoryItems(): Promise<Inventory[]> {
@@ -56,9 +56,9 @@ export class InventoryService {
     ) {
       const title =
         status === InventoryStatus.OUT_OF_STOCK
-          ? 'Inventario agotado'
-          : 'Inventario bajo';
-      const message = `El artículo de inventario '${saved.name}' tiene stock ${status === InventoryStatus.OUT_OF_STOCK ? 'agotado' : 'bajo'} (actual: ${saved.currentStock}, mínimo: ${saved.minimumStock}).`;
+          ? 'Inventory out of stock'
+          : 'Low inventory';
+      const message = `Inventory item '${saved.name}' has ${status === InventoryStatus.OUT_OF_STOCK ? 'no stock' : 'low stock'} (current: ${saved.currentStock}, minimum: ${saved.minimumStock}).`;
       await this.notificationsService.create({
         type:
           status === InventoryStatus.OUT_OF_STOCK
@@ -111,9 +111,9 @@ export class InventoryService {
     ) {
       const title =
         status === InventoryStatus.OUT_OF_STOCK
-          ? 'Inventario agotado'
-          : 'Inventario bajo';
-      const message = `El artículo de inventario '${updated.name}' tiene stock ${status === InventoryStatus.OUT_OF_STOCK ? 'agotado' : 'bajo'} (actual: ${currentStock}, mínimo: ${minimumStock}).`;
+          ? 'Inventory out of stock'
+          : 'Low inventory';
+      const message = `Inventory item '${updated.name}' has ${status === InventoryStatus.OUT_OF_STOCK ? 'no stock' : 'low stock'} (current: ${currentStock}, minimum: ${minimumStock}).`;
       await this.notificationsService.create({
         type:
           status === InventoryStatus.OUT_OF_STOCK
@@ -131,8 +131,8 @@ export class InventoryService {
       // Recovery notification
       await this.notificationsService.create({
         type: NotificationType.INFO,
-        title: 'Inventario recuperado',
-        message: `El artículo de inventario '${updated.name}' ha recuperado stock suficiente (actual: ${currentStock}).`,
+        title: 'Inventory recovered',
+        message: `Inventory item '${updated.name}' has recovered sufficient stock (current: ${currentStock}).`,
         refId: updated.id,
         refType: 'inventory',
       });
@@ -213,12 +213,12 @@ export class InventoryService {
     if (item.currentStock <= item.minimumStock) {
       const message =
         item.currentStock === 0
-          ? `AGOTADO: ${item.name} sin existencias`
-          : `STOCK BAJO: ${item.name} - Quedan ${item.currentStock} unidades (mínimo: ${item.minimumStock})`;
+          ? `OUT OF STOCK: ${item.name} has no inventory`
+          : `LOW STOCK: ${item.name} - ${item.currentStock} units remaining (minimum: ${item.minimumStock})`;
 
       try {
         await this.notificationsService.create({
-          title: item.currentStock === 0 ? 'Producto Agotado' : 'Stock Bajo',
+          title: item.currentStock === 0 ? 'Product Out of Stock' : 'Low Stock',
           message,
           type: NotificationType.WARNING,
           refId: item.id,

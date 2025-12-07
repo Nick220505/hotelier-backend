@@ -27,7 +27,7 @@ export class CleaningTasksSeeder {
       {
         roomNumber: rooms[0].number,
         status: CleaningStatus.COMPLETED,
-        assignedEmployee: 'Maria Rodriguez',
+        assignedEmployee: 'Mary Johnson',
         notes: 'Regular cleaning completed. Room ready for next guest.',
         startTime: new Date(Date.now() - 2 * 60 * 60 * 1000), // 2 hours ago
         endTime: new Date(Date.now() - 1 * 60 * 60 * 1000), // 1 hour ago
@@ -38,7 +38,7 @@ export class CleaningTasksSeeder {
       {
         roomNumber: rooms[1].number,
         status: CleaningStatus.IN_PROGRESS,
-        assignedEmployee: 'Ana Garcia',
+        assignedEmployee: 'Emily Brown',
         notes: 'Deep cleaning in progress.',
         startTime: new Date(Date.now() - 30 * 60 * 1000), // 30 minutes ago
         estimatedTime: 60,
@@ -48,7 +48,7 @@ export class CleaningTasksSeeder {
       {
         roomNumber: rooms[2].number,
         status: CleaningStatus.PENDING,
-        assignedEmployee: 'Carlos Martinez',
+        assignedEmployee: 'James Smith',
         notes: 'Checkout cleaning required.',
         estimatedTime: 45,
         priority: TaskPriority.NORMAL,
@@ -57,7 +57,7 @@ export class CleaningTasksSeeder {
       {
         roomNumber: rooms[3].number,
         status: CleaningStatus.NEEDS_MAINTENANCE,
-        assignedEmployee: 'Maria Rodriguez',
+        assignedEmployee: 'Mary Johnson',
         notes: 'Air conditioning not working properly. Maintenance required.',
         startTime: new Date(Date.now() - 15 * 60 * 1000), // 15 minutes ago
         estimatedTime: 30,
@@ -67,7 +67,7 @@ export class CleaningTasksSeeder {
       {
         roomNumber: rooms[4].number,
         status: CleaningStatus.INSPECTED,
-        assignedEmployee: 'Ana Garcia',
+        assignedEmployee: 'Emily Brown',
         notes: 'Cleaning completed and inspected. Quality score: 9.5/10',
         startTime: new Date(Date.now() - 3 * 60 * 60 * 1000), // 3 hours ago
         endTime: new Date(Date.now() - 2 * 60 * 60 * 1000), // 2 hours ago

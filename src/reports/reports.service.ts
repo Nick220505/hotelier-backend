@@ -21,7 +21,7 @@ export class ReportsService {
     private readonly invoiceRepository: Repository<Invoice>,
     @InjectRepository(Reservation)
     private readonly reservationRepository: Repository<Reservation>,
-  ) {}
+  ) { }
 
   async create(data: CreateReportDto): Promise<Report> {
     return this.reportRepository.save({
@@ -183,19 +183,16 @@ export class ReportsService {
 
         if (
           description.includes('room') ||
-          description.includes('habitación')
+          description.includes('room')
         ) {
           roomRevenue += amount;
         } else if (
-          description.includes('restaurante') ||
           description.includes('restaurant') ||
-          description.includes('food') ||
-          description.includes('comida')
+          description.includes('food')
         ) {
           restaurantRevenue += amount;
         } else if (
-          description.includes('event') ||
-          description.includes('evento')
+          description.includes('event')
         ) {
           eventsRevenue += amount;
         } else {
@@ -298,7 +295,7 @@ export class ReportsService {
       const financial = await this.getFinancialSummary(startDate, endDate);
 
       monthlyData.push({
-        month: startDate.toLocaleString('es', { month: 'short' }),
+        month: startDate.toLocaleString('en', { month: 'short' }),
         revenue: financial.revenue.total,
         expenses: financial.expenses,
         profit: financial.grossProfit,
@@ -335,7 +332,7 @@ export class ReportsService {
         const result = Buffer.concat(chunks);
         const file = new StreamableFile(result, {
           type: 'application/pdf',
-          disposition: `attachment; filename="reporte-financiero-${year}${month ? `-${month}` : ''}.pdf"`,
+          disposition: `attachment; filename="financial-report-${year}${month ? `-${month}` : ''}.pdf"`,
         });
         resolve(file);
       });
@@ -349,46 +346,46 @@ export class ReportsService {
         .text('Hotelier Suite', { align: 'center' });
       doc
         .fontSize(18)
-        .text('Reporte Financiero y de Ocupación', { align: 'center' });
+        .text('Financial and Occupancy Report', { align: 'center' });
       doc.moveDown();
       doc
         .fontSize(12)
         .font('Helvetica')
         .text(
-          `Periodo: ${month ? `${this.getMonthName(month)} ${year}` : `Año ${year}`}`,
+          `Period: ${month ? `${this.getMonthName(month)} ${year}` : `Year ${year}`}`,
           { align: 'center' },
         );
-      doc.text(`Fecha de generación: ${new Date().toLocaleDateString('es')}`, {
+      doc.text(`Generation date: ${new Date().toLocaleDateString('en')}`, {
         align: 'center',
       });
       doc.moveDown(2);
 
       // Financial Summary Section
-      doc.fontSize(16).font('Helvetica-Bold').text('Resumen Financiero');
+      doc.fontSize(16).font('Helvetica-Bold').text('Financial Summary');
       doc.moveDown();
 
       const summaryData = [
-        ['Concepto', 'Monto'],
+        ['Concept', 'Amount'],
         [
-          'Ingresos Totales',
+          'Total Revenue',
           `$${financialSummary.revenue.total.toLocaleString()}`,
         ],
         [
-          '  - Habitaciones',
+          '  - Rooms',
           `$${financialSummary.revenue.room.toLocaleString()}`,
         ],
         [
-          '  - Restaurante',
+          '  - Restaurant',
           `$${financialSummary.revenue.restaurant.toLocaleString()}`,
         ],
         [
-          '  - Servicios Adicionales',
+          '  - Additional Services',
           `$${financialSummary.revenue.services.toLocaleString()}`,
         ],
-        ['  - Eventos', `$${financialSummary.revenue.events.toLocaleString()}`],
-        ['Gastos', `-$${financialSummary.expenses.toLocaleString()}`],
-        ['Ganancia Bruta', `$${financialSummary.grossProfit.toLocaleString()}`],
-        ['Margen de Ganancia', `${financialSummary.profitMargin.toFixed(1)}%`],
+        ['  - Events', `$${financialSummary.revenue.events.toLocaleString()}`],
+        ['Expenses', `-$${financialSummary.expenses.toLocaleString()}`],
+        ['Gross Profit', `$${financialSummary.grossProfit.toLocaleString()}`],
+        ['Profit Margin', `${financialSummary.profitMargin.toFixed(1)}%`],
       ];
 
       this.drawTable(doc, summaryData);
@@ -396,7 +393,7 @@ export class ReportsService {
 
       // Occupancy Section
       if (occupancyData.length > 0) {
-        doc.fontSize(16).font('Helvetica-Bold').text('Datos de Ocupación');
+        doc.fontSize(16).font('Helvetica-Bold').text('Occupancy Data');
         doc.moveDown();
 
         const avgOccupancy =
@@ -412,11 +409,11 @@ export class ReportsService {
         doc
           .fontSize(12)
           .font('Helvetica')
-          .text(`Ocupación Promedio: ${avgOccupancy.toFixed(1)}%`)
+          .text(`Average Occupancy: ${avgOccupancy.toFixed(1)}%`)
           .text(
-            `Ingresos por Ocupación: $${totalOccupancyRevenue.toLocaleString()}`,
+            `Occupancy Revenue: $${totalOccupancyRevenue.toLocaleString()}`,
           )
-          .text(`Días con Datos: ${occupancyData.length}`);
+          .text(`Days with Data: ${occupancyData.length}`);
         doc.moveDown();
       }
 
@@ -427,11 +424,11 @@ export class ReportsService {
         doc
           .fontSize(16)
           .font('Helvetica-Bold')
-          .text('Comparación Mensual de Ingresos');
+          .text('Monthly Revenue Comparison');
         doc.moveDown();
 
         const monthlyTableData = [
-          ['Mes', 'Ingresos', 'Gastos', 'Ganancia'],
+          ['Month', 'Revenue', 'Expenses', 'Profit'],
           ...monthlyRevenue.map((item) => [
             item.month,
             `$${item.revenue.toLocaleString()}`,
@@ -485,18 +482,18 @@ export class ReportsService {
 
   private getMonthName(month: number): string {
     const months = [
-      'Enero',
-      'Febrero',
-      'Marzo',
-      'Abril',
-      'Mayo',
-      'Junio',
-      'Julio',
-      'Agosto',
-      'Septiembre',
-      'Octubre',
-      'Noviembre',
-      'Diciembre',
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+      'July',
+      'August',
+      'September',
+      'October',
+      'November',
+      'December',
     ];
     return months[month - 1];
   }

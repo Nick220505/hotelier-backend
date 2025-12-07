@@ -30,13 +30,13 @@ import { AuditResource } from '../audit/enums/audit-resource.enum';
 @ApiTags('employees')
 @Controller('employees')
 export class EmployeesController {
-  constructor(private readonly employeesService: EmployeesService) {}
+  constructor(private readonly employeesService: EmployeesService) { }
 
   @Post()
   @AuditLog({
     action: AuditAction.CREATE,
     resource: AuditResource.EMPLOYEE,
-    description: 'Empleado creado',
+    description: 'Employee created',
     includeBody: true,
     includeResult: true,
   })
@@ -139,7 +139,7 @@ export class EmployeesController {
   @AuditLog({
     action: AuditAction.UPDATE,
     resource: AuditResource.EMPLOYEE,
-    description: 'Empleado actualizado',
+    description: 'Employee updated',
     resourceIdParam: 'id',
     includeBody: true,
   })
@@ -180,7 +180,7 @@ export class EmployeesController {
   @AuditLog({
     action: AuditAction.DELETE,
     resource: AuditResource.EMPLOYEE,
-    description: 'Empleado eliminado',
+    description: 'Employee deleted',
     resourceIdParam: 'id',
   })
   @ApiOperation({

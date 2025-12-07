@@ -39,7 +39,7 @@ export class Employee {
 
   @ApiProperty({
     description: 'Employee full name',
-    example: 'Maria Rodriguez',
+    example: 'Mary Johnson',
   })
   @IsString()
   @Length(1, 100)

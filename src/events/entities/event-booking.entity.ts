@@ -37,7 +37,7 @@ export class EventBooking {
 
   @ApiProperty({
     description: 'Event booking title',
-    example: 'Martinez Family Reunion',
+    example: 'Smith Family Reunion',
   })
   @IsString()
   @Length(1, 200)
@@ -119,7 +119,7 @@ export class EventBooking {
 
   @ApiProperty({
     description: 'Client name',
-    example: 'Carlos Martinez',
+    example: 'James Smith',
   })
   @IsString()
   @Length(1, 100)

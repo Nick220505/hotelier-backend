@@ -13,7 +13,7 @@ export class ShiftsSeeder {
     private readonly shiftRepository: Repository<Shift>,
     @InjectRepository(Employee)
     private readonly employeeRepository: Repository<Employee>,
-  ) {}
+  ) { }
 
   async seed() {
     // Get existing employees to assign shifts to
@@ -37,9 +37,9 @@ export class ShiftsSeeder {
         endTime: '16:00',
         type: ShiftType.MORNING,
         status: ShiftStatus.ACTIVE,
-        position: 'Supervisor Limpieza',
-        department: 'Limpieza',
-        notes: 'Turno matutino - supervisión general',
+        position: 'Cleaning Supervisor',
+        department: 'Housekeeping',
+        notes: 'Morning shift - general supervision',
         employeeId: employees[0].id,
       },
       {
@@ -48,9 +48,9 @@ export class ShiftsSeeder {
         endTime: '17:00',
         type: ShiftType.MORNING,
         status: ShiftStatus.ACTIVE,
-        position: 'Agente Mostrador',
-        department: 'Recepción',
-        notes: 'Atención al cliente matutina',
+        position: 'Front Desk Agent',
+        department: 'Reception',
+        notes: 'Morning customer service',
         employeeId: employees[1]?.id || employees[0].id,
       },
       {
@@ -59,9 +59,9 @@ export class ShiftsSeeder {
         endTime: '16:30',
         type: ShiftType.MORNING,
         status: ShiftStatus.COMPLETED,
-        position: 'Camarera',
-        department: 'Limpieza',
-        notes: 'Limpieza de habitaciones - turno completado',
+        position: 'Housekeeper',
+        department: 'Housekeeping',
+        notes: 'Room cleaning - shift completed',
         employeeId: employees[2]?.id || employees[0].id,
       },
       {
@@ -70,9 +70,9 @@ export class ShiftsSeeder {
         endTime: '06:00',
         type: ShiftType.NIGHT,
         status: ShiftStatus.SCHEDULED,
-        position: 'Guardia Seguridad',
-        department: 'Seguridad',
-        notes: 'Vigilancia nocturna',
+        position: 'Security Guard',
+        department: 'Security',
+        notes: 'Night surveillance',
         employeeId: employees[5]?.id || employees[0].id,
       },
 
@@ -83,9 +83,9 @@ export class ShiftsSeeder {
         endTime: '16:00',
         type: ShiftType.MORNING,
         status: ShiftStatus.SCHEDULED,
-        position: 'Supervisor Limpieza',
-        department: 'Limpieza',
-        notes: 'Turno matutino programado',
+        position: 'Cleaning Supervisor',
+        department: 'Housekeeping',
+        notes: 'Scheduled morning shift',
         employeeId: employees[0].id,
       },
       {
@@ -94,9 +94,9 @@ export class ShiftsSeeder {
         endTime: '17:00',
         type: ShiftType.MORNING,
         status: ShiftStatus.SCHEDULED,
-        position: 'Agente Mostrador',
-        department: 'Recepción',
-        notes: 'Turno matutino recepción',
+        position: 'Front Desk Agent',
+        department: 'Reception',
+        notes: 'Reception morning shift',
         employeeId: employees[1]?.id || employees[0].id,
       },
       {
@@ -105,9 +105,9 @@ export class ShiftsSeeder {
         endTime: '22:00',
         type: ShiftType.EVENING,
         status: ShiftStatus.SCHEDULED,
-        position: 'Técnico Mantenimiento',
-        department: 'Mantenimiento',
-        notes: 'Mantenimiento tarde',
+        position: 'Maintenance Technician',
+        department: 'Maintenance',
+        notes: 'Afternoon maintenance',
         employeeId: employees[3]?.id || employees[0].id,
       },
       {
@@ -116,9 +116,9 @@ export class ShiftsSeeder {
         endTime: '02:00',
         type: ShiftType.EVENING,
         status: ShiftStatus.SCHEDULED,
-        position: 'Mesera',
-        department: 'Restaurante',
-        notes: 'Servicio de cena',
+        position: 'Waitress',
+        department: 'Restaurant',
+        notes: 'Dinner service',
         employeeId: employees[4]?.id || employees[0].id,
       },
 
@@ -129,9 +129,9 @@ export class ShiftsSeeder {
         endTime: '16:00',
         type: ShiftType.MORNING,
         status: ShiftStatus.SCHEDULED,
-        position: 'Camarera',
-        department: 'Limpieza',
-        notes: 'Limpieza matutina',
+        position: 'Housekeeper',
+        department: 'Housekeeping',
+        notes: 'Morning cleaning',
         employeeId: employees[2]?.id || employees[0].id,
       },
       {
@@ -140,9 +140,9 @@ export class ShiftsSeeder {
         endTime: '00:00',
         type: ShiftType.EVENING,
         status: ShiftStatus.SCHEDULED,
-        position: 'Guardia Seguridad',
-        department: 'Seguridad',
-        notes: 'Turno vespertino seguridad',
+        position: 'Security Guard',
+        department: 'Security',
+        notes: 'Evening security shift',
         employeeId: employees[5]?.id || employees[0].id,
       },
     ];

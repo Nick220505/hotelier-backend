@@ -31,7 +31,7 @@ export class MaintenanceRequestsSeeder {
         description: 'Bathroom faucet leaking, needs immediate attention',
         priority: TaskPriority.HIGH,
         status: MaintenanceStatus.PENDING,
-        reportedBy: 'Maria Rodriguez',
+        reportedBy: 'Mary Johnson',
         assignedTo: 'Luis Fernandez',
         reportDate: new Date(),
         cost: 45.5,
@@ -44,8 +44,8 @@ export class MaintenanceRequestsSeeder {
         description: 'Air conditioning not cooling properly',
         priority: TaskPriority.URGENT,
         status: MaintenanceStatus.IN_PROGRESS,
-        reportedBy: 'Carlos Martinez',
-        assignedTo: 'Diego Ramirez',
+        reportedBy: 'James Smith',
+        assignedTo: 'David Reynolds',
         reportDate: new Date(Date.now() - 2 * 60 * 60 * 1000), // 2 hours ago
         notes: 'Filter replacement needed',
         roomId: rooms[1].id,
@@ -56,7 +56,7 @@ export class MaintenanceRequestsSeeder {
         description: 'Lamp in reading area not working',
         priority: TaskPriority.NORMAL,
         status: MaintenanceStatus.COMPLETED,
-        reportedBy: 'Ana Garcia',
+        reportedBy: 'Emily Brown',
         assignedTo: 'Luis Fernandez',
         reportDate: new Date(Date.now() - 24 * 60 * 60 * 1000), // Yesterday
         resolvedDate: new Date(Date.now() - 20 * 60 * 60 * 1000), // 20 hours ago
@@ -70,7 +70,7 @@ export class MaintenanceRequestsSeeder {
         description: 'Chair leg wobbling, safety concern',
         priority: TaskPriority.HIGH,
         status: MaintenanceStatus.PENDING,
-        reportedBy: 'Sofia Herrera',
+        reportedBy: 'Amanda Davis',
         reportDate: new Date(Date.now() - 6 * 60 * 60 * 1000), // 6 hours ago
         notes: 'Guest reported during checkout',
         roomId: rooms[3].id,

@@ -30,13 +30,13 @@ import { AuditResource } from '../audit/enums/audit-resource.enum';
 @ApiTags('auth')
 @Controller('auth')
 export class AuthController {
-  constructor(private readonly authService: AuthService) {}
+  constructor(private readonly authService: AuthService) { }
 
   @Post('register')
   @AuditLog({
     action: AuditAction.CREATE,
     resource: AuditResource.USER,
-    description: 'Usuario registrado',
+    description: 'User registered',
     includeBody: false, // Don't include password
   })
   @ApiOperation({
@@ -62,7 +62,7 @@ export class AuthController {
   @AuditLog({
     action: AuditAction.LOGIN,
     resource: AuditResource.USER,
-    description: 'Usuario inició sesión',
+    description: 'User logged in',
     includeBody: false,
   })
   @ApiOperation({
@@ -89,7 +89,7 @@ export class AuthController {
   @AuditLog({
     action: AuditAction.LOGOUT,
     resource: AuditResource.USER,
-    description: 'Usuario cerró sesión',
+    description: 'User logged out',
   })
   @ApiOperation({
     summary: 'User Logout',

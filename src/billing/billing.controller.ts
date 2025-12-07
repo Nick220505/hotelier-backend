@@ -36,7 +36,7 @@ import { AuditResource } from '../audit/enums/audit-resource.enum';
 @Controller('billing')
 @ApiBearerAuth()
 export class BillingController {
-  constructor(private readonly billingService: BillingService) {}
+  constructor(private readonly billingService: BillingService) { }
 
   @Get('invoices')
   @ApiOperation({
@@ -155,7 +155,7 @@ export class BillingController {
   @AuditLog({
     action: AuditAction.CREATE,
     resource: AuditResource.INVOICE,
-    description: 'Factura creada',
+    description: 'Invoice created',
     includeBody: true,
   })
   @ApiOperation({
@@ -183,7 +183,7 @@ export class BillingController {
   @AuditLog({
     action: AuditAction.UPDATE,
     resource: AuditResource.INVOICE,
-    description: 'Factura actualizada',
+    description: 'Invoice updated',
     resourceIdParam: 'id',
     includeBody: true,
   })
@@ -225,7 +225,7 @@ export class BillingController {
   @AuditLog({
     action: AuditAction.PAYMENT_PROCESSED,
     resource: AuditResource.INVOICE,
-    description: 'Factura marcada como pagada',
+    description: 'Invoice marked as paid',
     resourceIdParam: 'id',
     includeBody: true,
   })
@@ -263,7 +263,7 @@ export class BillingController {
   @AuditLog({
     action: AuditAction.DELETE,
     resource: AuditResource.INVOICE,
-    description: 'Factura eliminada',
+    description: 'Invoice deleted',
     resourceIdParam: 'id',
   })
   @ApiOperation({

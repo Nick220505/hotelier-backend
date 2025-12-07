@@ -15,7 +15,7 @@ export class UpdateEmployeeRequestDto {
 
   @ApiProperty({
     description: 'Name of person who approved/rejected the request',
-    example: 'Manager García',
+    example: 'Manager Smith',
     required: false,
   })
   @IsOptional()
