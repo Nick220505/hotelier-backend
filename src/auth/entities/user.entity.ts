@@ -18,9 +18,7 @@ import {
 } from 'class-validator';
 import { Exclude } from 'class-transformer';
 import { LoyaltyLevel } from '../enums/loyalty-level.enum';
-// Forward reference to avoid circular imports
 import type { UserRole } from './user-role.entity';
-// NOTE: Cross-module imports will be added when those modules are migrated
 
 @Entity('users')
 export class User {
@@ -173,8 +171,4 @@ export class User {
   })
   @OneToMany('UserRole', 'user', { cascade: true })
   userRoles: UserRole[];
-
-  // Cross-module relations - will be added when those modules are migrated
-  // reservations: Reservation[];
-  // invoices: Invoice[];
 }

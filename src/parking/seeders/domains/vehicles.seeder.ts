@@ -17,8 +17,6 @@ export class VehiclesSeeder {
   ) {}
 
   async seed() {
-    // const parkingSpaces = await this.parkingSpaceRepository.find();
-
     const vehicles = [
       {
         licensePlate: 'ABC-123',

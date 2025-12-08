@@ -148,8 +148,4 @@ export class Staff {
   })
   @UpdateDateColumn()
   updatedAt: Date;
-
-  // Note: Cross-module relations will be added when those modules are migrated
-  // @OneToMany(() => CleaningAssignment, (assignment) => assignment.staff)
-  // cleaningAssignments: CleaningAssignment[];
 }

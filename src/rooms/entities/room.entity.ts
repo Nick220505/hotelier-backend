@@ -98,20 +98,4 @@ export class Room {
   })
   @UpdateDateColumn()
   updatedAt: Date;
-
-  // Cross-module relations - will be added when those modules are migrated
-  // @OneToMany(() => CleaningAssignment, (assignment) => assignment.room)
-  // cleaningAssignments: CleaningAssignment[];
-
-  // @OneToMany(() => CleaningTask, (task) => task.room)
-  // cleaningTasks: CleaningTask[];
-
-  // @OneToMany(() => MaintenanceReport, (report) => report.room)
-  // maintenanceReports: MaintenanceReport[];
-
-  // @OneToMany(() => MaintenanceRequest, (request) => request.room)
-  // maintenanceRequests: MaintenanceRequest[];
-
-  // @OneToMany(() => Reservation, (reservation) => reservation.room)
-  // reservations: Reservation[];
 }

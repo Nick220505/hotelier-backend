@@ -224,8 +224,4 @@ export class Reservation {
   @ManyToOne(() => Guest, (guest) => guest.reservations, { nullable: true })
   @JoinColumn({ name: 'guestId' })
   guest?: Guest;
-
-  // Cross-module relations - will be added when billing module is migrated
-  // @OneToOne(() => Invoice, (invoice) => invoice.reservation)
-  // invoice?: Invoice;
 }
