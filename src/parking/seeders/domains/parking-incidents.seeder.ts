@@ -17,7 +17,7 @@ export class ParkingIncidentsSeeder {
     private vehicleRepository: Repository<Vehicle>,
     @InjectRepository(ParkingSpace)
     private parkingSpaceRepository: Repository<ParkingSpace>,
-  ) { }
+  ) {}
 
   async seed() {
     const vehicles = await this.vehicleRepository.find({ take: 3 });
@@ -40,8 +40,7 @@ export class ParkingIncidentsSeeder {
       },
       {
         type: IncidentType.SECURITY,
-        description:
-          'Unauthorized vehicle parked in VIP space without permit',
+        description: 'Unauthorized vehicle parked in VIP space without permit',
         reportDate: new Date(Date.now() - 4 * 60 * 60 * 1000), // 4 hours ago
         status: IncidentStatus.IN_PROGRESS,
         responsible: 'Security Guard',
@@ -51,8 +50,7 @@ export class ParkingIncidentsSeeder {
       },
       {
         type: IncidentType.INFRASTRUCTURE,
-        description:
-          'Parking barrier failure - not opening automatically',
+        description: 'Parking barrier failure - not opening automatically',
         reportDate: new Date(Date.now() - 2 * 60 * 60 * 1000), // 2 hours ago
         status: IncidentStatus.PENDING,
         responsible: 'Maintenance Team',
@@ -61,8 +59,7 @@ export class ParkingIncidentsSeeder {
       },
       {
         type: IncidentType.ACCIDENT,
-        description:
-          'Minor collision between two vehicles during parking',
+        description: 'Minor collision between two vehicles during parking',
         reportDate: new Date(Date.now() - 48 * 60 * 60 * 1000), // 2 days ago
         status: IncidentStatus.RESOLVED,
         responsible: 'Security Manager',
@@ -73,8 +70,7 @@ export class ParkingIncidentsSeeder {
       },
       {
         type: IncidentType.OTHER,
-        description:
-          'Guest locked keys inside vehicle, requested assistance',
+        description: 'Guest locked keys inside vehicle, requested assistance',
         reportDate: new Date(Date.now() - 6 * 60 * 60 * 1000), // 6 hours ago
         status: IncidentStatus.RESOLVED,
         responsible: 'Front Desk',

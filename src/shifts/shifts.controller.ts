@@ -27,7 +27,7 @@ import { AuditResource } from '../audit/enums/audit-resource.enum';
 @ApiTags('shifts')
 @Controller('shifts')
 export class ShiftsController {
-  constructor(private readonly shiftsService: ShiftsService) { }
+  constructor(private readonly shiftsService: ShiftsService) {}
 
   @Get()
   @ApiOperation({

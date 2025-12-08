@@ -13,7 +13,7 @@ export class ShiftsSeeder {
     private readonly shiftRepository: Repository<Shift>,
     @InjectRepository(Employee)
     private readonly employeeRepository: Repository<Employee>,
-  ) { }
+  ) {}
 
   async seed() {
     // Get existing employees to assign shifts to

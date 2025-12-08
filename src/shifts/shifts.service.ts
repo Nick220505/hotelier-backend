@@ -18,7 +18,7 @@ export class ShiftsService {
     @InjectRepository(Shift)
     private readonly shiftRepository: Repository<Shift>,
     private readonly notificationsService: NotificationsService,
-  ) { }
+  ) {}
 
   async findAll(): Promise<Shift[]> {
     return this.shiftRepository.find({

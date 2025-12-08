@@ -34,7 +34,7 @@ export class HousekeepingService {
     @InjectRepository(Room)
     private readonly roomRepository: Repository<Room>,
     private readonly notificationsService: NotificationsService,
-  ) { }
+  ) {}
 
   // Maintenance Reports
   async getAllMaintenanceReports(): Promise<MaintenanceReport[]> {

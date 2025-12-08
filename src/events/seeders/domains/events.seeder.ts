@@ -9,7 +9,7 @@ export class EventsSeeder {
   constructor(
     @InjectRepository(Event)
     private eventRepository: Repository<Event>,
-  ) { }
+  ) {}
 
   async seed() {
     const events = [
@@ -74,7 +74,7 @@ export class EventsSeeder {
         revenue: 1600.0,
       },
       {
-        title: 'New Year\'s Eve Celebration',
+        title: "New Year's Eve Celebration",
         description:
           'Grand holiday celebration with gala dinner, live entertainment and annual awards.',
         eventDate: new Date('2024-12-31'),

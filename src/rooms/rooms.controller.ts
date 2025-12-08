@@ -28,7 +28,7 @@ import { AuditResource } from '../audit/enums/audit-resource.enum';
 @Controller('rooms')
 @ApiBearerAuth()
 export class RoomsController {
-  constructor(private readonly roomsService: RoomsService) { }
+  constructor(private readonly roomsService: RoomsService) {}
 
   @Post()
   @AuditLog({

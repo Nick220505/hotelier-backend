@@ -21,7 +21,7 @@ export class ReportsService {
     private readonly invoiceRepository: Repository<Invoice>,
     @InjectRepository(Reservation)
     private readonly reservationRepository: Repository<Reservation>,
-  ) { }
+  ) {}
 
   async create(data: CreateReportDto): Promise<Report> {
     return this.reportRepository.save({
@@ -181,19 +181,14 @@ export class ReportsService {
         const amount = Number(item.total);
         const description = item.description.toLowerCase();
 
-        if (
-          description.includes('room') ||
-          description.includes('room')
-        ) {
+        if (description.includes('room') || description.includes('room')) {
           roomRevenue += amount;
         } else if (
           description.includes('restaurant') ||
           description.includes('food')
         ) {
           restaurantRevenue += amount;
-        } else if (
-          description.includes('event')
-        ) {
+        } else if (description.includes('event')) {
           eventsRevenue += amount;
         } else {
           servicesRevenue += amount;
@@ -370,10 +365,7 @@ export class ReportsService {
           'Total Revenue',
           `$${financialSummary.revenue.total.toLocaleString()}`,
         ],
-        [
-          '  - Rooms',
-          `$${financialSummary.revenue.room.toLocaleString()}`,
-        ],
+        ['  - Rooms', `$${financialSummary.revenue.room.toLocaleString()}`],
         [
           '  - Restaurant',
           `$${financialSummary.revenue.restaurant.toLocaleString()}`,
@@ -410,9 +402,7 @@ export class ReportsService {
           .fontSize(12)
           .font('Helvetica')
           .text(`Average Occupancy: ${avgOccupancy.toFixed(1)}%`)
-          .text(
-            `Occupancy Revenue: $${totalOccupancyRevenue.toLocaleString()}`,
-          )
+          .text(`Occupancy Revenue: $${totalOccupancyRevenue.toLocaleString()}`)
           .text(`Days with Data: ${occupancyData.length}`);
         doc.moveDown();
       }

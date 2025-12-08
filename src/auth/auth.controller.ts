@@ -30,7 +30,7 @@ import { AuditResource } from '../audit/enums/audit-resource.enum';
 @ApiTags('auth')
 @Controller('auth')
 export class AuthController {
-  constructor(private readonly authService: AuthService) { }
+  constructor(private readonly authService: AuthService) {}
 
   @Post('register')
   @AuditLog({

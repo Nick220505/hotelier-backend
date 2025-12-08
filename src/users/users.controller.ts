@@ -36,7 +36,7 @@ import { AuditResource } from '../audit/enums/audit-resource.enum';
 @UseGuards(AuthGuard('jwt'))
 @ApiBearerAuth()
 export class UsersController {
-  constructor(private readonly usersService: UsersService) { }
+  constructor(private readonly usersService: UsersService) {}
 
   @Get()
   @ApiOperation({

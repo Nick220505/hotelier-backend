@@ -21,7 +21,7 @@ import { AuditResource } from '../audit/enums/audit-resource.enum';
 @ApiTags('attendance')
 @Controller('attendance')
 export class AttendanceController {
-  constructor(private readonly attendanceService: AttendanceService) { }
+  constructor(private readonly attendanceService: AttendanceService) {}
 
   @Get()
   @ApiOperation({

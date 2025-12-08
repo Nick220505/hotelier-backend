@@ -10,7 +10,7 @@ export class InventorySeeder {
   constructor(
     @InjectRepository(Inventory)
     private inventoryRepository: Repository<Inventory>,
-  ) { }
+  ) {}
 
   async seed() {
     const inventoryItems = [

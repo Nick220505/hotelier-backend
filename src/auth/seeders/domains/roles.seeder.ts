@@ -14,7 +14,7 @@ export class RolesSeeder {
     private permissionRepository: Repository<SystemPermission>,
     @InjectRepository(RolePermission)
     private rolePermissionRepository: Repository<RolePermission>,
-  ) { }
+  ) {}
 
   async seed() {
     const roles = [

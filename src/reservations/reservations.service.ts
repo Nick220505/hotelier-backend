@@ -48,7 +48,7 @@ export class ReservationsService {
     private readonly housekeepingService: HousekeepingService,
     private readonly notificationsService: NotificationsService,
     private readonly dataSource: DataSource,
-  ) { }
+  ) {}
 
   async getCurrentGuests(): Promise<Reservation[]> {
     const today = new Date();
@@ -227,7 +227,7 @@ export class ReservationsService {
       const checkOutDate = updatedData.checkOutDate as Date;
       updatedData.nights = Math.ceil(
         (checkOutDate.getTime() - checkInDate.getTime()) /
-        (1000 * 60 * 60 * 24),
+          (1000 * 60 * 60 * 24),
       );
     }
 
@@ -557,8 +557,8 @@ export class ReservationsService {
         // Get event bookings for this guest
         const eventBookings: EventBooking[] = reservation.guestId
           ? await this.dataSource.getRepository(EventBooking).find({
-            where: { guestId: reservation.guestId },
-          })
+              where: { guestId: reservation.guestId },
+            })
           : [];
 
         const eventCharges = eventBookings.map((event) => ({

@@ -14,7 +14,7 @@ export class MaintenanceRequestSeeder {
     private maintenanceRequestRepository: Repository<GeneralMaintenanceRequest>,
     @InjectRepository(User)
     private userRepository: Repository<User>,
-  ) { }
+  ) {}
 
   async seed() {
     // Create some basic maintenance records
@@ -65,8 +65,7 @@ export class MaintenanceRequestSeeder {
         scheduledStartTime: '14:30',
         estimatedDuration: 240,
         estimatedCost: 450.0,
-        workPerformed:
-          'Leak located at pipe joint. Repair in progress.',
+        workPerformed: 'Leak located at pipe joint. Repair in progress.',
         materialsUsed: '1/2" PVC pipe, elbows, PVC cement',
         startedAt: new Date('2024-12-07T14:30:00'),
       }),
@@ -86,8 +85,7 @@ export class MaintenanceRequestSeeder {
       }),
       this.maintenanceRequestRepository.create({
         title: 'LED Lighting Upgrade - Floor 4 Hallway',
-        description:
-          'Lighting system upgrade for the floor 4 hallway.',
+        description: 'Lighting system upgrade for the floor 4 hallway.',
         type: MaintenanceType.UPGRADE,
         priority: MaintenancePriority.LOW,
         status: MaintenanceStatus.SCHEDULED,

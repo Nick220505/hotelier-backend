@@ -7,7 +7,7 @@ export class SeedersService {
   constructor(
     private recreationalFacilitiesSeeder: RecreationalFacilitiesSeeder,
     private recreationalBookingsSeeder: RecreationalBookingsSeeder,
-  ) { }
+  ) {}
 
   async seed() {
     console.log('🌱 Starting seeding of Recreational module...');

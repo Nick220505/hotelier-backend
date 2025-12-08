@@ -13,7 +13,7 @@ export class EmployeeRequestsSeeder {
     private readonly employeeRequestRepository: Repository<EmployeeRequest>,
     @InjectRepository(Employee)
     private readonly employeeRepository: Repository<Employee>,
-  ) { }
+  ) {}
 
   async seed() {
     // Get existing employees to create requests for

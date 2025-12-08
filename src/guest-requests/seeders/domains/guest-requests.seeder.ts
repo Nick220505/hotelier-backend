@@ -11,7 +11,7 @@ export class GuestRequestsSeeder {
   constructor(
     @InjectRepository(GuestRequest)
     private guestRequestRepository: Repository<GuestRequest>,
-  ) { }
+  ) {}
 
   async seed() {
     const requests = [
@@ -26,8 +26,7 @@ export class GuestRequestsSeeder {
         time: new Date('2024-12-08 14:30:00'),
         completedAt: new Date('2024-12-08 15:15:00'),
         assignedTo: 'Mary Williams',
-        notes:
-          'Delivered 6 bath towels and 4 pool towels as requested',
+        notes: 'Delivered 6 bath towels and 4 pool towels as requested',
       },
       {
         room: '507',
@@ -90,15 +89,13 @@ export class GuestRequestsSeeder {
         time: new Date('2024-12-08 10:30:00'),
         completedAt: new Date('2024-12-08 11:00:00'),
         assignedTo: 'IT Support',
-        notes:
-          'Router reset and provided premium Wi-Fi access code to guest',
+        notes: 'Router reset and provided premium Wi-Fi access code to guest',
       },
       {
         room: '609',
         guestName: 'Amanda Davis',
         type: RequestType.OTHER,
-        description:
-          'Request for crib and baby items for 18-month-old child',
+        description: 'Request for crib and baby items for 18-month-old child',
         status: RequestStatus.COMPLETED,
         priority: RequestPriority.MEDIUM,
         time: new Date('2024-12-08 13:45:00'),
@@ -117,8 +114,7 @@ export class GuestRequestsSeeder {
         priority: RequestPriority.HIGH,
         time: new Date('2024-12-08 21:00:00'),
         assignedTo: 'Transportation Coordinator',
-        notes:
-          'Luxury sedan booked for 4:30 AM pickup, driver confirmed',
+        notes: 'Luxury sedan booked for 4:30 AM pickup, driver confirmed',
       },
       {
         room: '715',

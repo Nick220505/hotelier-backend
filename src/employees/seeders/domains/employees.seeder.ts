@@ -10,7 +10,7 @@ export class EmployeesSeeder {
   constructor(
     @InjectRepository(Employee)
     private employeeRepository: Repository<Employee>,
-  ) { }
+  ) {}
 
   async seed() {
     const employees = [

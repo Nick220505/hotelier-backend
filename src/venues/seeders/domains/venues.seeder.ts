@@ -8,7 +8,7 @@ export class VenuesSeeder {
   constructor(
     @InjectRepository(Venue)
     private venueRepository: Repository<Venue>,
-  ) { }
+  ) {}
 
   async seed() {
     const venues = [

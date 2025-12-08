@@ -29,7 +29,6 @@ import { UsersModule } from './users/users.module';
 import { MaintenanceModule } from './maintenance/maintenance.module';
 import { NotificationsModule } from './notifications/notifications.module';
 import { GuestsModule } from './guests/guests.module';
-import { CurrencyModule } from './currency/currency.module';
 import { AuditModule } from './audit/audit.module';
 import { AuditLogInterceptor } from './audit/interceptors/audit-log.interceptor';
 
@@ -65,7 +64,6 @@ import { AuditLogInterceptor } from './audit/interceptors/audit-log.interceptor'
     MaintenanceModule,
     NotificationsModule,
     GuestsModule,
-    CurrencyModule,
     AuditModule,
   ],
   controllers: [AppController],

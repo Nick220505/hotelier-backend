@@ -13,7 +13,7 @@ export class RecreationalBookingsSeeder {
     private readonly bookingRepository: Repository<RecreationalBooking>,
     @InjectRepository(RecreationalFacility)
     private readonly facilityRepository: Repository<RecreationalFacility>,
-  ) { }
+  ) {}
 
   async seed() {
     const existingCount = await this.bookingRepository.count();
@@ -24,9 +24,7 @@ export class RecreationalBookingsSeeder {
 
     const facilities = await this.facilityRepository.find();
     if (facilities.length === 0) {
-      console.log(
-        '⚠️ No facilities found, skipping booking seeding',
-      );
+      console.log('⚠️ No facilities found, skipping booking seeding');
       return;
     }
 
@@ -261,7 +259,7 @@ export class RecreationalBookingsSeeder {
           priority: priorities[Math.floor(Math.random() * priorities.length)],
           specialRequests:
             specialRequests[
-            Math.floor(Math.random() * specialRequests.length)
+              Math.floor(Math.random() * specialRequests.length)
             ] || undefined,
           staffNotes:
             status === RecreationalBookingStatus.CANCELLED

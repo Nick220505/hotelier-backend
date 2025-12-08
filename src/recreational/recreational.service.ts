@@ -32,7 +32,7 @@ export class RecreationalService {
     @InjectRepository(RecreationalBooking)
     private readonly bookingRepository: Repository<RecreationalBooking>,
     private readonly notificationsService: NotificationsService,
-  ) { }
+  ) {}
 
   // Facility Management
   async createFacility(
@@ -625,9 +625,9 @@ export class RecreationalService {
       const averageDuration =
         totalBookings > 0
           ? bookings.reduce(
-            (sum, booking) => sum + Number(booking.duration),
-            0,
-          ) / totalBookings
+              (sum, booking) => sum + Number(booking.duration),
+              0,
+            ) / totalBookings
           : 0;
 
       // Calculate utilization rate (simplified - based on total possible hours vs booked hours)

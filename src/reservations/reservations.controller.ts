@@ -36,7 +36,7 @@ import { Room } from '../rooms/entities/room.entity';
 @Controller('reservations')
 @ApiBearerAuth()
 export class ReservationsController {
-  constructor(private readonly reservationsService: ReservationsService) { }
+  constructor(private readonly reservationsService: ReservationsService) {}
 
   @Get('current')
   @ApiOperation({ summary: 'Get current guests with active reservations' })

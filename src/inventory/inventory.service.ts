@@ -27,7 +27,7 @@ export class InventoryService {
     @InjectRepository(Supplier)
     private readonly supplierRepository: Repository<Supplier>,
     private readonly notificationsService: NotificationsService,
-  ) { }
+  ) {}
 
   // Inventory Items
   async getInventoryItems(): Promise<Inventory[]> {

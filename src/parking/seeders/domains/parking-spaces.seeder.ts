@@ -10,7 +10,7 @@ export class ParkingSpacesSeeder {
   constructor(
     @InjectRepository(ParkingSpace)
     private parkingSpaceRepository: Repository<ParkingSpace>,
-  ) { }
+  ) {}
 
   async seed() {
     const parkingSpaces = [

@@ -36,7 +36,7 @@ import { AuditResource } from '../audit/enums/audit-resource.enum';
 @Controller('billing')
 @ApiBearerAuth()
 export class BillingController {
-  constructor(private readonly billingService: BillingService) { }
+  constructor(private readonly billingService: BillingService) {}
 
   @Get('invoices')
   @ApiOperation({

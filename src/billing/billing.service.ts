@@ -20,7 +20,7 @@ export class BillingService {
     private readonly invoiceRepository: Repository<Invoice>,
     @InjectRepository(Payment)
     private readonly paymentRepository: Repository<Payment>,
-  ) { }
+  ) {}
 
   async findAll(): Promise<Invoice[]> {
     return this.invoiceRepository.find({

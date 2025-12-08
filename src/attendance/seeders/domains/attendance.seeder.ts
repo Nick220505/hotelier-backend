@@ -12,7 +12,7 @@ export class AttendanceSeeder {
     private readonly attendanceRepository: Repository<Attendance>,
     @InjectRepository(Employee)
     private readonly employeeRepository: Repository<Employee>,
-  ) { }
+  ) {}
 
   async seed() {
     // Get existing employees to create attendance records for

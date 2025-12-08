@@ -30,7 +30,7 @@ import { AuditResource } from '../audit/enums/audit-resource.enum';
 export class EmployeeRequestsController {
   constructor(
     private readonly employeeRequestsService: EmployeeRequestsService,
-  ) { }
+  ) {}
 
   @Get()
   @ApiOperation({

@@ -12,7 +12,7 @@ export class InventoryMovementsSeeder {
     private movementRepository: Repository<InventoryMovement>,
     @InjectRepository(Inventory)
     private inventoryRepository: Repository<Inventory>,
-  ) { }
+  ) {}
 
   async seed() {
     const inventoryItems = await this.inventoryRepository.find({ take: 5 });

@@ -10,14 +10,12 @@ export class RecreationalFacilitiesSeeder {
   constructor(
     @InjectRepository(RecreationalFacility)
     private readonly facilityRepository: Repository<RecreationalFacility>,
-  ) { }
+  ) {}
 
   async seed() {
     const existingCount = await this.facilityRepository.count();
     if (existingCount > 0) {
-      console.log(
-        '⏭️ Recreational facilities already exist, skipping seeding',
-      );
+      console.log('⏭️ Recreational facilities already exist, skipping seeding');
       return;
     }
 
@@ -31,7 +29,7 @@ export class RecreationalFacilitiesSeeder {
         location: 'Wellness Center - Ground Floor',
         description:
           'Professional 50-meter pool with 8 lanes, heated water and poolside amenities. Perfect for swimming, aqua aerobics and recreation.',
-        hourlyRate: 15.00,
+        hourlyRate: 15.0,
         isAvailable: true,
         openingTime: '06:00',
         closingTime: '22:00',
@@ -64,7 +62,7 @@ export class RecreationalFacilitiesSeeder {
         location: 'Wellness Center - Second Floor',
         description:
           'Fully equipped gym with cardio machines, free weights and strength training equipment. Personal training available.',
-        hourlyRate: 10.00,
+        hourlyRate: 10.0,
         isAvailable: true,
         openingTime: '05:00',
         closingTime: '23:00',
@@ -85,8 +83,7 @@ export class RecreationalFacilitiesSeeder {
         ],
         advanceBookingHours: 1,
         availableDays: [1, 2, 3, 4, 5, 6, 0],
-        maintenanceNotes:
-          'Equipment maintenance every Tuesday 2:00-4:00 AM',
+        maintenanceNotes: 'Equipment maintenance every Tuesday 2:00-4:00 AM',
       },
       {
         name: 'Professional Tennis Court',
@@ -97,7 +94,7 @@ export class RecreationalFacilitiesSeeder {
         location: 'Sports Complex - Outdoor',
         description:
           'Professional hard-surface tennis court with night lighting. Equipment rental available at reception.',
-        hourlyRate: 20.00,
+        hourlyRate: 20.0,
         isAvailable: true,
         openingTime: '07:00',
         closingTime: '21:00',
@@ -117,8 +114,7 @@ export class RecreationalFacilitiesSeeder {
         ],
         advanceBookingHours: 4,
         availableDays: [1, 2, 3, 4, 5, 6, 0],
-        maintenanceNotes:
-          'Annual surface resurfacing, weekly net inspection',
+        maintenanceNotes: 'Annual surface resurfacing, weekly net inspection',
       },
       {
         name: 'Premium Luxury Spa',
@@ -129,7 +125,7 @@ export class RecreationalFacilitiesSeeder {
         location: 'Wellness Center - Third Floor',
         description:
           'Private spa suite with massage table, relaxation area and premium amenities for couples or individual treatments.',
-        hourlyRate: 30.00,
+        hourlyRate: 30.0,
         isAvailable: true,
         openingTime: '09:00',
         closingTime: '20:00',
@@ -162,7 +158,7 @@ export class RecreationalFacilitiesSeeder {
         location: 'Wellness Center - Ground Floor',
         description:
           'Traditional Finnish sauna with dry heat therapy. Towels and cooling area included.',
-        hourlyRate: 12.00,
+        hourlyRate: 12.0,
         isAvailable: true,
         openingTime: '08:00',
         closingTime: '22:00',
@@ -194,7 +190,7 @@ export class RecreationalFacilitiesSeeder {
         location: 'Rooftop Terrace',
         description:
           'Outdoor jacuzzi with stunning city views. Perfect for relaxation and romantic evenings.',
-        hourlyRate: 18.00,
+        hourlyRate: 18.0,
         isAvailable: true,
         openingTime: '10:00',
         closingTime: '23:00',
@@ -226,7 +222,7 @@ export class RecreationalFacilitiesSeeder {
         location: 'Recreation Center - Ground Floor',
         description:
           'Entertainment room with pool table, air hockey, ping pong, video game consoles and comfortable lounge area.',
-        hourlyRate: 8.00,
+        hourlyRate: 8.0,
         isAvailable: true,
         openingTime: '09:00',
         closingTime: '24:00',
@@ -248,8 +244,7 @@ export class RecreationalFacilitiesSeeder {
         ],
         advanceBookingHours: 1,
         availableDays: [1, 2, 3, 4, 5, 6, 0],
-        maintenanceNotes:
-          'Weekly equipment check, daily deep cleaning',
+        maintenanceNotes: 'Weekly equipment check, daily deep cleaning',
       },
       {
         name: 'Yoga and Meditation Studio',
@@ -260,7 +255,7 @@ export class RecreationalFacilitiesSeeder {
         location: 'Wellness Center - Second Floor',
         description:
           'Tranquil yoga and meditation studio with mirrors, mats and props. Perfect for group classes or private practice.',
-        hourlyRate: 10.00,
+        hourlyRate: 10.0,
         isAvailable: true,
         openingTime: '06:00',
         closingTime: '21:00',
@@ -293,7 +288,7 @@ export class RecreationalFacilitiesSeeder {
         location: 'Family Center - Ground Floor',
         description:
           'Safe and fun play area for children with slides, ball pit, toys and supervised activities.',
-        hourlyRate: 5.00,
+        hourlyRate: 5.0,
         isAvailable: true,
         openingTime: '09:00',
         closingTime: '19:00',
@@ -314,8 +309,7 @@ export class RecreationalFacilitiesSeeder {
         ],
         advanceBookingHours: 1,
         availableDays: [1, 2, 3, 4, 5, 6, 0],
-        maintenanceNotes:
-          'Daily sanitization, weekly equipment safety check',
+        maintenanceNotes: 'Daily sanitization, weekly equipment safety check',
       },
       {
         name: 'Executive Business Center',
@@ -326,7 +320,7 @@ export class RecreationalFacilitiesSeeder {
         location: 'Main Building - Mezzanine',
         description:
           'Fully equipped business center with computers, printers, meeting space and high-speed internet.',
-        hourlyRate: 8.00,
+        hourlyRate: 8.0,
         isAvailable: true,
         openingTime: '06:00',
         closingTime: '22:00',
@@ -348,8 +342,7 @@ export class RecreationalFacilitiesSeeder {
         ],
         advanceBookingHours: 1,
         availableDays: [1, 2, 3, 4, 5, 6, 0],
-        maintenanceNotes:
-          'Monthly equipment update, twice daily cleaning',
+        maintenanceNotes: 'Monthly equipment update, twice daily cleaning',
       },
     ];
 

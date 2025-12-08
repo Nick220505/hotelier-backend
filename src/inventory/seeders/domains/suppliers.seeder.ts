@@ -8,7 +8,7 @@ export class SuppliersSeeder {
   constructor(
     @InjectRepository(Supplier)
     private supplierRepository: Repository<Supplier>,
-  ) { }
+  ) {}
 
   async seed(): Promise<void> {
     const existingSuppliers = await this.supplierRepository.count();

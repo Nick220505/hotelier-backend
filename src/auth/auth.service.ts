@@ -30,7 +30,7 @@ export class AuthService {
     private readonly userRoleRepository: Repository<UserRole>,
     private readonly jwtService: JwtService,
     private readonly configService: ConfigService,
-  ) { }
+  ) {}
 
   async register(data: RegisterDto): Promise<AuthResponseDto> {
     const { email, password, name, phone, roleId } = data;

@@ -16,7 +16,7 @@ export class UsersSeeder {
     private roleRepository: Repository<Role>,
     @InjectRepository(UserRole)
     private userRoleRepository: Repository<UserRole>,
-  ) { }
+  ) {}
 
   async seed() {
     const users = [
